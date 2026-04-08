@@ -1,64 +1,373 @@
 import Image from "next/image";
+import { Cormorant_Garamond } from "next/font/google";
+import { ArrowRight, CalendarDays, Glasses, MapPin, MessageCircle, ShieldCheck, Sparkles, Star } from "lucide-react";
+
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+
+const displayFont = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+});
+
+const navigation = [
+  { label: "Produtos", href: "#produtos" },
+  { label: "Nossa tradição", href: "#sobre" },
+  { label: "Contato", href: "#contato" },
+];
+
+const highlights = [
+  {
+    icon: Sparkles,
+    title: "Seleção refinada",
+    description: "Armações elegantes e confortáveis para uso diário e ocasiões especiais.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Ajuste preciso",
+    description: "Montagem e adaptação pensadas para conforto, estabilidade e durabilidade.",
+  },
+  {
+    icon: CalendarDays,
+    title: "Atendimento ágil",
+    description: "Agendamento prático para escolha de armação, orientação e exames.",
+  },
+];
+
+const productCards = [
+  {
+    name: "Linha Aurora",
+    note: "Acetato leve com acabamento acetinado",
+    image: "https://images.unsplash.com/photo-1511499767150-a48a237f0083?q=80&w=1200&auto=format&fit=crop&sig=1",
+  },
+  {
+    name: "Linha Essenza",
+    note: "Estrutura fina para visual limpo e sofisticado",
+    image: "https://images.unsplash.com/photo-1574258495973-f010dfbb5371?q=80&w=1200&auto=format&fit=crop&sig=2",
+  },
+  {
+    name: "Linha Contorno",
+    note: "Design marcante com presença e leveza",
+    image: "https://images.unsplash.com/photo-1521369909029-2afed882baee?q=80&w=1200&auto=format&fit=crop&sig=3",
+  },
+  {
+    name: "Linha Brisa",
+    note: "Perfil minimalista para quem prefere discrição",
+    image: "https://images.unsplash.com/photo-1520612476871-d0f2a5e5e7f5?q=80&w=1200&auto=format&fit=crop&sig=4",
+  },
+  {
+    name: "Linha Térrea",
+    note: "Acabamento clássico com leitura contemporânea",
+    image: "https://images.unsplash.com/photo-1577803645773-f96470509666?q=80&w=1200&auto=format&fit=crop&sig=5",
+  },
+  {
+    name: "Linha Sol",
+    note: "Óculos de sol com proteção e personalidade",
+    image: "https://images.unsplash.com/photo-1508296695146-257a814070b4?q=80&w=1200&auto=format&fit=crop&sig=6",
+  },
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
+    <div className="relative min-h-screen overflow-hidden bg-[radial-gradient(circle_at_top_left,_rgba(122,65,21,0.14),_transparent_28%),radial-gradient(circle_at_top_right,_rgba(122,65,21,0.08),_transparent_24%),linear-gradient(180deg,_#fbf4e9_0%,_#f7efe4_42%,_#fffaf4_100%)] text-foreground">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,_rgba(122,65,21,0.08),_transparent_26%),radial-gradient(circle_at_center,_rgba(255,255,255,0.35),_transparent_45%)]" />
+
+      <header className="sticky top-0 z-50 border-b border-primary/10 bg-background/70 backdrop-blur-xl">
+        <nav className="container mx-auto flex items-center justify-between px-4 py-4">
+          <a href="#top" className="flex items-center gap-3">
+            <div className="flex h-11 w-11 items-center justify-center rounded-full border border-primary/20 bg-primary/10 text-base font-bold text-primary shadow-sm shadow-primary/10">
+              G
+            </div>
+            <div className="leading-none">
+              <div className={`${displayFont.className} text-2xl font-semibold tracking-tight text-primary`}>
+                Gracinha
+              </div>
+              <div className="text-[0.68rem] uppercase tracking-[0.34em] text-muted-foreground">
+                Óticas
+              </div>
+            </div>
           </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+
+          <div className="hidden items-center gap-8 md:flex">
+            {navigation.map((item) => (
+              <a key={item.href} href={item.href} className="text-sm font-medium text-foreground/75 transition-colors hover:text-primary">
+                {item.label}
+              </a>
+            ))}
+          </div>
+
+          <Button asChild className="hidden rounded-full bg-primary px-5 text-primary-foreground shadow-lg shadow-primary/20 transition-transform hover:-translate-y-0.5 hover:bg-primary/90 sm:inline-flex">
+            <a href="#contato">Agendar exame</a>
+          </Button>
+        </nav>
+      </header>
+
+      <main id="top" className="relative">
+        <section className="container mx-auto px-4 pb-16 pt-16 md:pb-24 md:pt-24 lg:pt-28">
+          <div className="grid items-center gap-14 lg:grid-cols-[1.04fr_0.96fr]">
+            <div className="space-y-8 text-center lg:text-left">
+              <div className="inline-flex items-center gap-2 rounded-full border border-primary/15 bg-white/65 px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-primary shadow-sm backdrop-blur">
+                <Star className="size-3.5 fill-current" />
+                Tradição e cuidado em Currais Novos
+              </div>
+
+              <div className="space-y-5">
+                <h1 className={`${displayFont.className} text-5xl font-semibold leading-[0.92] tracking-tight text-foreground sm:text-6xl lg:text-7xl`}>
+                  Muito além dos olhos.
+                </h1>
+                <p className="mx-auto max-w-2xl text-lg leading-8 text-muted-foreground lg:mx-0">
+                  Uma marca com presença, atendimento humano e uma curadoria de armações que valoriza o rosto, o conforto e a identidade de cada cliente.
+                </p>
+              </div>
+
+              <div className="flex flex-col justify-center gap-4 sm:flex-row lg:justify-start">
+                <Button size="lg" className="h-12 gap-2 rounded-full bg-primary px-6 text-base font-semibold text-primary-foreground shadow-lg shadow-primary/20 transition-transform hover:-translate-y-0.5 hover:bg-primary/90">
+                  <MessageCircle className="size-4" />
+                  Falar com consultor no WhatsApp
+                </Button>
+                <Button asChild size="lg" variant="outline" className="h-12 gap-2 rounded-full border-primary/20 bg-white/70 px-6 text-base font-semibold text-primary hover:bg-primary/5">
+                  <a href="#produtos">
+                    Ver coleção
+                    <ArrowRight className="size-4" />
+                  </a>
+                </Button>
+              </div>
+
+              <div className="grid gap-3 sm:grid-cols-3">
+                {highlights.map((item) => (
+                  <Card key={item.title} className="border-primary/10 bg-white/70 shadow-[0_10px_30px_rgba(103,58,21,0.08)] backdrop-blur">
+                    <CardContent className="flex h-full flex-col gap-3 p-5 text-left">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+                        <item.icon className="size-5" />
+                      </div>
+                      <div className="space-y-1">
+                        <h2 className="text-base font-semibold text-foreground">{item.title}</h2>
+                        <p className="text-sm leading-6 text-muted-foreground">{item.description}</p>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </div>
+
+            <div className="relative mx-auto w-full max-w-xl lg:max-w-none">
+              <div className="absolute inset-0 translate-x-4 translate-y-4 rounded-[2.25rem] bg-primary/10 blur-3xl" />
+              <div className="relative overflow-hidden rounded-[2.25rem] border border-white/70 bg-white/65 shadow-[0_30px_80px_rgba(88,46,14,0.18)] backdrop-blur-xl">
+                <div className="absolute left-4 top-4 z-10 rounded-full border border-white/60 bg-white/85 px-3 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-primary shadow-sm">
+                  Nova coleção
+                </div>
+                <div className="relative aspect-[4/5]">
+                  <Image
+                    src="https://images.unsplash.com/photo-1600076280106-22cb8bd62b22?q=80&w=1173&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt="Modelo sorrindo usando óculos elegantes da Óticas Gracinha"
+                    fill
+                    priority
+                    className="object-cover"
+                  />
+                </div>
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent p-5 text-white">
+                  <div className="flex items-center justify-between gap-4">
+                    <div>
+                      <p className="text-sm font-semibold uppercase tracking-[0.24em] text-white/80">Elegância e precisão</p>
+                      <p className="mt-1 text-lg font-semibold">Armações que equilibram presença e leveza.</p>
+                    </div>
+                    <div className="hidden rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-medium backdrop-blur sm:block">
+                      Atendimento dedicado
+                    </div>
+                  </div>
+                </div>
+                <div className="absolute bottom-4 left-4 hidden rounded-2xl border border-white/60 bg-white/88 p-3 shadow-lg shadow-primary/10 md:block">
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                      <MapPin className="size-4" />
+                    </div>
+                    <div>
+                      <p className="text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground">Currais Novos</p>
+                      <p className="text-sm font-semibold text-foreground">Experiência acolhedora e moderna</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="container mx-auto px-4 pb-20 md:pb-28">
+          <div className="grid gap-6 lg:grid-cols-3">
+            <Card className="border-primary/10 bg-white/70 shadow-[0_18px_45px_rgba(103,58,21,0.08)] backdrop-blur">
+              <CardContent className="space-y-3 p-6">
+                <Glasses className="size-5 text-primary" />
+                <h2 className="text-lg font-semibold">Curadoria de armações</h2>
+                <p className="text-sm leading-6 text-muted-foreground">Peças selecionadas para valorizar traços, proporções e estilo com coerência visual.</p>
+              </CardContent>
+            </Card>
+            <Card className="border-primary/10 bg-white/70 shadow-[0_18px_45px_rgba(103,58,21,0.08)] backdrop-blur">
+              <CardContent className="space-y-3 p-6">
+                <ShieldCheck className="size-5 text-primary" />
+                <h2 className="text-lg font-semibold">Acabamento e conforto</h2>
+                <p className="text-sm leading-6 text-muted-foreground">Ajustes cuidadosos e sensação de uso mais leve, mesmo em óculos de presença marcante.</p>
+              </CardContent>
+            </Card>
+            <Card className="border-primary/10 bg-white/70 shadow-[0_18px_45px_rgba(103,58,21,0.08)] backdrop-blur">
+              <CardContent className="space-y-3 p-6">
+                <CalendarDays className="size-5 text-primary" />
+                <h2 className="text-lg font-semibold">Agendamento simples</h2>
+                <p className="text-sm leading-6 text-muted-foreground">Fluxo direto para atendimento, escolha de armação e orientação sobre lentes e exames.</p>
+              </CardContent>
+            </Card>
+          </div>
+        </section>
+
+        <section id="produtos" className="border-y border-primary/10 bg-white/55 py-20 md:py-24">
+          <div className="container mx-auto px-4">
+            <div className="mx-auto mb-12 max-w-2xl space-y-4 text-center">
+              <div className="inline-flex items-center rounded-full border border-primary/15 bg-primary/5 px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-primary">
+                Coleção exclusiva
+              </div>
+              <h2 className={`${displayFont.className} text-4xl font-semibold tracking-tight text-foreground md:text-5xl`}>
+                Peças que parecem feitas para o rosto certo.
+              </h2>
+              <p className="text-muted-foreground">
+                Uma seleção pensada para manter a identidade da marca: tons quentes, acabamento sofisticado e um ritmo visual mais calmo, limpo e premium.
+              </p>
+            </div>
+
+            <Carousel
+              opts={{
+                align: "start",
+                loop: true,
+              }}
+              className="relative mx-auto w-full max-w-6xl"
+            >
+              <CarouselContent className="-ml-4">
+                {productCards.map((product) => (
+                  <CarouselItem key={product.name} className="pl-4 md:basis-1/2 lg:basis-1/3">
+                    <Card className="group overflow-hidden rounded-[1.75rem] border-primary/10 bg-white/80 shadow-[0_16px_45px_rgba(103,58,21,0.09)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_55px_rgba(103,58,21,0.14)]">
+                      <CardContent className="p-0">
+                        <div className="relative aspect-[4/5] overflow-hidden bg-muted/20">
+                          <div className="absolute left-4 top-4 z-10 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-primary shadow-sm backdrop-blur">
+                            Destaque
+                          </div>
+                          <Image
+                            src={product.image}
+                            alt={product.name}
+                            fill
+                            className="object-cover transition-transform duration-500 group-hover:scale-105"
+                          />
+                        </div>
+                        <div className="space-y-4 p-6">
+                          <div className="space-y-1">
+                            <h3 className="text-xl font-semibold text-foreground">{product.name}</h3>
+                            <p className="text-sm leading-6 text-muted-foreground">{product.note}</p>
+                          </div>
+                          <div className="flex items-center justify-between gap-3 border-t border-primary/10 pt-4">
+                            <div>
+                              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-muted-foreground">A partir de</p>
+                              <p className="text-lg font-semibold text-primary">R$ 299,90</p>
+                            </div>
+                            <Button variant="ghost" size="sm" className="gap-2 rounded-full text-primary hover:bg-primary/10">
+                              Ver detalhes
+                              <ArrowRight className="size-4" />
+                            </Button>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+
+              <CarouselPrevious className="hidden -left-6 border-primary/15 bg-white/90 text-primary shadow-lg shadow-primary/10 hover:bg-primary hover:text-white md:flex" />
+              <CarouselNext className="hidden -right-6 border-primary/15 bg-white/90 text-primary shadow-lg shadow-primary/10 hover:bg-primary hover:text-white md:flex" />
+            </Carousel>
+          </div>
+        </section>
+
+        <section id="sobre" className="container mx-auto px-4 py-20 md:py-28">
+          <div className="grid items-start gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+            <div className="space-y-6">
+              <div className="inline-flex items-center rounded-full border border-primary/15 bg-white/70 px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-primary shadow-sm">
+                Nossa tradição
+              </div>
+              <h2 className={`${displayFont.className} text-4xl font-semibold tracking-tight text-foreground md:text-5xl`}>
+                Sofisticação visual sem perder acolhimento.
+              </h2>
+              <p className="max-w-xl text-base leading-8 text-muted-foreground">
+                A marca já comunica elegância na logo: tons terrosos, desenho clássico e presença forte. A página segue a mesma lógica, com menos ruído, mais contraste útil e blocos com ritmo visual bem controlado.
+              </p>
+              <Button asChild className="rounded-full bg-primary px-6 text-primary-foreground shadow-lg shadow-primary/20 hover:bg-primary/90">
+                <a href="#contato">Falar com a loja</a>
+              </Button>
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-2">
+              <Card className="border-primary/10 bg-white/75 shadow-[0_14px_35px_rgba(103,58,21,0.08)] backdrop-blur">
+                <CardContent className="space-y-3 p-6">
+                  <div className="text-sm font-semibold uppercase tracking-[0.24em] text-primary">Paleta alinhada</div>
+                  <p className="text-sm leading-6 text-muted-foreground">Bege quente, marrons sofisticados e superfícies claras para manter a marca confortável e premium.</p>
+                </CardContent>
+              </Card>
+              <Card className="border-primary/10 bg-white/75 shadow-[0_14px_35px_rgba(103,58,21,0.08)] backdrop-blur">
+                <CardContent className="space-y-3 p-6">
+                  <div className="text-sm font-semibold uppercase tracking-[0.24em] text-primary">Hierarquia clara</div>
+                  <p className="text-sm leading-6 text-muted-foreground">Título forte, texto respirando e CTAs com distinção visual suficiente para guiar o olho.</p>
+                </CardContent>
+              </Card>
+              <Card className="sm:col-span-2 border-primary/10 bg-white/75 shadow-[0_14px_35px_rgba(103,58,21,0.08)] backdrop-blur">
+                <CardContent className="grid gap-4 p-6 md:grid-cols-3">
+                  {[
+                    ["01", "Tom da marca", "A mesma família visual da logo foi mantida em todos os pontos de destaque."],
+                    ["02", "Contraste", "Botões e cards foram diferenciados sem sair da paleta principal."],
+                    ["03", "Ritmo", "Espaçamento maior no topo e entre seções para parecer mais premium."],
+                  ].map(([step, title, text]) => (
+                    <div key={step} className="space-y-2">
+                      <p className="text-xs font-semibold uppercase tracking-[0.28em] text-primary">{step}</p>
+                      <h3 className="text-base font-semibold text-foreground">{title}</h3>
+                      <p className="text-sm leading-6 text-muted-foreground">{text}</p>
+                    </div>
+                  ))}
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </section>
+
+        <section id="contato" className="container mx-auto px-4 pb-24 md:pb-32">
+          <div className="overflow-hidden rounded-[2rem] border border-primary/10 bg-[linear-gradient(135deg,_rgba(120,67,26,0.98),_rgba(154,92,44,0.92))] px-6 py-10 text-white shadow-[0_30px_70px_rgba(103,58,21,0.22)] md:px-10 md:py-12">
+            <div className="grid items-center gap-8 lg:grid-cols-[1fr_auto]">
+              <div className="space-y-3">
+                <p className="text-xs font-semibold uppercase tracking-[0.3em] text-white/75">Pronto para atualizar sua visão</p>
+                <h2 className={`${displayFont.className} text-4xl font-semibold tracking-tight md:text-5xl`}>
+                  Fale com a Óticas Gracinha e encontre o modelo certo.
+                </h2>
+                <p className="max-w-2xl text-base leading-8 text-white/82">
+                  A página já está ajustada para a paleta quente da marca. Se quiser, o próximo passo é incluir mapa, depoimentos e rodapé institucional para fechar ainda mais a experiência.
+                </p>
+              </div>
+              <div className="flex flex-col gap-3 sm:flex-row lg:flex-col xl:flex-row">
+                <Button asChild size="lg" className="h-12 rounded-full bg-white px-6 text-primary hover:bg-white/90">
+                  <a href="https://wa.me/5500000000000" target="_blank" rel="noreferrer">
+                    <MessageCircle className="size-4" />
+                    WhatsApp
+                  </a>
+                </Button>
+                <Button asChild size="lg" variant="outline" className="h-12 rounded-full border-white/30 bg-transparent px-6 text-white hover:bg-white/10 hover:text-white">
+                  <a href="#top">
+                    Voltar ao topo
+                    <ArrowRight className="size-4" />
+                  </a>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
     </div>
   );
