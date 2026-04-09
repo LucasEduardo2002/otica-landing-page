@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Cormorant_Garamond } from "next/font/google";
 import { ArrowRight, CalendarDays, Glasses, MapPin, Menu, MessageCircle, ShieldCheck, Sparkles, Star } from "lucide-react";
-import logoOtica from "./logo-otica.jpg";
+import logoOtica from "./logo-otica.png";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -80,20 +80,20 @@ export default function Home() {
     <div className="relative min-h-screen overflow-hidden bg-[radial-gradient(circle_at_top_left,_rgba(122,65,21,0.14),_transparent_28%),radial-gradient(circle_at_top_right,_rgba(122,65,21,0.08),_transparent_24%),linear-gradient(180deg,_#fbf4e9_0%,_#f7efe4_42%,_#fffaf4_100%)] text-foreground">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,_rgba(122,65,21,0.08),_transparent_26%),radial-gradient(circle_at_center,_rgba(255,255,255,0.35),_transparent_45%)]" />
 
-      <header className="sticky top-0 z-50 border-b border-primary/15 bg-[#FDC699]">
+      <header className="sticky top-0 z-50 border-b border-primary/10 bg-[#fbf4e9]">
         <nav className="container mx-auto flex items-center justify-between px-4 py-4">
           <a href="#top" className="flex items-center">
             <Image
               src={logoOtica}
               alt="Logo da Óticas Gracinha"
               priority
-              className="h-16 w-auto object-contain md:h-20"
+              className="h-35 w-auto object-contain md:h-40"
             />
           </a>
 
           <div className="hidden items-center gap-8 md:flex">
             {navigation.map((item) => (
-              <a key={item.href} href={item.href} className="text-sm font-medium text-foreground/75 transition-colors hover:text-primary">
+              <a key={item.href} href={item.href} className="text-md font-medium text-foreground/75 transition-colors hover:text-primary">
                 {item.label}
               </a>
             ))}
@@ -108,7 +108,7 @@ export default function Home() {
               <Menu className="size-5" />
               <span className="sr-only">Abrir menu</span>
             </summary>
-            <div className="absolute right-0 top-14 z-50 w-64 rounded-2xl border border-primary/10 bg-white/95 p-3 shadow-[0_18px_40px_rgba(103,58,21,0.16)] backdrop-blur">
+            <div className="absolute right-0 top-14 z-50 w-64 rounded-2xl border border-primary/10 bg-[#fffaf4]/96 p-3 shadow-[0_18px_40px_rgba(103,58,21,0.16)] backdrop-blur">
               <div className="flex flex-col gap-1">
                 {navigation.map((item) => (
                   <a
