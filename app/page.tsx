@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Cormorant_Garamond } from "next/font/google";
-import { ArrowRight, CalendarDays, Glasses, MapPin, MessageCircle, ShieldCheck, Sparkles, Star } from "lucide-react";
+import { ArrowRight, CalendarDays, Glasses, MapPin, Menu, MessageCircle, ShieldCheck, Sparkles, Star } from "lucide-react";
 import logoOtica from "./logo-otica.jpg";
 
 import { Button } from "@/components/ui/button";
@@ -100,9 +100,32 @@ export default function Home() {
             ))}
           </div>
 
-          <Button asChild className="hidden rounded-full bg-primary px-5 text-primary-foreground shadow-lg shadow-primary/20 transition-transform hover:-translate-y-0.5 hover:bg-primary/90 sm:inline-flex">
+          <Button asChild className="hidden rounded-full bg-primary px-5 text-primary-foreground shadow-lg shadow-primary/20 transition-transform hover:-translate-y-0.5 hover:bg-primary/90 md:inline-flex">
             <a href="#contato">Agendar exame</a>
           </Button>
+
+          <details className="relative md:hidden">
+            <summary className="flex h-11 w-11 cursor-pointer list-none items-center justify-center rounded-full border border-primary/20 bg-white/80 text-primary shadow-sm transition-colors hover:bg-white [&::-webkit-details-marker]:hidden">
+              <Menu className="size-5" />
+              <span className="sr-only">Abrir menu</span>
+            </summary>
+            <div className="absolute right-0 top-14 z-50 w-64 rounded-2xl border border-primary/10 bg-white/95 p-3 shadow-[0_18px_40px_rgba(103,58,21,0.16)] backdrop-blur">
+              <div className="flex flex-col gap-1">
+                {navigation.map((item) => (
+                  <a
+                    key={`mobile-${item.href}`}
+                    href={item.href}
+                    className="rounded-xl px-3 py-2 text-sm font-medium text-foreground/80 transition-colors hover:bg-primary/10 hover:text-primary"
+                  >
+                    {item.label}
+                  </a>
+                ))}
+              </div>
+              <Button asChild className="mt-3 w-full rounded-full bg-primary text-primary-foreground hover:bg-primary/90">
+                <a href="#contato">Agendar exame</a>
+              </Button>
+            </div>
+          </details>
         </nav>
       </header>
 
