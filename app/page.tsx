@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Cormorant_Garamond } from "next/font/google";
 import { ArrowRight, CalendarDays, Glasses, MapPin, MessageCircle, ShieldCheck, Sparkles, Star } from "lucide-react";
+import logoOtica from "./logo-otica.jpg";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -21,6 +22,7 @@ const navigation = [
   { label: "Produtos", href: "#produtos" },
   { label: "Nossa tradição", href: "#sobre" },
   { label: "Contato", href: "#contato" },
+  { label: "Localização", href: "#localizacao" },
 ];
 
 const highlights = [
@@ -79,20 +81,15 @@ export default function Home() {
     <div className="relative min-h-screen overflow-hidden bg-[radial-gradient(circle_at_top_left,_rgba(122,65,21,0.14),_transparent_28%),radial-gradient(circle_at_top_right,_rgba(122,65,21,0.08),_transparent_24%),linear-gradient(180deg,_#fbf4e9_0%,_#f7efe4_42%,_#fffaf4_100%)] text-foreground">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,_rgba(122,65,21,0.08),_transparent_26%),radial-gradient(circle_at_center,_rgba(255,255,255,0.35),_transparent_45%)]" />
 
-      <header className="sticky top-0 z-50 border-b border-primary/10 bg-background/70 backdrop-blur-xl">
+      <header className="sticky top-0 z-50 border-b border-primary/15 bg-[#FDC699]">
         <nav className="container mx-auto flex items-center justify-between px-4 py-4">
-          <a href="#top" className="flex items-center gap-3">
-            <div className="flex h-11 w-11 items-center justify-center rounded-full border border-primary/20 bg-primary/10 text-base font-bold text-primary shadow-sm shadow-primary/10">
-              G
-            </div>
-            <div className="leading-none">
-              <div className={`${displayFont.className} text-2xl font-semibold tracking-tight text-primary`}>
-                Gracinha
-              </div>
-              <div className="text-[0.68rem] uppercase tracking-[0.34em] text-muted-foreground">
-                Óticas
-              </div>
-            </div>
+          <a href="#top" className="flex items-center">
+            <Image
+              src={logoOtica}
+              alt="Logo da Óticas Gracinha"
+              priority
+              className="h-16 w-auto object-contain md:h-20"
+            />
           </a>
 
           <div className="hidden items-center gap-8 md:flex">
@@ -115,7 +112,7 @@ export default function Home() {
             <div className="space-y-8 text-center lg:text-left">
               <div className="inline-flex items-center gap-2 rounded-full border border-primary/15 bg-white/65 px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-primary shadow-sm backdrop-blur">
                 <Star className="size-3.5 fill-current" />
-                Tradição e cuidado em Currais Novos
+                Tradição e cuidado em Lagoa Nova
               </div>
 
               <div className="space-y-5">
@@ -123,7 +120,7 @@ export default function Home() {
                   Muito além dos olhos.
                 </h1>
                 <p className="mx-auto max-w-2xl text-lg leading-8 text-muted-foreground lg:mx-0">
-                  Uma marca com presença, atendimento humano e uma curadoria de armações que valoriza o rosto, o conforto e a identidade de cada cliente.
+                  Uma marca com presença, atendimento humano e uma curadoria de armações que valoriza o conforto e a identidade de cada cliente.
                 </p>
               </div>
 
@@ -173,15 +170,7 @@ export default function Home() {
                   />
                 </div>
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent p-5 text-white">
-                  <div className="flex items-center justify-between gap-4">
-                    <div>
-                      <p className="text-sm font-semibold uppercase tracking-[0.24em] text-white/80">Elegância e precisão</p>
-                      <p className="mt-1 text-lg font-semibold">Armações que equilibram presença e leveza.</p>
-                    </div>
-                    <div className="hidden rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-medium backdrop-blur sm:block">
-                      Atendimento dedicado
-                    </div>
-                  </div>
+
                 </div>
                 <div className="absolute bottom-4 left-4 hidden rounded-2xl border border-white/60 bg-white/88 p-3 shadow-lg shadow-primary/10 md:block">
                   <div className="flex items-center gap-3">
@@ -189,8 +178,7 @@ export default function Home() {
                       <MapPin className="size-4" />
                     </div>
                     <div>
-                      <p className="text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground">Currais Novos</p>
-                      <p className="text-sm font-semibold text-foreground">Experiência acolhedora e moderna</p>
+                      <p className="text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground">Lagoa Nova/RN</p>
                     </div>
                   </div>
                 </div>
@@ -272,9 +260,11 @@ export default function Home() {
                               <p className="text-xs font-semibold uppercase tracking-[0.24em] text-muted-foreground">A partir de</p>
                               <p className="text-lg font-semibold text-primary">R$ 299,90</p>
                             </div>
-                            <Button variant="ghost" size="sm" className="gap-2 rounded-full text-primary hover:bg-primary/10">
-                              Ver detalhes
-                              <ArrowRight className="size-4" />
+                            <Button asChild size="lg" variant="outline" className="h-12 rounded-full border-primary/20 bg-white/80 px-6 text-primary hover:bg-primary/5">
+                              <a href="https://wa.me/5500000000000" target="_blank" rel="noreferrer">
+                                <MessageCircle className="size-4" />
+                                Saiba mais
+                              </a>
                             </Button>
                           </div>
                         </div>
@@ -300,7 +290,7 @@ export default function Home() {
                 Sofisticação visual sem perder acolhimento.
               </h2>
               <p className="max-w-xl text-base leading-8 text-muted-foreground">
-                A marca já comunica elegância na logo: tons terrosos, desenho clássico e presença forte. A página segue a mesma lógica, com menos ruído, mais contraste útil e blocos com ritmo visual bem controlado.
+                Tradição e cuidado em Lagoa Nova. Encontre armações exclusivas e atendimento especializado.
               </p>
               <Button asChild className="rounded-full bg-primary px-6 text-primary-foreground shadow-lg shadow-primary/20 hover:bg-primary/90">
                 <a href="#contato">Falar com a loja</a>
@@ -338,6 +328,63 @@ export default function Home() {
             </div>
           </div>
         </section>
+        <section id="localizacao" className="container mx-auto px-4 pb-20 md:pb-28">
+          <div className="relative overflow-hidden rounded-[2rem] border border-primary/10 bg-white/70 p-6 shadow-[0_24px_60px_rgba(103,58,21,0.12)] backdrop-blur md:p-8">
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(122,65,21,0.12),_transparent_38%),radial-gradient(circle_at_bottom_right,_rgba(122,65,21,0.07),_transparent_42%)]" />
+
+            <div className="relative grid items-start gap-8 lg:grid-cols-[0.95fr_1.05fr]">
+              <div className="space-y-6">
+                <div className="inline-flex items-center gap-2 rounded-full border border-primary/15 bg-white/80 px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-primary shadow-sm">
+                  <MapPin className="size-3.5" />
+                  Localização
+                </div>
+
+                <div className="space-y-3">
+                  <h2 className={`${displayFont.className} text-4xl font-semibold tracking-tight text-foreground md:text-5xl`}>
+                    Venha nos visitar na loja.
+                  </h2>
+                  <p className="max-w-xl text-base leading-7 text-muted-foreground">
+                    Estamos em Currais Novos/RN, com fácil acesso e atendimento acolhedor para você escolher sua armação com tranquilidade.
+                  </p>
+                </div>
+
+                <Card className="border-primary/10 bg-white/80 shadow-[0_14px_35px_rgba(103,58,21,0.09)]">
+                  <CardContent className="space-y-2 p-5">
+                    <p className="text-xs font-semibold uppercase tracking-[0.24em] text-primary">Endereço</p>
+                    <p className="text-base font-semibold text-foreground">Rua José Pinheiro Sobrinho, 167</p>
+                    <p className="text-sm text-muted-foreground">Currais Novos - RN</p>
+                  </CardContent>
+                </Card>
+
+                <div className="flex flex-col gap-3 sm:flex-row">
+                  <Button asChild size="lg" className="h-12 rounded-full bg-primary px-6 text-primary-foreground shadow-lg shadow-primary/20 hover:bg-primary/90">
+                    <a href="https://maps.google.com/?q=Rua.%20José%20Pinheiro%20Sobrinho%20167%20Currais%20Novos%20RN" target="_blank" rel="noreferrer">
+                      <MapPin className="size-4" />
+                      Abrir no mapa
+                    </a>
+                  </Button>
+                  <Button asChild size="lg" variant="outline" className="h-12 rounded-full border-primary/20 bg-white/80 px-6 text-primary hover:bg-primary/5">
+                    <a href="https://wa.me/5500000000000" target="_blank" rel="noreferrer">
+                      <MessageCircle className="size-4" />
+                      <p>Falar no WhatsApp</p>
+                    </a>
+                  </Button>
+                </div>
+              </div>
+
+              <div className="relative overflow-hidden rounded-[1.5rem] border border-primary/10 bg-white shadow-[0_18px_45px_rgba(103,58,21,0.12)]">
+                <iframe
+                  title="Mapa da Óticas Gracinha"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  src="https://maps.google.com/?q=Rua.%20José%20Pinheiro%20Sobrinho%20167%20Currais%20Novos%20RN&output=embed"
+                  className="h-[320px] w-full md:h-[420px]"
+                  allowFullScreen
+                />
+              </div>
+            </div>
+          </div>
+        </section>
 
         <section id="contato" className="container mx-auto px-4 pb-24 md:pb-32">
           <div className="overflow-hidden rounded-[2rem] border border-primary/10 bg-[linear-gradient(135deg,_rgba(120,67,26,0.98),_rgba(154,92,44,0.92))] px-6 py-10 text-white shadow-[0_30px_70px_rgba(103,58,21,0.22)] md:px-10 md:py-12">
@@ -347,9 +394,6 @@ export default function Home() {
                 <h2 className={`${displayFont.className} text-4xl font-semibold tracking-tight md:text-5xl`}>
                   Fale com a Óticas Gracinha e encontre o modelo certo.
                 </h2>
-                <p className="max-w-2xl text-base leading-8 text-white/82">
-                  A página já está ajustada para a paleta quente da marca. Se quiser, o próximo passo é incluir mapa, depoimentos e rodapé institucional para fechar ainda mais a experiência.
-                </p>
               </div>
               <div className="flex flex-col gap-3 sm:flex-row lg:flex-col xl:flex-row">
                 <Button asChild size="lg" className="h-12 rounded-full bg-white px-6 text-primary hover:bg-white/90">
@@ -368,7 +412,12 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+
       </main>
+      <footer className="border-t border-primary/10 bg-background/70 px-4 py-6 text-center text-sm text-muted-foreground backdrop-blur">
+        &copy; {new Date().getFullYear()} Óticas Gracinha. Todos os direitos reservados.
+      </footer>
     </div>
   );
 }
