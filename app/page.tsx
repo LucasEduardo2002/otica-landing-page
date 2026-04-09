@@ -82,16 +82,18 @@ export default function Home() {
 
       <header className="sticky top-0 z-50 border-b border-primary/10 bg-[#fbf4e9]">
         <nav className="container mx-auto flex items-center justify-between px-4 py-4">
-          <a href="#top" className="flex items-center">
-            <Image
-              src={logoOtica}
-              alt="Logo da Óticas Gracinha"
-              priority
-              className="h-35 w-auto object-contain md:h-40"
-            />
-          </a>
+          <div className="flex flex-1 items-center justify-center md:flex-none md:justify-start">
+            <a href="#top" className="flex items-center">
+              <Image
+                src={logoOtica}
+                alt="Logo da Óticas Gracinha"
+                priority
+                className="h-16 w-auto object-contain md:h-20"
+              />
+            </a>
+          </div>
 
-          <div className="hidden items-center gap-8 md:flex">
+          <div className="hidden items-center justify-center gap-8 md:flex md:flex-1">
             {navigation.map((item) => (
               <a key={item.href} href={item.href} className="text-md font-medium text-foreground/75 transition-colors hover:text-primary">
                 {item.label}
@@ -99,7 +101,7 @@ export default function Home() {
             ))}
           </div>
 
-          <Button asChild className="hidden rounded-full bg-primary px-5 text-primary-foreground shadow-lg shadow-primary/20 transition-transform hover:-translate-y-0.5 hover:bg-primary/90 md:inline-flex">
+          <Button asChild className="hidden rounded-full bg-primary px-5 text-primary-foreground shadow-lg shadow-primary/20 transition-transform hover:-translate-y-0.5 hover:bg-primary/90 md:inline-flex md:ml-auto">
             <a href="#contato">Entre em contato</a>
           </Button>
 
@@ -108,19 +110,19 @@ export default function Home() {
               <Menu className="size-5" />
               <span className="sr-only">Abrir menu</span>
             </summary>
-            <div className="absolute right-0 top-14 z-50 w-64 rounded-2xl border border-primary/10 bg-[#fffaf4]/96 p-3 shadow-[0_18px_40px_rgba(103,58,21,0.16)] backdrop-blur">
-              <div className="flex flex-col gap-1">
+            <div className="fixed inset-x-4 top-20 z-50 rounded-2xl border border-primary/10 bg-[#fffaf4]/98 p-4 shadow-[0_18px_40px_rgba(103,58,21,0.25)] backdrop-blur">
+              <div className="flex flex-col gap-2">
                 {navigation.map((item) => (
                   <a
                     key={`mobile-${item.href}`}
                     href={item.href}
-                    className="rounded-xl px-3 py-2 text-sm font-medium text-foreground/80 transition-colors hover:bg-primary/10 hover:text-primary"
+                    className="rounded-lg px-4 py-2.5 text-sm font-medium text-foreground/80 transition-colors hover:bg-primary/10 hover:text-primary"
                   >
                     {item.label}
                   </a>
                 ))}
               </div>
-              <Button asChild className="mt-3 w-full rounded-full bg-primary text-primary-foreground hover:bg-primary/90">
+              <Button asChild className="mt-4 w-full rounded-full bg-primary text-primary-foreground hover:bg-primary/90">
                 <a href="#contato">Entre em contato</a>
               </Button>
             </div>
@@ -130,7 +132,7 @@ export default function Home() {
 
       <main id="top" className="relative">
         <section className="container mx-auto px-4 pb-16 pt-16 md:pb-24 md:pt-24 lg:pt-28">
-          <div className="grid items-center gap-14 lg:grid-cols-[1.04fr_0.96fr]">
+          <div className="flex flex-col-reverse items-center gap-14 lg:grid lg:grid-cols-[1.04fr_0.96fr]">
             <div className="space-y-8 text-center lg:text-left">
               <div className="inline-flex items-center gap-2 rounded-full border border-primary/15 bg-white/65 px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-primary shadow-sm backdrop-blur">
                 <Star className="size-3.5 fill-current" />
