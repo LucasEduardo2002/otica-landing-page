@@ -21,7 +21,6 @@ const displayFont = Cormorant_Garamond({
 const navigation = [
   { label: "Produtos", href: "#produtos" },
   { label: "Nossa tradição", href: "#sobre" },
-  { label: "Contato", href: "#contato" },
   { label: "Localização", href: "#localizacao" },
 ];
 
@@ -101,7 +100,7 @@ export default function Home() {
           </div>
 
           <Button asChild className="hidden rounded-full bg-primary px-5 text-primary-foreground shadow-lg shadow-primary/20 transition-transform hover:-translate-y-0.5 hover:bg-primary/90 md:inline-flex">
-            <a href="#contato">Agendar exame</a>
+            <a href="#contato">Entre em contato</a>
           </Button>
 
           <details className="relative md:hidden">
@@ -122,7 +121,7 @@ export default function Home() {
                 ))}
               </div>
               <Button asChild className="mt-3 w-full rounded-full bg-primary text-primary-foreground hover:bg-primary/90">
-                <a href="#contato">Agendar exame</a>
+                <a href="#contato">Entre em contato</a>
               </Button>
             </div>
           </details>
