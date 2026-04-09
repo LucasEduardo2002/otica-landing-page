@@ -209,31 +209,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="order-2 container mx-auto px-4 pb-20 md:order-none md:pb-28">
-          <div className="grid gap-6 lg:grid-cols-3">
-            <Card className="border-primary/10 bg-white/70 shadow-[0_18px_45px_rgba(103,58,21,0.08)] backdrop-blur">
-              <CardContent className="space-y-3 p-6">
-                <Glasses className="size-5 text-primary" />
-                <h2 className="text-lg font-semibold">Curadoria de armações</h2>
-                <p className="text-sm leading-6 text-muted-foreground">Peças selecionadas para valorizar traços, proporções e estilo com coerência visual.</p>
-              </CardContent>
-            </Card>
-            <Card className="border-primary/10 bg-white/70 shadow-[0_18px_45px_rgba(103,58,21,0.08)] backdrop-blur">
-              <CardContent className="space-y-3 p-6">
-                <ShieldCheck className="size-5 text-primary" />
-                <h2 className="text-lg font-semibold">Acabamento e conforto</h2>
-                <p className="text-sm leading-6 text-muted-foreground">Ajustes cuidadosos e sensação de uso mais leve, mesmo em óculos de presença marcante.</p>
-              </CardContent>
-            </Card>
-            <Card className="border-primary/10 bg-white/70 shadow-[0_18px_45px_rgba(103,58,21,0.08)] backdrop-blur">
-              <CardContent className="space-y-3 p-6">
-                <CalendarDays className="size-5 text-primary" />
-                <h2 className="text-lg font-semibold">Agendamento simples</h2>
-                <p className="text-sm leading-6 text-muted-foreground">Fluxo direto para atendimento, escolha de armação e orientação sobre lentes e exames.</p>
-              </CardContent>
-            </Card>
-          </div>
-        </section>
+        
 
         <section id="produtos" className="order-1 border-y border-primary/10 bg-white/55 py-20 md:order-none md:py-24">
           <div className="container mx-auto px-4">
