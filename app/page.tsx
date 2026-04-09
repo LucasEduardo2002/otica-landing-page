@@ -81,19 +81,17 @@ export default function Home() {
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,_rgba(122,65,21,0.08),_transparent_26%),radial-gradient(circle_at_center,_rgba(255,255,255,0.35),_transparent_45%)]" />
 
       <header className="sticky top-0 z-50 border-b border-primary/10 bg-[#fbf4e9]">
-        <nav className="container mx-auto flex items-center justify-between px-4 py-4">
-          <div className="flex flex-1 items-center justify-center md:flex-none md:justify-start">
-            <a href="#top" className="flex items-center">
-              <Image
-                src={logoOtica}
-                alt="Logo da Óticas Gracinha"
-                priority
-                className="h-16 w-auto object-contain md:h-20"
-              />
-            </a>
-          </div>
+        <nav className="container relative mx-auto flex items-center justify-center px-4 py-4">
+          <a href="#top" className="flex items-center">
+            <Image
+              src={logoOtica}
+              alt="Logo da Óticas Gracinha"
+              priority
+              className="h-16 w-auto object-contain md:h-20"
+            />
+          </a>
 
-          <div className="hidden items-center justify-center gap-8 md:flex md:flex-1">
+          <div className="absolute inset-y-0 right-0 hidden items-center justify-center gap-8 pr-4 md:flex md:static md:flex-1 md:pr-0">
             {navigation.map((item) => (
               <a key={item.href} href={item.href} className="text-md font-medium text-foreground/75 transition-colors hover:text-primary">
                 {item.label}
@@ -101,16 +99,16 @@ export default function Home() {
             ))}
           </div>
 
-          <Button asChild className="hidden rounded-full bg-primary px-5 text-primary-foreground shadow-lg shadow-primary/20 transition-transform hover:-translate-y-0.5 hover:bg-primary/90 md:inline-flex md:ml-auto">
+          <Button asChild className="absolute right-20 hidden rounded-full bg-primary px-5 text-primary-foreground shadow-lg shadow-primary/20 transition-transform hover:-translate-y-0.5 hover:bg-primary/90 md:right-4 md:inline-flex md:absolute">
             <a href="#contato">Entre em contato</a>
           </Button>
 
-          <details className="relative md:hidden">
+          <details className="absolute right-4 md:hidden">
             <summary className="flex h-11 w-11 cursor-pointer list-none items-center justify-center rounded-full border border-primary/20 bg-white/80 text-primary shadow-sm transition-colors hover:bg-white [&::-webkit-details-marker]:hidden">
               <Menu className="size-5" />
               <span className="sr-only">Abrir menu</span>
             </summary>
-            <div className="fixed inset-x-4 top-20 z-50 rounded-2xl border border-primary/10 bg-[#fffaf4]/98 p-4 shadow-[0_18px_40px_rgba(103,58,21,0.25)] backdrop-blur">
+            <div className="absolute right-0 top-full z-40 mt-2 w-80 rounded-2xl border border-primary/10 bg-[#fffaf4]/98 p-4 shadow-[0_18px_40px_rgba(103,58,21,0.25)] backdrop-blur">
               <div className="flex flex-col gap-2">
                 {navigation.map((item) => (
                   <a
@@ -211,7 +209,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="container mx-auto px-4 pb-20 md:pb-28">
+        <section className="order-2 container mx-auto px-4 pb-20 md:order-none md:pb-28">
           <div className="grid gap-6 lg:grid-cols-3">
             <Card className="border-primary/10 bg-white/70 shadow-[0_18px_45px_rgba(103,58,21,0.08)] backdrop-blur">
               <CardContent className="space-y-3 p-6">
@@ -237,7 +235,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="produtos" className="border-y border-primary/10 bg-white/55 py-20 md:py-24">
+        <section id="produtos" className="order-1 border-y border-primary/10 bg-white/55 py-20 md:order-none md:py-24">
           <div className="container mx-auto px-4">
             <div className="mx-auto mb-12 max-w-2xl space-y-4 text-center">
               <div className="inline-flex items-center rounded-full border border-primary/15 bg-primary/5 px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-primary">
@@ -304,7 +302,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="sobre" className="container mx-auto px-4 py-20 md:py-28">
+        <section id="sobre" className="order-3 container mx-auto px-4 py-20 md:order-none md:py-28">
           <div className="grid items-start gap-10 lg:grid-cols-[0.9fr_1.1fr]">
             <div className="space-y-6">
               <div className="inline-flex items-center rounded-full border border-primary/15 bg-white/70 px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-primary shadow-sm">
@@ -352,7 +350,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section id="localizacao" className="container mx-auto px-4 pb-20 md:pb-28">
+        <section id="localizacao" className="order-4 container mx-auto px-4 pb-20 md:order-none md:pb-28">
           <div className="relative overflow-hidden rounded-[2rem] border border-primary/10 bg-white/70 p-6 shadow-[0_24px_60px_rgba(103,58,21,0.12)] backdrop-blur md:p-8">
             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(122,65,21,0.12),_transparent_38%),radial-gradient(circle_at_bottom_right,_rgba(122,65,21,0.07),_transparent_42%)]" />
 
@@ -410,7 +408,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="contato" className="container mx-auto px-4 pb-24 md:pb-32">
+        <section id="contato" className="order-5 container mx-auto px-4 pb-24 md:order-none md:pb-32">
           <div className="overflow-hidden rounded-[2rem] border border-primary/10 bg-[linear-gradient(135deg,_rgba(120,67,26,0.98),_rgba(154,92,44,0.92))] px-6 py-10 text-white shadow-[0_30px_70px_rgba(103,58,21,0.22)] md:px-10 md:py-12">
             <div className="grid items-center gap-8 lg:grid-cols-[1fr_auto]">
               <div className="space-y-3">
