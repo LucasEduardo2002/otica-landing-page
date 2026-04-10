@@ -1,6 +1,9 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { Cormorant_Garamond } from "next/font/google";
-import { ArrowRight, CalendarDays, Glasses, MapPin, Menu, MessageCircle, ShieldCheck, Sparkles, Star } from "lucide-react";
+import { ArrowRight, CalendarDays, Glasses, Heart, MapPin, Menu, MessageCircle, ShieldCheck, Sparkles, Star, X } from "lucide-react";
 import logoOtica from "./logo-otica.png";
 
 import { Button } from "@/components/ui/button";
@@ -26,7 +29,7 @@ const navigation = [
 
 const highlights = [
   {
-    icon: Sparkles,
+    icon: Glasses,
     title: "Seleção refinada",
     description: "Armações elegantes e confortáveis para uso diário e ocasiões especiais.",
   },
@@ -76,18 +79,28 @@ const productCards = [
 ];
 
 export default function Home() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    document.body.classList.toggle("menu-open", isMobileMenuOpen);
+
+    return () => {
+      document.body.classList.remove("menu-open");
+    };
+  }, [isMobileMenuOpen]);
+
   return (
     <div className="relative min-h-screen overflow-hidden bg-[radial-gradient(circle_at_top_left,_rgba(122,65,21,0.14),_transparent_28%),radial-gradient(circle_at_top_right,_rgba(122,65,21,0.08),_transparent_24%),linear-gradient(180deg,_#fbf4e9_0%,_#f7efe4_42%,_#fffaf4_100%)] text-foreground">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,_rgba(122,65,21,0.08),_transparent_26%),radial-gradient(circle_at_center,_rgba(255,255,255,0.35),_transparent_45%)]" />
 
-      <header className="sticky top-0 z-50 border-b border-primary/10 bg-[#fbf4e9]">
+      <header className={`site-header sticky top-0 z-50 border-b border-primary/10 bg-[#fbf4e9] ${isMobileMenuOpen ? "menu-open" : ""}`}>
         <nav className="container relative mx-auto flex items-center justify-center px-4 py-4">
           <a href="#top" className="flex items-center">
             <Image
               src={logoOtica}
               alt="Logo da Óticas Gracinha"
               priority
-              className="h-16 w-auto object-contain md:h-20"
+              className="h-20 w-auto object-contain md:h-20"
             />
           </a>
 
@@ -103,17 +116,35 @@ export default function Home() {
             <a href="#contato">Entre em contato</a>
           </Button>
 
-          <details className="absolute right-4 md:hidden">
-            <summary className="flex h-11 w-11 cursor-pointer list-none items-center justify-center rounded-full border border-primary/20 bg-white/80 text-primary shadow-sm transition-colors hover:bg-white [&::-webkit-details-marker]:hidden">
-              <Menu className="size-5" />
-              <span className="sr-only">Abrir menu</span>
-            </summary>
-            <div className="absolute right-0 top-full z-40 mt-2 w-80 rounded-2xl border border-primary/10 bg-[#fffaf4]/98 p-4 shadow-[0_18px_40px_rgba(103,58,21,0.25)] backdrop-blur">
+          <div className="mobile-menu absolute right-4 md:hidden">
+            <button
+              type="button"
+              onClick={() => setIsMobileMenuOpen((prev) => !prev)}
+              className="mobile-menu-trigger relative z-30 flex h-11 w-11 items-center justify-center rounded-full border border-primary/20 bg-white/80 text-primary shadow-sm transition-colors hover:bg-white"
+              aria-expanded={isMobileMenuOpen}
+              aria-label={isMobileMenuOpen ? "Fechar menu" : "Abrir menu"}
+            >
+              {isMobileMenuOpen ? <X className="size-5" /> : <Menu className="size-5" />}
+            </button>
+          </div>
+        </nav>
+
+        {isMobileMenuOpen && (
+          <>
+            <button
+              type="button"
+              className="fixed inset-0 z-40 bg-[rgba(15,18,22,0.55)] backdrop-blur-[2px] md:hidden"
+              aria-label="Fechar menu"
+              onClick={() => setIsMobileMenuOpen(false)}
+            />
+
+            <div className="mobile-menu-panel relative z-50 mx-auto mb-4 mt-2 w-[92vw] max-w-md rounded-2xl border border-primary/10 bg-[#fffaf4]/98 p-4 shadow-[0_18px_40px_rgba(103,58,21,0.25)] md:hidden">
               <div className="flex flex-col gap-2">
                 {navigation.map((item) => (
                   <a
                     key={`mobile-${item.href}`}
                     href={item.href}
+                    onClick={() => setIsMobileMenuOpen(false)}
                     className="rounded-lg px-4 py-2.5 text-sm font-medium text-foreground/80 transition-colors hover:bg-primary/10 hover:text-primary"
                   >
                     {item.label}
@@ -121,11 +152,11 @@ export default function Home() {
                 ))}
               </div>
               <Button asChild className="mt-4 w-full rounded-full bg-primary text-primary-foreground hover:bg-primary/90">
-                <a href="#contato">Entre em contato</a>
+                <a href="#contato" onClick={() => setIsMobileMenuOpen(false)}>Entre em contato</a>
               </Button>
             </div>
-          </details>
-        </nav>
+          </>
+        )}
       </header>
 
       <main id="top" className="relative">
@@ -279,53 +310,75 @@ export default function Home() {
         </section>
 
         <section id="sobre" className="order-3 container mx-auto px-4 py-20 md:order-none md:py-28">
-          <div className="grid items-start gap-10 lg:grid-cols-[0.9fr_1.1fr]">
-            <div className="space-y-6">
-              <div className="inline-flex items-center rounded-full border border-primary/15 bg-white/70 px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-primary shadow-sm">
+          <div className="space-y-16">
+            <div className="mx-auto max-w-3xl text-center">
+              <div className="inline-flex items-center rounded-full border border-primary/15 bg-white/70 px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-primary shadow-sm mb-6">
                 Nossa tradição
               </div>
-              <h2 className={`${displayFont.className} text-4xl font-semibold tracking-tight text-foreground md:text-5xl`}>
-                Sofisticação visual sem perder acolhimento.
+              <h2 className={`${displayFont.className} text-4xl font-semibold tracking-tight text-foreground md:text-5xl mb-6`}>
+                Mais que óculos, uma experiência visual.
               </h2>
-              <p className="max-w-xl text-base leading-8 text-muted-foreground">
-                Tradição e cuidado em Lagoa Nova. Encontre armações exclusivas e atendimento especializado.
+              <p className="text-lg leading-8 text-muted-foreground">
+                Uma marca que existe para além dos olhos, cuidando de cada detalhe na escolha perfeita de armação, com atenção e expertise em Lagoa Nova.
               </p>
-              <Button asChild className="rounded-full bg-primary px-6 text-primary-foreground shadow-lg shadow-primary/20 hover:bg-primary/90">
-                <a href="#contato">Falar com a loja</a>
-              </Button>
             </div>
 
-            <div className="grid gap-4 sm:grid-cols-2">
-              <Card className="border-primary/10 bg-white/75 shadow-[0_14px_35px_rgba(103,58,21,0.08)] backdrop-blur">
-                <CardContent className="space-y-3 p-6">
-                  <div className="text-sm font-semibold uppercase tracking-[0.24em] text-primary">Paleta alinhada</div>
-                  <p className="text-sm leading-6 text-muted-foreground">Bege quente, marrons sofisticados e superfícies claras para manter a marca confortável e premium.</p>
+            <div className="grid gap-6 md:grid-cols-3">
+              <Card className="group border-primary/10 bg-gradient-to-br from-white/85 to-white/70 shadow-[0_14px_35px_rgba(103,58,21,0.08)] backdrop-blur transition-all hover:shadow-[0_20px_45px_rgba(103,58,21,0.15)] hover:-translate-y-0.5">
+                <CardContent className="space-y-4 p-8">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+                    <Sparkles className="size-6" />
+                  </div>
+                  <div className="space-y-3">
+                    <h3 className="text-2xl font-semibold text-foreground">Há 29 anos</h3>
+                    <p className="text-lg font-medium text-primary">Muito Além dos Olhos</p>
+                    <p className="text-base leading-7 text-muted-foreground">
+                      Três décadas de tradição, expertise e cuidado refinado dedicados à excelência visual em cada cliente.
+                    </p>
+                  </div>
                 </CardContent>
               </Card>
-              <Card className="border-primary/10 bg-white/75 shadow-[0_14px_35px_rgba(103,58,21,0.08)] backdrop-blur">
-                <CardContent className="space-y-3 p-6">
-                  <div className="text-sm font-semibold uppercase tracking-[0.24em] text-primary">Hierarquia clara</div>
-                  <p className="text-sm leading-6 text-muted-foreground">Título forte, texto respirando e CTAs com distinção visual suficiente para guiar o olho.</p>
+
+              <Card className="group border-primary/10 bg-gradient-to-br from-white/85 to-white/70 shadow-[0_14px_35px_rgba(103,58,21,0.08)] backdrop-blur transition-all hover:shadow-[0_20px_45px_rgba(103,58,21,0.15)] hover:-translate-y-0.5">
+                <CardContent className="space-y-4 p-8">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+                    <Glasses className="size-6" />
+                  </div>
+                  <div className="space-y-3">
+                    <h3 className="text-2xl font-semibold text-foreground">Completo</h3>
+                    <p className="text-lg font-medium text-primary">Armações, Grau & Solares</p>
+                    <p className="text-base leading-7 text-muted-foreground">
+                      Uma curadoria pensada para cada necessidade: armações exclusivas, óculos de grau e proteção solar premium.
+                    </p>
+                  </div>
                 </CardContent>
               </Card>
-              <Card className="sm:col-span-2 border-primary/10 bg-white/75 shadow-[0_14px_35px_rgba(103,58,21,0.08)] backdrop-blur">
-                <CardContent className="grid gap-4 p-6 md:grid-cols-3">
-                  {[
-                    ["01", "Tom da marca", "A mesma família visual da logo foi mantida em todos os pontos de destaque."],
-                    ["02", "Contraste", "Botões e cards foram diferenciados sem sair da paleta principal."],
-                    ["03", "Ritmo", "Espaçamento maior no topo e entre seções para parecer mais premium."],
-                  ].map(([step, title, text]) => (
-                    <div key={step} className="space-y-2">
-                      <p className="text-xs font-semibold uppercase tracking-[0.28em] text-primary">{step}</p>
-                      <h3 className="text-base font-semibold text-foreground">{title}</h3>
-                      <p className="text-sm leading-6 text-muted-foreground">{text}</p>
-                    </div>
-                  ))}
+
+              <Card className="group border-primary/10 bg-gradient-to-br from-white/85 to-white/70 shadow-[0_14px_35px_rgba(103,58,21,0.08)] backdrop-blur transition-all hover:shadow-[0_20px_45px_rgba(103,58,21,0.15)] hover:-translate-y-0.5">
+                <CardContent className="space-y-4 p-8">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+                    <Heart className="size-6" />
+                  </div>
+                  <div className="space-y-3">
+                    <h3 className="text-2xl font-semibold text-foreground">Confiança</h3>
+                    <p className="text-lg font-medium text-primary">5.000+ Clientes Satisfeitos</p>
+                    <p className="text-base leading-7 text-muted-foreground">
+                      Uma comunidade crescente de pessoas que encontraram sua identidade visual perfeita conosco.
+                    </p>
+                  </div>
                 </CardContent>
               </Card>
+            </div>
+
+            <div className="flex justify-center">
+              <Button asChild className="rounded-full bg-primary px-8 py-3 text-base font-semibold text-primary-foreground shadow-lg shadow-primary/20 transition-transform hover:-translate-y-0.5 hover:bg-primary/90">
+                <a href="#contato">Conhecer nossa coleção</a>
+              </Button>
             </div>
           </div>
         </section>
+
+
         <section id="localizacao" className="order-4 container mx-auto px-4 pb-20 md:order-none md:pb-28">
           <div className="relative overflow-hidden rounded-[2rem] border border-primary/10 bg-white/70 p-6 shadow-[0_24px_60px_rgba(103,58,21,0.12)] backdrop-blur md:p-8">
             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(122,65,21,0.12),_transparent_38%),radial-gradient(circle_at_bottom_right,_rgba(122,65,21,0.07),_transparent_42%)]" />
