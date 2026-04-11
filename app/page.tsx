@@ -133,7 +133,7 @@ export default function Home() {
           <>
             <button
               type="button"
-              className="fixed inset-0 z-40 bg-[rgba(15,18,22,0.55)] backdrop-blur-[2px] md:hidden"
+              className="fixed top-30 left-0 right-0 bottom-0 z-40 bg-[rgba(15,18,22,0.55)] backdrop-blur-[2px] md:hidden"
               aria-label="Fechar menu"
               onClick={() => setIsMobileMenuOpen(false)}
             />
