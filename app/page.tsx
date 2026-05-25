@@ -190,12 +190,11 @@ export default function Home() {
                   <CarouselItem key={index} className="w-full md:basis-1/2 lg:basis-1/3">
                     <Card className="overflow-hidden">
                       <CardContent className="p-0">
-                        <Image
+                        <img
                           src={product.image}
                           alt={product.name}
-                          width={800}
-                          height={600}
                           className="w-full h-56 sm:h-64 object-cover"
+                          loading="lazy"
                         />
                         <div className="p-6">
                           <h4 className={`${displayFont.className} text-2xl font-semibold`}>{product.name}</h4>
@@ -253,7 +252,7 @@ export default function Home() {
                     <Button size="lg" className="mt-8">Conheça nossa história</Button>
                 </div>
                 <div>
-                  <Image src="https://source.unsplash.com/featured/?optical%20interior&sig=7" alt="Interior da Ótica Gracinha" width={600} height={600} className="rounded-lg shadow-lg" />
+                    <img src="https://source.unsplash.com/featured/?optical%20interior&sig=7" alt="Interior da Ótica Gracinha" className="rounded-lg shadow-lg" loading="lazy" />
                 </div>
             </div>
         </section>
