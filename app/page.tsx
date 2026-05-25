@@ -52,34 +52,34 @@ const highlights = [
 
 const productCards = [
   {
-    name: "Ray-Ban",
-    note: "Clássicos atemporais com proteção UV.",
-    image: "/otica-gracinha-1.jpeg",
-  },
-  {
-    name: "Oakley",
-    note: "Performance e estilo para o dia a dia.",
-    image: "/otica-gracinha-2.jpeg",
-  },
-  {
-    name: "Prada",
-    note: "Sofisticação e design italiano.",
-    image: "/otica-gracinha-3.jpeg",
-  },
-  {
     name: "Vogue",
     note: "Tendências da moda com um toque de glamour.",
-    image: "/otica-gracinha-4.jpeg",
+    image: "https://source.unsplash.com/featured/?vogue%20sunglasses&sig=1",
   },
   {
-    name: "Grazi Massafera",
-    note: "Charme e elegância em cada detalhe.",
-    image: "/otica-gracinha-5.jpeg",
+    name: "Just Cavalli",
+    note: "Estilo marcante e atitude.",
+    image: "https://source.unsplash.com/featured/?justcavalli%20sunglasses&sig=2",
   },
   {
-    name: "Ana Hickmann",
-    note: "Design moderno e feminino.",
-    image: "/otica-gracinha-6.jpeg",
+    name: "Lança Perfume",
+    note: "Visual contemporâneo e feminino.",
+    image: "https://source.unsplash.com/featured/?women%20sunglasses&sig=3",
+  },
+  {
+    name: "Swarovski",
+    note: "Detalhes brilhantes e acabamento sofisticado.",
+    image: "https://source.unsplash.com/featured/?swarovski%20sunglasses&sig=4",
+  },
+  {
+    name: "Versace",
+    note: "Luxo e personalidade italiana.",
+    image: "https://source.unsplash.com/featured/?versace%20sunglasses&sig=5",
+  },
+  {
+    name: "Ray-Ban",
+    note: "Clássicos atemporais com proteção UV.",
+    image: "https://source.unsplash.com/featured/?rayban%20sunglasses&sig=6",
   },
 ];
 
@@ -148,7 +148,7 @@ export default function Home() {
         {/* Hero Section */}
         <section 
           className="relative h-[50vh] sm:h-[60vh] md:h-[70vh] flex items-center justify-center text-center text-white"
-          style={{ backgroundImage: "url('/otica-gracinha-3.jpeg')", backgroundSize: 'cover', backgroundPosition: 'center' }}
+          style={{ backgroundImage: "url('https://source.unsplash.com/featured/?optical%20store,eyewear&sig=10')", backgroundSize: 'cover', backgroundPosition: 'center' }}
         >
           <div className="absolute inset-0 bg-black/50" />
           <div className="relative z-10 flex flex-col items-center">
@@ -253,7 +253,7 @@ export default function Home() {
                     <Button size="lg" className="mt-8">Conheça nossa história</Button>
                 </div>
                 <div>
-                    <Image src="/otica-gracinha-6.jpeg" alt="Interior da Ótica Gracinha" width={600} height={600} className="rounded-lg shadow-lg" />
+                  <Image src="https://source.unsplash.com/featured/?optical%20interior&sig=7" alt="Interior da Ótica Gracinha" width={600} height={600} className="rounded-lg shadow-lg" />
                 </div>
             </div>
         </section>
