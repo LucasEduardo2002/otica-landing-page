@@ -1,13 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import Image from "next/image";
-import { Cormorant_Garamond } from "next/font/google";
+import { Cormorant_Garamond, Inter } from "next/font/google";
 import { ArrowRight, CalendarDays, Glasses, Heart, MapPin, Menu, MessageCircle, ShieldCheck, Sparkles, Star, X } from "lucide-react";
-import logoOtica from "./logo-otica.png";
+import logoOtica from "../public/logo-otica.png";
 
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Carousel,
   CarouselContent,
@@ -15,487 +14,290 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import { useState } from "react";
 
 const displayFont = Cormorant_Garamond({
   subsets: ["latin"],
   weight: ["500", "600", "700"],
 });
 
+const bodyFont = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+});
+
 const navigation = [
-  { label: "Produtos", href: "#produtos" },
-  { label: "Nossa tradição", href: "#sobre" },
+  { label: "Modelos", href: "#modelos" },
+  { label: "Sobre Nós", href: "#sobre" },
   { label: "Localização", href: "#localizacao" },
 ];
 
 const highlights = [
   {
     icon: Glasses,
-    title: "Seleção refinada",
-    description: "Armações elegantes e confortáveis para uso diário e ocasiões especiais.",
+    title: "Seleção Refinada",
+    description: "Armações elegantes e confortáveis para o dia a dia e ocasiões especiais.",
   },
   {
     icon: ShieldCheck,
-    title: "Ajuste preciso",
-    description: "Montagem e adaptação pensadas para conforto, estabilidade e durabilidade.",
+    title: "Ajuste Preciso",
+    description: "Montagem e adaptação pensadas para seu conforto, estabilidade e durabilidade.",
   },
   {
     icon: CalendarDays,
-    title: "Atendimento ágil",
-    description: "Agendamento prático para escolha de armação, orientação e exames.",
+    title: "Atendimento Ágil",
+    description: "Agende uma visita para escolher sua armação, receber orientação e realizar exames.",
   },
 ];
 
 const productCards = [
   {
-    name: "Linha Aurora",
-    note: "Acetato leve com acabamento acetinado",
-    image: "https://images.unsplash.com/photo-1511499767150-a48a237f0083?q=80&w=1200&auto=format&fit=crop&sig=1",
+    name: "Ray-Ban",
+    note: "Clássicos atemporais com proteção UV.",
+    image: "/otica-gracinha-1.jpeg",
   },
   {
-    name: "Linha Essenza",
-    note: "Estrutura fina para visual limpo e sofisticado",
-    image: "https://images.unsplash.com/photo-1574258495973-f010dfbb5371?q=80&w=1200&auto=format&fit=crop&sig=2",
+    name: "Oakley",
+    note: "Performance e estilo para o dia a dia.",
+    image: "/otica-gracinha-2.jpeg",
   },
   {
-    name: "Linha Contorno",
-    note: "Design marcante com presença e leveza",
-    image: "https://images.unsplash.com/photo-1521369909029-2afed882baee?q=80&w=1200&auto=format&fit=crop&sig=3",
+    name: "Prada",
+    note: "Sofisticação e design italiano.",
+    image: "/otica-gracinha-3.jpeg",
   },
   {
-    name: "Linha Brisa",
-    note: "Perfil minimalista para quem prefere discrição",
-    image: "https://images.unsplash.com/photo-1520612476871-d0f2a5e5e7f5?q=80&w=1200&auto=format&fit=crop&sig=4",
+    name: "Vogue",
+    note: "Tendências da moda com um toque de glamour.",
+    image: "/otica-gracinha-4.jpeg",
   },
   {
-    name: "Linha Térrea",
-    note: "Acabamento clássico com leitura contemporânea",
-    image: "https://images.unsplash.com/photo-1577803645773-f96470509666?q=80&w=1200&auto=format&fit=crop&sig=5",
+    name: "Grazi Massafera",
+    note: "Charme e elegância em cada detalhe.",
+    image: "/otica-gracinha-5.jpeg",
   },
   {
-    name: "Linha Sol",
-    note: "Óculos de sol com proteção e personalidade",
-    image: "https://images.unsplash.com/photo-1508296695146-257a814070b4?q=80&w=1200&auto=format&fit=crop&sig=6",
+    name: "Ana Hickmann",
+    note: "Design moderno e feminino.",
+    image: "/otica-gracinha-6.jpeg",
   },
 ];
 
-export default function Home() {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+const testimonials = [
+  {
+    quote: "Atendimento impecável e uma variedade incrível de armações. Encontrei os óculos perfeitos!",
+    name: "Maria S.",
+    location: "Lagoa Nova, RN",
+  },
+  {
+    quote: "A equipe é muito atenciosa e me ajudou a escolher a melhor lente para o meu grau. Recomendo!",
+    name: "João P.",
+    location: "Lagoa Nova, RN",
+  },
+  {
+    quote: "Qualidade e bom gosto definem a Ótica Gracinha. Meu óculos novo é um sucesso!",
+    name: "Ana C.",
+    location: "Lagoa Nova, RN",
+  },
+];
 
-  useEffect(() => {
-    document.body.classList.toggle("menu-open", isMobileMenuOpen);
-
-    return () => {
-      document.body.classList.remove("menu-open");
-    };
-  }, [isMobileMenuOpen]);
+function Header() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-[radial-gradient(circle_at_top_left,_rgba(122,65,21,0.14),_transparent_28%),radial-gradient(circle_at_top_right,_rgba(122,65,21,0.08),_transparent_24%),linear-gradient(180deg,_#fbf4e9_0%,_#f7efe4_42%,_#fffaf4_100%)] text-foreground">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,_rgba(122,65,21,0.08),_transparent_26%),radial-gradient(circle_at_center,_rgba(255,255,255,0.35),_transparent_45%)]" />
-
-      <header className={`site-header sticky top-0 z-50 border-b border-primary/10 bg-[#fbf4e9] ${isMobileMenuOpen ? "menu-open" : ""}`}>
-        <nav className="container relative mx-auto flex items-center justify-center px-4 py-4">
-          <a href="#top" className="flex items-center">
-            <Image
-              src={logoOtica}
-              alt="Logo da Óticas Gracinha"
-              priority
-              className="h-20 w-auto object-contain md:h-20"
-            />
-          </a>
-
-          <div className="absolute inset-y-0 right-0 hidden items-center justify-center gap-8 pr-4 md:flex md:static md:flex-1 md:pr-0">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm">
+      <div className="container mx-auto flex items-center justify-between p-4">
+        <a href="#" className="flex items-center gap-2">
+          <Image src={logoOtica} alt="Ótica Gracinha Logo" width={40} height={40} className="rounded-full" />
+          <span className={`${displayFont.className} text-2xl font-bold text-foreground`}>Ótica Gracinha</span>
+        </a>
+        <nav className="hidden md:flex items-center gap-6">
+          {navigation.map((item) => (
+            <a key={item.label} href={item.href} className="text-foreground/80 hover:text-foreground transition-colors">
+              {item.label}
+            </a>
+          ))}
+        </nav>
+        <Button className="hidden md:flex">Agende sua visita</Button>
+        <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="md:hidden">
+          {isMenuOpen ? <X /> : <Menu />}
+        </button>
+      </div>
+      {isMenuOpen && (
+        <div className="md:hidden bg-background p-4">
+          <nav className="flex flex-col gap-4">
             {navigation.map((item) => (
-              <a key={item.href} href={item.href} className="text-md font-medium text-foreground/75 transition-colors hover:text-primary">
+              <a key={item.label} href={item.href} className="text-foreground/80 hover:text-foreground transition-colors">
                 {item.label}
               </a>
             ))}
+            <Button>Agende sua visita</Button>
+          </nav>
+        </div>
+      )}
+    </header>
+  )
+}
+
+export default function Home() {
+  return (
+    <div className={`${bodyFont.className} bg-background text-foreground`}>
+      <Header />
+
+      <main className="pt-16">
+        {/* Hero Section */}
+        <section 
+          className="relative h-[70vh] flex items-center justify-center text-center text-white"
+          style={{ backgroundImage: "url('/otica-gracinha-3.jpeg')", backgroundSize: 'cover', backgroundPosition: 'center' }}
+        >
+          <div className="absolute inset-0 bg-black/50" />
+          <div className="relative z-10 flex flex-col items-center">
+            <h1 className={`${displayFont.className} text-5xl md:text-7xl font-bold`}>
+              Ótica Gracinha
+            </h1>
+            <p className="mt-4 text-xl md:text-2xl">Muito além dos olhos.</p>
+            <Button size="lg" className="mt-8 bg-primary text-primary-foreground hover:bg-primary/90">
+              Descubra seu novo olhar <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
           </div>
+        </section>
 
-          <Button asChild className="absolute right-20 hidden rounded-full bg-primary px-5 text-primary-foreground shadow-lg shadow-primary/20 transition-transform hover:-translate-y-0.5 hover:bg-primary/90 md:right-4 md:inline-flex md:absolute">
-            <a href="#contato">Entre em contato</a>
-          </Button>
-
-          <div className="mobile-menu absolute right-4 md:hidden">
-            <button
-              type="button"
-              onClick={() => setIsMobileMenuOpen((prev) => !prev)}
-              className="mobile-menu-trigger relative z-30 flex h-11 w-11 items-center justify-center rounded-full border border-primary/20 bg-white/80 text-primary shadow-sm transition-colors hover:bg-white"
-              aria-expanded={isMobileMenuOpen}
-              aria-label={isMobileMenuOpen ? "Fechar menu" : "Abrir menu"}
-            >
-              {isMobileMenuOpen ? <X className="size-5" /> : <Menu className="size-5" />}
-            </button>
-          </div>
-        </nav>
-
-        {isMobileMenuOpen && (
-          <>
-            <button
-              type="button"
-              className="fixed top-30 left-0 right-0 bottom-0 z-40 bg-[rgba(15,18,22,0.55)] backdrop-blur-[2px] md:hidden"
-              aria-label="Fechar menu"
-              onClick={() => setIsMobileMenuOpen(false)}
-            />
-
-            <div className="mobile-menu-panel relative z-50 mx-auto mb-4 mt-2 w-[92vw] max-w-md rounded-2xl border border-primary/10 bg-[#fffaf4]/98 p-4 shadow-[0_18px_40px_rgba(103,58,21,0.25)] md:hidden">
-              <div className="flex flex-col gap-2">
-                {navigation.map((item) => (
-                  <a
-                    key={`mobile-${item.href}`}
-                    href={item.href}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="rounded-lg px-4 py-2.5 text-sm font-medium text-foreground/80 transition-colors hover:bg-primary/10 hover:text-primary"
-                  >
-                    {item.label}
-                  </a>
-                ))}
-              </div>
-              <Button asChild className="mt-4 w-full rounded-full bg-primary text-primary-foreground hover:bg-primary/90">
-                <a href="#contato" onClick={() => setIsMobileMenuOpen(false)}>Entre em contato</a>
-              </Button>
-            </div>
-          </>
-        )}
-      </header>
-
-      <main id="top" className="relative">
-        <section className="container mx-auto px-4 pb-16 pt-16 md:pb-24 md:pt-24 lg:pt-28">
-          <div className="flex flex-col-reverse items-center gap-14 lg:grid lg:grid-cols-[1.04fr_0.96fr]">
-            <div className="space-y-8 text-center lg:text-left">
-              <div className="inline-flex items-center gap-2 rounded-full border border-primary/15 bg-white/65 px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-primary shadow-sm backdrop-blur">
-                <Star className="size-3.5 fill-current" />
-                Tradição e cuidado em Lagoa Nova
-              </div>
-
-              <div className="space-y-5">
-                <h1 className={`${displayFont.className} text-5xl font-semibold leading-[0.92] tracking-tight text-foreground sm:text-6xl lg:text-7xl`}>
-                  Muito além dos olhos.
-                </h1>
-                <p className="mx-auto max-w-2xl text-lg leading-8 text-muted-foreground lg:mx-0">
-                  Uma marca com presença, atendimento humano e uma curadoria de armações que valoriza o conforto e a identidade de cada cliente.
-                </p>
-              </div>
-
-              <div className="flex flex-col justify-center gap-4 sm:flex-row lg:justify-start">
-                <Button size="lg" className="h-12 gap-2 rounded-full bg-primary px-6 text-base font-semibold text-primary-foreground shadow-lg shadow-primary/20 transition-transform hover:-translate-y-0.5 hover:bg-primary/90">
-                  <MessageCircle className="size-4" />
-                  Falar com consultor no WhatsApp
-                </Button>
-                <Button asChild size="lg" variant="outline" className="h-12 gap-2 rounded-full border-primary/20 bg-white/70 px-6 text-base font-semibold text-primary hover:bg-primary/5">
-                  <a href="#produtos">
-                    Ver coleção
-                    <ArrowRight className="size-4" />
-                  </a>
-                </Button>
-              </div>
-
-              <div className="grid gap-3 sm:grid-cols-3">
-                {highlights.map((item) => (
-                  <Card key={item.title} className="border-primary/10 bg-white/70 shadow-[0_10px_30px_rgba(103,58,21,0.08)] backdrop-blur">
-                    <CardContent className="flex h-full flex-col gap-3 p-5 text-left">
-                      <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-primary/10 text-primary">
-                        <item.icon className="size-5" />
-                      </div>
-                      <div className="space-y-1">
-                        <h2 className="text-base font-semibold text-foreground">{item.title}</h2>
-                        <p className="text-sm leading-6 text-muted-foreground">{item.description}</p>
-                      </div>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-            </div>
-
-            <div className="relative mx-auto w-full max-w-xl lg:max-w-none">
-              <div className="absolute inset-0 translate-x-4 translate-y-4 rounded-[2.25rem] bg-primary/10 blur-3xl" />
-              <div className="relative overflow-hidden rounded-[2.25rem] border border-white/70 bg-white/65 shadow-[0_30px_80px_rgba(88,46,14,0.18)] backdrop-blur-xl">
-                <div className="absolute left-4 top-4 z-10 rounded-full border border-white/60 bg-white/85 px-3 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-primary shadow-sm">
-                  Nova coleção
-                </div>
-                <div className="relative aspect-[4/5]">
-                  <Image
-                    src="https://images.unsplash.com/photo-1600076280106-22cb8bd62b22?q=80&w=1173&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                    alt="Modelo sorrindo usando óculos elegantes da Óticas Gracinha"
-                    fill
-                    priority
-                    className="object-cover"
-                  />
-                </div>
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent p-5 text-white">
-
-                </div>
-                <div className="absolute bottom-4 left-4 hidden rounded-2xl border border-white/60 bg-white/88 p-3 shadow-lg shadow-primary/10 md:block">
-                  <div className="flex items-center gap-3">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                      <MapPin className="size-4" />
-                    </div>
-                    <div>
-                      <p className="text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground">Lagoa Nova/RN</p>
-                    </div>
+        {/* Highlights Section */}
+        <section id="destaques" className="py-16 sm:py-24">
+          <div className="container mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+              {highlights.map((highlight) => (
+                <div key={highlight.title} className="flex flex-col items-center">
+                  <div className="bg-primary/10 p-4 rounded-full">
+                    <highlight.icon className="h-8 w-8 text-primary" />
                   </div>
+                  <h3 className={`${displayFont.className} mt-4 text-2xl font-semibold`}>{highlight.title}</h3>
+                  <p className="mt-2 text-foreground/80">{highlight.description}</p>
                 </div>
-              </div>
+              ))}
             </div>
           </div>
         </section>
 
-        
-
-        <section id="produtos" className="order-1 border-y border-primary/10 bg-white/55 py-20 md:order-none md:py-24">
-          <div className="container mx-auto px-4">
-            <div className="mx-auto mb-12 max-w-2xl space-y-4 text-center">
-              <div className="inline-flex items-center rounded-full border border-primary/15 bg-primary/5 px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-primary">
-                Coleção exclusiva
-              </div>
-              <h2 className={`${displayFont.className} text-4xl font-semibold tracking-tight text-foreground md:text-5xl`}>
-                Peças que parecem feitas para o rosto certo.
-              </h2>
-              <p className="text-muted-foreground">
-                Uma seleção pensada para manter a identidade da marca: tons quentes, acabamento sofisticado e um ritmo visual mais calmo, limpo e premium.
-              </p>
-            </div>
-
-            <Carousel
-              opts={{
-                align: "start",
-                loop: true,
-              }}
-              className="relative mx-auto w-full max-w-6xl"
-            >
-              <CarouselContent className="-ml-4">
-                {productCards.map((product) => (
-                  <CarouselItem key={product.name} className="pl-4 md:basis-1/2 lg:basis-1/3">
-                    <Card className="group overflow-hidden rounded-[1.75rem] border-primary/10 bg-white/80 shadow-[0_16px_45px_rgba(103,58,21,0.09)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_55px_rgba(103,58,21,0.14)]">
+        {/* Products Section */}
+        <section id="modelos" className="py-16 sm:py-24 bg-primary/5">
+          <div className="container mx-auto">
+            <h2 className={`${displayFont.className} text-4xl font-bold text-center`}>Nossos Modelos</h2>
+            <p className="text-center mt-2 text-foreground/80">Uma seleção de marcas que combinam com você.</p>
+            <Carousel className="mt-12 w-full">
+              <CarouselContent>
+                {productCards.map((product, index) => (
+                  <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                    <Card className="overflow-hidden">
                       <CardContent className="p-0">
-                        <div className="relative aspect-[4/5] overflow-hidden bg-muted/20">
-                          <div className="absolute left-4 top-4 z-10 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-primary shadow-sm backdrop-blur">
-                            Destaque
-                          </div>
-                          <Image
-                            src={product.image}
-                            alt={product.name}
-                            fill
-                            className="object-cover transition-transform duration-500 group-hover:scale-105"
-                          />
-                        </div>
-                        <div className="space-y-4 p-6">
-                          <div className="space-y-1">
-                            <h3 className="text-xl font-semibold text-foreground">{product.name}</h3>
-                            <p className="text-sm leading-6 text-muted-foreground">{product.note}</p>
-                          </div>
-                          <div className="flex items-center justify-between gap-3 border-t border-primary/10 pt-4">
-                            <div>
-                              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-muted-foreground">A partir de</p>
-                              <p className="text-lg font-semibold text-primary">R$ 299,90</p>
-                            </div>
-                            <Button asChild size="lg" variant="outline" className="h-12 rounded-full border-primary/20 bg-white/80 px-6 text-primary hover:bg-primary/5">
-                              <a href="https://wa.me/5500000000000" target="_blank" rel="noreferrer">
-                                <MessageCircle className="size-4" />
-                                Saiba mais
-                              </a>
-                            </Button>
-                          </div>
+                        <Image
+                          src={product.image}
+                          alt={product.name}
+                          width={400}
+                          height={400}
+                          className="w-full h-64 object-cover"
+                        />
+                        <div className="p-6">
+                          <h4 className={`${displayFont.className} text-2xl font-semibold`}>{product.name}</h4>
+                          <p className="text-foreground/70 mt-1">{product.note}</p>
                         </div>
                       </CardContent>
                     </Card>
                   </CarouselItem>
                 ))}
               </CarouselContent>
-
-              <CarouselPrevious className="hidden -left-6 border-primary/15 bg-white/90 text-primary shadow-lg shadow-primary/10 hover:bg-primary hover:text-white md:flex" />
-              <CarouselNext className="hidden -right-6 border-primary/15 bg-white/90 text-primary shadow-lg shadow-primary/10 hover:bg-primary hover:text-white md:flex" />
+              <CarouselPrevious className="ml-12" />
+              <CarouselNext className="mr-12" />
             </Carousel>
           </div>
         </section>
-
-        <section id="sobre" className="order-3 container mx-auto px-4 py-20 md:order-none md:py-28">
-          <div className="space-y-16">
-            <div className="mx-auto max-w-3xl text-center">
-              <div className="inline-flex items-center rounded-full border border-primary/15 bg-white/70 px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-primary shadow-sm mb-6">
-                Nossa tradição
-              </div>
-              <h2 className={`${displayFont.className} text-4xl font-semibold tracking-tight text-foreground md:text-5xl mb-6`}>
-                Mais que óculos, uma experiência visual.
-              </h2>
-              <p className="text-lg leading-8 text-muted-foreground">
-                Uma marca que existe para além dos olhos, cuidando de cada detalhe na escolha perfeita de armação, com atenção e expertise em Lagoa Nova.
-              </p>
+        
+        {/* Testimonials Section */}
+        <section id="depoimentos" className="py-16 sm:py-24">
+            <div className="container mx-auto text-center">
+                <h2 className={`${displayFont.className} text-4xl font-bold`}>O que nossos clientes dizem</h2>
+                <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+                    {testimonials.map((testimonial, index) => (
+                        <Card key={index}>
+                            <CardHeader>
+                                <div className="flex justify-center">
+                                    <Star className="text-secondary" />
+                                    <Star className="text-secondary" />
+                                    <Star className="text-secondary" />
+                                    <Star className="text-secondary" />
+                                    <Star className="text-secondary" />
+                                </div>
+                            </CardHeader>
+                            <CardContent>
+                                <p className="italic">"{testimonial.quote}"</p>
+                                <p className="font-semibold mt-4">{testimonial.name}</p>
+                                <p className="text-sm text-foreground/60">{testimonial.location}</p>
+                            </CardContent>
+                        </Card>
+                    ))}
+                </div>
             </div>
-
-            <div className="grid gap-6 md:grid-cols-3">
-              <Card className="group border-primary/10 bg-gradient-to-br from-white/85 to-white/70 shadow-[0_14px_35px_rgba(103,58,21,0.08)] backdrop-blur transition-all hover:shadow-[0_20px_45px_rgba(103,58,21,0.15)] hover:-translate-y-0.5">
-                <CardContent className="space-y-4 p-8">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary">
-                    <Sparkles className="size-6" />
-                  </div>
-                  <div className="space-y-3">
-                    <h3 className="text-2xl font-semibold text-foreground">Há 29 anos</h3>
-                    <p className="text-lg font-medium text-primary">Muito Além dos Olhos</p>
-                    <p className="text-base leading-7 text-muted-foreground">
-                      Três décadas de tradição, expertise e cuidado refinado dedicados à excelência visual em cada cliente.
-                    </p>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card className="group border-primary/10 bg-gradient-to-br from-white/85 to-white/70 shadow-[0_14px_35px_rgba(103,58,21,0.08)] backdrop-blur transition-all hover:shadow-[0_20px_45px_rgba(103,58,21,0.15)] hover:-translate-y-0.5">
-                <CardContent className="space-y-4 p-8">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary">
-                    <Glasses className="size-6" />
-                  </div>
-                  <div className="space-y-3">
-                    <h3 className="text-2xl font-semibold text-foreground">Completo</h3>
-                    <p className="text-lg font-medium text-primary">Armações, Grau & Solares</p>
-                    <p className="text-base leading-7 text-muted-foreground">
-                      Uma curadoria pensada para cada necessidade: armações exclusivas, óculos de grau e proteção solar premium.
-                    </p>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card className="group border-primary/10 bg-gradient-to-br from-white/85 to-white/70 shadow-[0_14px_35px_rgba(103,58,21,0.08)] backdrop-blur transition-all hover:shadow-[0_20px_45px_rgba(103,58,21,0.15)] hover:-translate-y-0.5">
-                <CardContent className="space-y-4 p-8">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary">
-                    <Heart className="size-6" />
-                  </div>
-                  <div className="space-y-3">
-                    <h3 className="text-2xl font-semibold text-foreground">Confiança</h3>
-                    <p className="text-lg font-medium text-primary">5.000+ Clientes Satisfeitos</p>
-                    <p className="text-base leading-7 text-muted-foreground">
-                      Uma comunidade crescente de pessoas que encontraram sua identidade visual perfeita conosco.
-                    </p>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-
-            <div className="flex justify-center">
-              <Button asChild className="rounded-full bg-primary px-8 py-3 text-base font-semibold text-primary-foreground shadow-lg shadow-primary/20 transition-transform hover:-translate-y-0.5 hover:bg-primary/90">
-                <a href="#contato">Conhecer nossa coleção</a>
-              </Button>
-            </div>
-          </div>
         </section>
 
-
-        <section id="localizacao" className="order-4 container mx-auto px-4 pb-20 md:order-none md:pb-28">
-          <div className="relative overflow-hidden rounded-[2rem] border border-primary/10 bg-white/70 p-6 shadow-[0_24px_60px_rgba(103,58,21,0.12)] backdrop-blur md:p-8">
-            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(122,65,21,0.12),_transparent_38%),radial-gradient(circle_at_bottom_right,_rgba(122,65,21,0.07),_transparent_42%)]" />
-
-            <div className="relative grid items-start gap-8 lg:grid-cols-[0.95fr_1.05fr]">
-              <div className="space-y-6">
-                <div className="inline-flex items-center gap-2 rounded-full border border-primary/15 bg-white/80 px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-primary shadow-sm">
-                  <MapPin className="size-3.5" />
-                  Localização
+        {/* About Section */}
+        <section id="sobre" className="py-16 sm:py-24 bg-primary/5">
+            <div className="container mx-auto grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 className={`${displayFont.className} text-4xl font-bold`}>Tradição e cuidado em cada detalhe</h2>
+                    <p className="mt-4 text-foreground/80">
+                        Desde 1988, a Ótica Gracinha é referência em Lagoa Nova, combinando a tradição de um atendimento familiar com a busca constante por inovação. Nossa missão é oferecer mais do que óculos, é proporcionar uma nova perspectiva de vida.
+                    </p>
+                    <p className="mt-4 text-foreground/80">
+                        Acreditamos que cada cliente é único. Por isso, nossa equipe de especialistas se dedica a encontrar a solução perfeita para sua visão e estilo, com um acervo de armações selecionadas das melhores marcas.
+                    </p>
+                    <Button size="lg" className="mt-8">Conheça nossa história</Button>
                 </div>
-
-                <div className="space-y-3">
-                  <h2 className={`${displayFont.className} text-4xl font-semibold tracking-tight text-foreground md:text-5xl`}>
-                    Venha nos visitar na loja.
-                  </h2>
-                  <p className="max-w-xl text-base leading-7 text-muted-foreground">
-                    Estamos em Currais Novos/RN, com fácil acesso e atendimento acolhedor para você escolher sua armação com tranquilidade.
-                  </p>
+                <div>
+                    <Image src="/otica-gracinha-6.jpeg" alt="Interior da Ótica Gracinha" width={600} height={600} className="rounded-lg shadow-lg" />
                 </div>
-
-                <Card className="border-primary/10 bg-white/80 shadow-[0_14px_35px_rgba(103,58,21,0.09)]">
-                  <CardContent className="space-y-2 p-5">
-                    <p className="text-xs font-semibold uppercase tracking-[0.24em] text-primary">Endereço</p>
-                    <p className="text-base font-semibold text-foreground">Rua José Pinheiro Sobrinho, 167</p>
-                    <p className="text-sm text-muted-foreground">Currais Novos - RN</p>
-                  </CardContent>
-                </Card>
-
-                <div className="flex flex-col gap-3 sm:flex-row">
-                  <Button asChild size="lg" className="h-12 rounded-full bg-primary px-6 text-primary-foreground shadow-lg shadow-primary/20 hover:bg-primary/90">
-                    <a href="https://maps.google.com/?q=Rua.%20José%20Pinheiro%20Sobrinho%20167%20Currais%20Novos%20RN" target="_blank" rel="noreferrer">
-                      <MapPin className="size-4" />
-                      Abrir no mapa
-                    </a>
-                  </Button>
-                  <Button asChild size="lg" variant="outline" className="h-12 rounded-full border-primary/20 bg-white/80 px-6 text-primary hover:bg-primary/5">
-                    <a href="https://wa.me/5500000000000" target="_blank" rel="noreferrer">
-                      <MessageCircle className="size-4" />
-                      <p>Falar no WhatsApp</p>
-                    </a>
-                  </Button>
-                </div>
-              </div>
-
-              <div className="relative overflow-hidden rounded-[1.5rem] border border-primary/10 bg-white shadow-[0_18px_45px_rgba(103,58,21,0.12)]">
-                <iframe
-                  title="Mapa da Óticas Gracinha"
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  src="https://maps.google.com/?q=Rua.%20José%20Pinheiro%20Sobrinho%20167%20Currais%20Novos%20RN&output=embed"
-                  className="h-[320px] w-full md:h-[420px]"
-                  allowFullScreen
-                />
-              </div>
             </div>
-          </div>
         </section>
 
-        <section id="contato" className="order-5 container mx-auto px-4 pb-24 md:order-none md:pb-32">
-          <div className="overflow-hidden rounded-[2rem] border border-primary/10 bg-[linear-gradient(135deg,_rgba(120,67,26,0.98),_rgba(154,92,44,0.92))] px-6 py-10 text-white shadow-[0_30px_70px_rgba(103,58,21,0.22)] md:px-10 md:py-12">
-            <div className="grid items-center gap-8 lg:grid-cols-[1fr_auto]">
-              <div className="space-y-3">
-                <p className="text-xs font-semibold uppercase tracking-[0.3em] text-white/75">Pronto para atualizar sua visão</p>
-                <h2 className={`${displayFont.className} text-4xl font-semibold tracking-tight md:text-5xl`}>
-                  Fale com a Óticas Gracinha e encontre o modelo certo.
-                </h2>
-              </div>
-              <div className="flex flex-col gap-3 sm:flex-row lg:flex-col xl:flex-row">
-                <Button asChild size="lg" className="h-12 rounded-full bg-white px-6 text-primary hover:bg-white/90">
-                  <a href="https://wa.me/5500000000000" target="_blank" rel="noreferrer">
-                    <MessageCircle className="size-4" />
-                    WhatsApp
-                  </a>
-                </Button>
-                <Button asChild size="lg" variant="outline" className="h-12 rounded-full border-white/30 bg-transparent px-6 text-white hover:bg-white/10 hover:text-white">
-                  <a href="#top">
-                    Voltar ao topo
-                    <ArrowRight className="size-4" />
-                  </a>
-                </Button>
-              </div>
+        {/* Location Section */}
+        <section id="localizacao" className="py-16 sm:py-24">
+            <div className="container mx-auto text-center">
+                <h2 className={`${displayFont.className} text-4xl font-bold`}>Visite nossa loja</h2>
+                <p className="mt-2 text-foreground/80">Estamos esperando por você no coração de Lagoa Nova.</p>
+                <div className="mt-8 rounded-lg overflow-hidden shadow-lg">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3969.371321587599!2d-36.4668948852329!3d-6.00138699550931!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7b0f8b2fffffffff%3A0x8b2fffffffff!2sCentro%2C%20Lagoa%20Nova%20-%20RN%2C%2059390-000!5e0!3m2!1spt-BR!2sbr!4v1622556333333!5m2!1spt-BR!2sbr" 
+                        width="100%" 
+                        height="450" 
+                        style={{ border:0 }} 
+                        allowFullScreen={true}
+                        loading="lazy"
+                    ></iframe>
+                </div>
             </div>
-          </div>
         </section>
-
-
       </main>
-      <footer className="border-t border-primary/10 bg-background/70 px-4 py-6 text-center text-sm text-muted-foreground backdrop-blur">
-        &copy; {new Date().getFullYear()} Óticas Gracinha. Todos os direitos reservados.
+
+      <footer className="bg-foreground text-background py-12">
+        <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+            <div>
+                <h3 className={`${displayFont.className} text-2xl font-semibold`}>Ótica Gracinha</h3>
+                <p className="text-background/70 mt-2">Muito além dos olhos desde 1988.</p>
+            </div>
+            <div>
+                <h4 className="font-semibold text-lg">Endereço</h4>
+                <p className="text-background/70 mt-2">Rua Principal, 123</p>
+                <p className="text-background/70">Centro, Lagoa Nova - RN</p>
+            </div>
+            <div>
+                <h4 className="font-semibold text-lg">Contato</h4>
+                <p className="text-background/70 mt-2"> (84) 99999-9999</p>
+                <p className="text-background/70">contato@oticagracinha.com.br</p>
+            </div>
+        </div>
+        <div className="container mx-auto mt-8 border-t border-background/20 pt-6 text-center text-background/60">
+            <p>&copy; {new Date().getFullYear()} Ótica Gracinha. Todos os direitos reservados.</p>
+        </div>
       </footer>
     </div>
   );
 }
-
-
-/*<section className="order-2 container mx-auto px-4 pb-20 md:order-none md:pb-28">
-          <div className="grid gap-6 lg:grid-cols-3">
-            <Card className="border-primary/10 bg-white/70 shadow-[0_18px_45px_rgba(103,58,21,0.08)] backdrop-blur">
-              <CardContent className="space-y-3 p-6">
-                <Glasses className="size-5 text-primary" />
-                <h2 className="text-lg font-semibold">Curadoria de armações</h2>
-                <p className="text-sm leading-6 text-muted-foreground">Peças selecionadas para valorizar traços, proporções e estilo com coerência visual.</p>
-              </CardContent>
-            </Card>
-            <Card className="border-primary/10 bg-white/70 shadow-[0_18px_45px_rgba(103,58,21,0.08)] backdrop-blur">
-              <CardContent className="space-y-3 p-6">
-                <ShieldCheck className="size-5 text-primary" />
-                <h2 className="text-lg font-semibold">Acabamento e conforto</h2>
-                <p className="text-sm leading-6 text-muted-foreground">Ajustes cuidadosos e sensação de uso mais leve, mesmo em óculos de presença marcante.</p>
-              </CardContent>
-            </Card>
-            <Card className="border-primary/10 bg-white/70 shadow-[0_18px_45px_rgba(103,58,21,0.08)] backdrop-blur">
-              <CardContent className="space-y-3 p-6">
-                <CalendarDays className="size-5 text-primary" />
-                <h2 className="text-lg font-semibold">Agendamento simples</h2>
-                <p className="text-sm leading-6 text-muted-foreground">Fluxo direto para atendimento, escolha de armação e orientação sobre lentes e exames.</p>
-              </CardContent>
-            </Card>
-          </div>
-        </section>*/

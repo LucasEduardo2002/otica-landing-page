@@ -1,69 +1,76 @@
-@import "tailwindcss";
-@import "tw-animate-css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@custom-variant dark (&:is(.dark *));
+@layer base {
+  :root {
+    --background: 45 44% 92%; /* Bege/Creme */
+    --foreground: 15 10% 18%; /* Marrom Escuro */
 
-:root {
-  --background: 34 50% 97%;
-  --foreground: 20 14.3% 4.1%;
-  --card: 0 0% 100%;
-  --card-foreground: 20 14.3% 4.1%;
-  --popover: 0 0% 100%;
-  --popover-foreground: 20 14.3% 4.1%;
-  --primary: 24 71% 28%;
-  --primary-foreground: 0 0% 100%;
-  --secondary: 60 4.8% 95.9%;
-  --secondary-foreground: 24 9.8% 10%;
-  --muted: 60 4.8% 95.9%;
-  --muted-foreground: 25 5.3% 44.7%;
-  --accent: 60 4.8% 95.9%;
-  --accent-foreground: 24 9.8% 10%;
-  --destructive: 0 84.2% 60.2%;
-  --destructive-foreground: 60 9.1% 97.8%;
-  --border: 20 5.9% 90%;
-  --input: 20 5.9% 90%;
-  --ring: 24 71% 28%;
-  --radius: 0.5rem;
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-}
+    --card: 0 0% 97%; /* Off-white */
+    --card-foreground: 15 10% 18%;
 
-@theme inline {
-  --color-background: hsl(var(--background));
-  --color-foreground: hsl(var(--foreground));
-  --color-card: hsl(var(--card));
-  --color-card-foreground: hsl(var(--card-foreground));
-  --color-popover: hsl(var(--popover));
-  --color-popover-foreground: hsl(var(--popover-foreground));
-  --color-primary: hsl(var(--primary));
-  --color-primary-foreground: hsl(var(--primary-foreground));
-  --color-secondary: hsl(var(--secondary));
-  --color-secondary-foreground: hsl(var(--secondary-foreground));
-  --color-muted: hsl(var(--muted));
-  --color-muted-foreground: hsl(var(--muted-foreground));
-  --color-accent: hsl(var(--accent));
-  --color-accent-foreground: hsl(var(--accent-foreground));
-  --color-destructive: hsl(var(--destructive));
-  --color-destructive-foreground: hsl(var(--destructive-foreground));
-  --color-border: hsl(var(--border));
-  --color-input: hsl(var(--input));
-  --color-ring: hsl(var(--ring));
+    --popover: 0 0% 97%;
+    --popover-foreground: 15 10% 18%;
+
+    --primary: 80 17% 61%; /* Verde Suave */
+    --primary-foreground: 15 10% 18%;
+
+    --secondary: 44 65% 52%; /* Dourado/Ocre */
+    --secondary-foreground: 15 10% 18%;
+
+    --muted: 60 4.8% 95.9%;
+    --muted-foreground: 25 5.3% 44.7%;
+
+    --accent: 80 17% 75%; /* Verde um pouco mais claro para hover/accent */
+    --accent-foreground: 15 10% 18%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 60 9.1% 97.8%;
+
+    --border: 45 20% 82%; /* Variação do Bege para bordas */
+    --input: 45 20% 82%;
+    --ring: 80 17% 61%; /* Verde primário para anéis de foco */
+
+    --radius: 0.8rem; /* Aumentando o radius para cantos mais arredondados (M3) */
+  }
+
+  .dark {
+    --background: 15 10% 18%; /* Marrom Escuro */
+    --foreground: 45 44% 92%; /* Bege/Creme */
+
+    --card: 20 10% 25%; /* Tom de marrom um pouco mais claro */
+    --card-foreground: 45 44% 92%;
+
+    --popover: 20 10% 25%;
+    --popover-foreground: 45 44% 92%;
+
+    --primary: 80 17% 61%; /* Verde Suave */
+    --primary-foreground: 15 10% 18%;
+
+    --secondary: 44 65% 52%; /* Dourado/Ocre */
+    --secondary-foreground: 15 10% 18%;
+
+    --muted: 15 10% 30%;
+    --muted-foreground: 45 44% 80%;
+
+    --accent: 80 17% 50%;
+    --accent-foreground: 15 10% 18%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 85.7% 97.3%;
+
+    --border: 15 10% 30%;
+    --input: 15 10% 30%;
+    --ring: 44 65% 52%;
+  }
 }
 
 @layer base {
   * {
     @apply border-border;
   }
-
   body {
     @apply bg-background text-foreground;
-  }
-}
-
-@media (max-width: 900px) {
-  body.menu-open {
-    overflow: hidden;
   }
 }
