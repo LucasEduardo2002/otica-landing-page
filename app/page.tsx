@@ -240,21 +240,21 @@ export default function Home() {
 
         {/* About Section */}
         <section id="sobre" className="py-16 sm:py-24 bg-primary/5">
-            <div className="container mx-auto grid md:grid-cols-2 gap-12 items-center">
-                <div>
-                    <h2 className={`${displayFont.className} text-4xl font-bold`}>Tradição e cuidado em cada detalhe</h2>
-                    <p className="mt-4 text-foreground/80">
-                        Desde 1988, a Ótica Gracinha é referência em Lagoa Nova, combinando a tradição de um atendimento familiar com a busca constante por inovação. Nossa missão é oferecer mais do que óculos, é proporcionar uma nova perspectiva de vida.
-                    </p>
-                    <p className="mt-4 text-foreground/80">
-                        Acreditamos que cada cliente é único. Por isso, nossa equipe de especialistas se dedica a encontrar a solução perfeita para sua visão e estilo, com um acervo de armações selecionadas das melhores marcas.
-                    </p>
-                    <Button size="lg" className="mt-8">Conheça nossa história</Button>
-                </div>
-                <div>
-                    <img src="https://source.unsplash.com/featured/?optical%20interior&sig=7" alt="Interior da Ótica Gracinha" className="rounded-lg shadow-lg" loading="lazy" />
-                </div>
+          <div className="container mx-auto grid md:grid-cols-2 gap-12 items-center px-4 sm:px-6">
+            <div>
+              <h2 className={`${displayFont.className} text-3xl sm:text-4xl md:text-4xl font-bold`}>Tradição e cuidado em cada detalhe</h2>
+              <p className="mt-4 text-foreground/80 max-w-[60ch] leading-relaxed">
+                Desde 1988, a Ótica Gracinha é referência em Lagoa Nova, combinando a tradição de um atendimento familiar com a busca constante por inovação. Nossa missão é oferecer mais do que óculos, é proporcionar uma nova perspectiva de vida.
+              </p>
+              <p className="mt-4 text-foreground/80 max-w-[60ch] leading-relaxed">
+                Acreditamos que cada cliente é único. Por isso, nossa equipe de especialistas se dedica a encontrar a solução perfeita para sua visão e estilo, com um acervo de armações selecionadas das melhores marcas.
+              </p>
+              <Button size="lg" className="mt-8">Conheça nossa história</Button>
             </div>
+            <div className="w-full">
+              <img src="https://source.unsplash.com/featured/?optical%20interior&sig=7" alt="Interior da Ótica Gracinha" className="rounded-lg shadow-lg w-full h-auto mt-6 md:mt-0" loading="lazy" />
+            </div>
+          </div>
         </section>
 
         {/* Location Section */}
