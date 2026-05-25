@@ -51,36 +51,12 @@ const highlights = [
 ];
 
 const productCards = [
-  {
-    name: "Vogue",
-    note: "Tendências da moda com um toque de glamour.",
-    image: "https://source.unsplash.com/featured/?vogue%20sunglasses&sig=1",
-  },
-  {
-    name: "Just Cavalli",
-    note: "Estilo marcante e atitude.",
-    image: "https://source.unsplash.com/featured/?justcavalli%20sunglasses&sig=2",
-  },
-  {
-    name: "Lança Perfume",
-    note: "Visual contemporâneo e feminino.",
-    image: "https://source.unsplash.com/featured/?women%20sunglasses&sig=3",
-  },
-  {
-    name: "Swarovski",
-    note: "Detalhes brilhantes e acabamento sofisticado.",
-    image: "https://source.unsplash.com/featured/?swarovski%20sunglasses&sig=4",
-  },
-  {
-    name: "Versace",
-    note: "Luxo e personalidade italiana.",
-    image: "https://source.unsplash.com/featured/?versace%20sunglasses&sig=5",
-  },
-  {
-    name: "Ray-Ban",
-    note: "Clássicos atemporais com proteção UV.",
-    image: "https://source.unsplash.com/featured/?rayban%20sunglasses&sig=6",
-  },
+  { name: "Vogue", note: "Tendências da moda com um toque de glamour.", image: "/images/product-1.svg" },
+  { name: "Just Cavalli", note: "Estilo marcante e atitude.", image: "/images/product-2.svg" },
+  { name: "Lança Perfume", note: "Visual contemporâneo e feminino.", image: "/images/product-3.svg" },
+  { name: "Swarovski", note: "Detalhes brilhantes e acabamento sofisticado.", image: "/images/product-4.svg" },
+  { name: "Versace", note: "Luxo e personalidade italiana.", image: "/images/product-5.svg" },
+  { name: "Ray-Ban", note: "Clássicos atemporais com proteção UV.", image: "/images/product-6.svg" },
 ];
 
 const testimonials = [
@@ -148,7 +124,7 @@ export default function Home() {
         {/* Hero Section */}
         <section 
           className="relative h-[50vh] sm:h-[60vh] md:h-[70vh] flex items-center justify-center text-center text-white"
-          style={{ backgroundImage: "url('https://source.unsplash.com/featured/?optical%20store,eyewear&sig=10')", backgroundSize: 'cover', backgroundPosition: 'center' }}
+          style={{ backgroundImage: "url('/images/hero.svg')", backgroundSize: 'cover', backgroundPosition: 'center' }}
         >
           <div className="absolute inset-0 bg-black/50" />
           <div className="relative z-10 flex flex-col items-center">
@@ -252,7 +228,7 @@ export default function Home() {
               <Button size="lg" className="mt-8">Conheça nossa história</Button>
             </div>
             <div className="w-full">
-              <img src="https://source.unsplash.com/featured/?optical%20interior&sig=7" alt="Interior da Ótica Gracinha" className="rounded-lg shadow-lg w-full h-auto mt-6 md:mt-0" loading="lazy" />
+                <img src="/images/hero.svg" alt="Interior da Ótica Gracinha" className="rounded-lg shadow-lg w-full h-auto mt-6 md:mt-0" loading="lazy" />
             </div>
           </div>
         </section>

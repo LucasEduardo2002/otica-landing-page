@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <rect width="100%" height="100%" fill="#efe6db"/>
+  <g transform="translate(100,150)">
+    <rect x="0" y="200" width="1000" height="150" rx="24" fill="#d1bfa6"/>
+    <rect x="180" y="120" width="640" height="60" rx="30" fill="#b99d7f"/>
+    <text x="600" y="460" font-family="Helvetica, Arial, sans-serif" font-size="44" text-anchor="middle" fill="#5b4636">Vogue</text>
+  </g>
+</svg>
