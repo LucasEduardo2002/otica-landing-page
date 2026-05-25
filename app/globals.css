@@ -48,10 +48,8 @@
     --ring: 44 65% 52%;
   }
 
-  * {
-    @apply border-border;
-  }
   body {
     @apply bg-background text-foreground;
+    border-color: hsl(var(--border));
   }
 }
