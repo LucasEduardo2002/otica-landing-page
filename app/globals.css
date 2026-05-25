@@ -6,65 +6,50 @@
   :root {
     --background: 45 44% 92%; /* Bege/Creme */
     --foreground: 15 10% 18%; /* Marrom Escuro */
-
     --card: 0 0% 97%; /* Off-white */
     --card-foreground: 15 10% 18%;
-
     --popover: 0 0% 97%;
     --popover-foreground: 15 10% 18%;
-
     --primary: 80 17% 61%; /* Verde Suave */
     --primary-foreground: 15 10% 18%;
-
     --secondary: 44 65% 52%; /* Dourado/Ocre */
     --secondary-foreground: 15 10% 18%;
-
     --muted: 60 4.8% 95.9%;
     --muted-foreground: 25 5.3% 44.7%;
-
     --accent: 80 17% 75%; /* Verde um pouco mais claro para hover/accent */
     --accent-foreground: 15 10% 18%;
-
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 60 9.1% 97.8%;
-
     --border: 45 20% 82%; /* Variação do Bege para bordas */
     --input: 45 20% 82%;
     --ring: 80 17% 61%; /* Verde primário para anéis de foco */
-
     --radius: 0.8rem; /* Aumentando o radius para cantos mais arredondados (M3) */
   }
 
   .dark {
     --background: 15 10% 18%; /* Marrom Escuro */
     --foreground: 45 44% 92%; /* Bege/Creme */
-
     --card: 20 10% 25%; /* Tom de marrom um pouco mais claro */
     --card-foreground: 45 44% 92%;
-
     --popover: 20 10% 25%;
     --popover-foreground: 45 44% 92%;
-
     --primary: 80 17% 61%; /* Verde Suave */
     --primary-foreground: 15 10% 18%;
-
     --secondary: 44 65% 52%; /* Dourado/Ocre */
     --secondary-foreground: 15 10% 18%;
-
     --muted: 15 10% 30%;
     --muted-foreground: 45 44% 80%;
-
     --accent: 80 17% 50%;
     --accent-foreground: 15 10% 18%;
-
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 85.7% 97.3%;
-
     --border: 15 10% 30%;
     --input: 15 10% 30%;
     --ring: 44 65% 52%;
   }
+}
 
+@layer base {
   * {
     @apply border-border;
   }
