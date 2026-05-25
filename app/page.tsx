@@ -147,16 +147,16 @@ export default function Home() {
       <main className="pt-16">
         {/* Hero Section */}
         <section 
-          className="relative h-[70vh] flex items-center justify-center text-center text-white"
+          className="relative h-[50vh] sm:h-[60vh] md:h-[70vh] flex items-center justify-center text-center text-white"
           style={{ backgroundImage: "url('/otica-gracinha-3.jpeg')", backgroundSize: 'cover', backgroundPosition: 'center' }}
         >
           <div className="absolute inset-0 bg-black/50" />
           <div className="relative z-10 flex flex-col items-center">
-            <h1 className={`${displayFont.className} text-5xl md:text-7xl font-bold`}>
+            <h1 className={`${displayFont.className} text-3xl sm:text-4xl md:text-6xl font-bold`}>
               Ótica Gracinha
             </h1>
-            <p className="mt-4 text-xl md:text-2xl">Muito além dos olhos.</p>
-            <Button size="lg" className="mt-8 bg-primary text-primary-foreground hover:bg-primary/90">
+            <p className="mt-4 text-lg sm:text-xl md:text-2xl">Muito além dos olhos.</p>
+            <Button size="lg" className="mt-8 bg-primary text-primary-foreground hover:bg-primary/90 px-6">
               Descubra seu novo olhar <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
           </div>
@@ -187,15 +187,15 @@ export default function Home() {
             <Carousel className="mt-12 w-full">
               <CarouselContent>
                 {productCards.map((product, index) => (
-                  <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                  <CarouselItem key={index} className="w-full md:basis-1/2 lg:basis-1/3">
                     <Card className="overflow-hidden">
                       <CardContent className="p-0">
                         <Image
                           src={product.image}
                           alt={product.name}
-                          width={400}
-                          height={400}
-                          className="w-full h-64 object-cover"
+                          width={800}
+                          height={600}
+                          className="w-full h-56 sm:h-64 object-cover"
                         />
                         <div className="p-6">
                           <h4 className={`${displayFont.className} text-2xl font-semibold`}>{product.name}</h4>
@@ -264,14 +264,14 @@ export default function Home() {
                 <h2 className={`${displayFont.className} text-4xl font-bold`}>Visite nossa loja</h2>
                 <p className="mt-2 text-foreground/80">Estamos esperando por você no coração de Lagoa Nova.</p>
                 <div className="mt-8 rounded-lg overflow-hidden shadow-lg">
-                    <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3969.371321587599!2d-36.4668948852329!3d-6.00138699550931!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7b0f8b2fffffffff%3A0x8b2fffffffff!2sCentro%2C%20Lagoa%20Nova%20-%20RN%2C%2059390-000!5e0!3m2!1spt-BR!2sbr!4v1622556333333!5m2!1spt-BR!2sbr" 
-                        width="100%" 
-                        height="450" 
-                        style={{ border:0 }} 
-                        allowFullScreen={true}
-                        loading="lazy"
-                    ></iframe>
+                  <iframe
+                    src={"https://www.google.com/maps?q=Lagoa%20Nova%20RN&output=embed"}
+                    width="100%"
+                    height="350"
+                    style={{ border:0 }}
+                    allowFullScreen={true}
+                    loading="lazy"
+                  ></iframe>
                 </div>
             </div>
         </section>
