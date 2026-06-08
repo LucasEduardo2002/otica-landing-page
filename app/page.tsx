@@ -28,6 +28,7 @@ const bodyFont = Inter({
 
 const navigation = [
   { label: "Modelos", href: "#modelos" },
+  { label: "Relógios", href: "#relogios" },
   { label: "Sobre Nós", href: "#sobre" },
   { label: "Localização", href: "#localizacao" },
 ];
@@ -51,13 +52,74 @@ const highlights = [
 ];
 
 const productCards = [
-  { name: "Vogue", note: "Tendências da moda com um toque de glamour.", image: "/images/vogue.png" },
-  { name: "Just Cavalli", note: "Estilo marcante e atitude.", image: "/images/just-cavalli.png" },
-  { name: "Lança Perfume", note: "Visual contemporâneo e feminino.", image: "/images/lanca-perfume.png" },
-  { name: "Swarovski", note: "Detalhes brilhantes e acabamento sofisticado.", image: "/images/swarovski.png" },
-  { name: "Versace", note: "Luxo e personalidade italiana.", image: "/images/versace.png" },
-  { name: "Ray-Ban", note: "Clássicos atemporais com proteção UV.", image: "/images/ray-ban.png" },
+  {
+    name: "Guess",
+    note: "Atitude jovem, glamour contemporâneo e sofisticação em designs marcantes para destacar seu estilo.",
+    image: "/images/guess.png",
+    category: "feminino",
+  },
+  {
+    name: "Guess by Marciano",
+    note: "Linha de luxo com detalhes refinados, perfeita para mulheres que buscam elegância exclusiva e alta costura.",
+    image: "/images/guess-by-marciano.png",
+    category: "feminino",
+  },
+  {
+    name: "Lança Perfume",
+    note: "Design ousado e sensualidade marcante. Óculos feitos para mulheres modernas, autênticas e cheias de atitude.",
+    image: "/images/lanca-perfume.png",
+    category: "feminino",
+  },
+  {
+    name: "Michael Kors",
+    note: "Luxo casual e glamour atemporal americano, unindo elegância clássica com o dinamismo urbano.",
+    image: "/images/michael-kors.png",
+    category: "feminino",
+  },
+  {
+    name: "Swarovski",
+    note: "Brilho e sofisticação incomparáveis, adornados com cristais lapidados que transformam seus óculos em joias.",
+    image: "/images/swarovski.png",
+    category: "feminino",
+  },
+  {
+    name: "Versace",
+    note: "Estilo barroco, luxo dramático e personalidade italiana marcante para quem não tem medo de se destacar.",
+    image: "/images/versace.png",
+    category: "feminino",
+  },
+  {
+    name: "Vogue",
+    note: "Inovação, cores vibrantes e as últimas tendências das passarelas da moda mundial em seu olhar cotidiano.",
+    image: "/images/vogue.png",
+    category: "feminino",
+  },
+  {
+    name: "Lacoste",
+    note: "Estilo clássico francês de herança esportiva, combinando conforto, elegância casual e dinamismo.",
+    image: "/images/lacoste.png",
+    category: "masculino",
+  },
+  {
+    name: "Aramis",
+    note: "Elegância contemporânea e design minimalista focado no homem moderno que valoriza sofisticação e discrição.",
+    image: "/images/aramis.png",
+    category: "masculino",
+  },
+  {
+    name: "Ray-Ban",
+    note: "O maior clássico do mundo. Estilo icônico e atemporal com lentes de alta proteção que nunca saem de moda.",
+    image: "/images/ray-ban.png",
+    category: "unissex",
+  },
 ];
+
+const categories = [
+  { id: "todos", label: "Todas as Marcas" },
+  { id: "feminino", label: "Feminino" },
+  { id: "masculino", label: "Masculino" },
+  { id: "unissex", label: "Unissex & Solar" },
+] as const;
 
 const testimonials = [
   {
@@ -116,6 +178,12 @@ function Header() {
 }
 
 export default function Home() {
+  const [selectedCategory, setSelectedCategory] = useState<"todos" | "feminino" | "masculino" | "unissex">("todos");
+
+  const filteredProducts = selectedCategory === "todos"
+    ? productCards
+    : productCards.filter((product) => product.category === selectedCategory);
+
   return (
     <div className={`${bodyFont.className} bg-background text-foreground`}>
       <Header />
@@ -157,24 +225,60 @@ export default function Home() {
 
         {/* Products Section */}
         <section id="modelos" className="py-16 sm:py-24 bg-primary/5">
-          <div className="container mx-auto">
+          <div className="container mx-auto px-4 sm:px-6">
             <h2 className={`${displayFont.className} text-4xl font-bold text-center`}>Nossos Modelos</h2>
-            <p className="text-center mt-2 text-foreground/80">Uma seleção de marcas que combinam com você.</p>
+            <p className="text-center mt-2 text-foreground/80">Uma seleção de marcas de luxo e alta qualidade que combinam com você.</p>
+            
+            {/* Category Filter Tabs */}
+            <div className="flex flex-wrap justify-center gap-2 mt-8 md:gap-4">
+              {categories.map((category) => (
+                <button
+                  key={category.id}
+                  onClick={() => setSelectedCategory(category.id)}
+                  className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 cursor-pointer ${
+                    selectedCategory === category.id
+                      ? "bg-secondary text-secondary-foreground shadow-md scale-105"
+                      : "bg-background/80 border border-border text-foreground hover:bg-accent/40 hover:border-accent"
+                  }`}
+                >
+                  {category.label}
+                </button>
+              ))}
+            </div>
+
             <Carousel className="mt-12 w-full">
-              <CarouselContent>
-                {productCards.map((product, index) => (
+              <CarouselContent key={selectedCategory}>
+                {filteredProducts.map((product, index) => (
                   <CarouselItem key={index} className="w-full md:basis-1/2 lg:basis-1/3">
-                    <Card className="overflow-hidden">
-                      <CardContent className="p-0">
-                        <img
-                          src={product.image}
-                          alt={product.name}
-                          className="w-full h-56 sm:h-64 object-cover"
-                          loading="lazy"
-                        />
-                        <div className="p-6">
-                          <h4 className={`${displayFont.className} text-2xl font-semibold`}>{product.name}</h4>
-                          <p className="text-foreground/70 mt-1">{product.note}</p>
+                    <Card className="overflow-hidden h-full flex flex-col group hover:shadow-lg transition-all duration-300 border-border/60">
+                      <CardContent className="p-0 flex flex-col h-full">
+                        <div className="overflow-hidden relative aspect-[4/3] w-full">
+                          <img
+                            src={product.image}
+                            alt={product.name}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            loading="lazy"
+                          />
+                          <span className="absolute top-3 right-3 text-xs font-semibold tracking-wider uppercase bg-background/95 backdrop-blur px-3 py-1.5 rounded-full shadow-sm text-foreground/90">
+                            {product.category === "feminino" ? "Feminino" : product.category === "masculino" ? "Masculino" : "Unissex / Solar"}
+                          </span>
+                        </div>
+                        <div className="p-6 flex-1 flex flex-col justify-between bg-card">
+                          <div>
+                            <h4 className={`${displayFont.className} text-2xl font-semibold text-foreground group-hover:text-secondary transition-colors`}>{product.name}</h4>
+                            <p className="text-foreground/75 mt-2 text-sm leading-relaxed">{product.note}</p>
+                          </div>
+                          <div className="mt-6 pt-4 border-t border-border/40">
+                            <a
+                              href={`https://wa.me/5584999999999?text=Olá! Gostaria de consultar os modelos disponíveis da marca ${product.name} na Ótica Gracinha.`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center text-sm font-medium text-secondary hover:text-secondary/80 transition-colors gap-1.5 group/link"
+                            >
+                              Consultar modelos no WhatsApp
+                              <MessageCircle className="h-4 w-4 transition-transform group-hover/link:translate-x-1" />
+                            </a>
+                          </div>
                         </div>
                       </CardContent>
                     </Card>
@@ -184,6 +288,50 @@ export default function Home() {
               <CarouselPrevious className="ml-12" />
               <CarouselNext className="mr-12" />
             </Carousel>
+          </div>
+        </section>
+
+        {/* Watches Section */}
+        <section id="relogios" className="py-16 sm:py-24 bg-background border-t border-b border-border/40">
+          <div className="container mx-auto px-4 sm:px-6">
+            <div className="grid md:grid-cols-12 gap-12 items-center">
+              <div className="md:col-span-7 flex flex-col justify-center order-2 md:order-1">
+                <span className="text-secondary font-semibold uppercase tracking-wider text-sm">Alta Relojoaria</span>
+                <h2 className={`${displayFont.className} text-4xl sm:text-5xl font-bold mt-2 leading-tight text-foreground`}>
+                  Relógios Exclusivos na Loja Física
+                </h2>
+                <p className="mt-6 text-foreground/80 leading-relaxed text-base max-w-[60ch]">
+                  Além do cuidado especializado com a sua saúde visual, a Ótica Gracinha oferece uma seleção primorosa de relógios de marcas renomadas em nossa loja física de Lagoa Nova. 
+                </p>
+                <p className="mt-4 text-foreground/80 leading-relaxed text-base max-w-[60ch]">
+                  Visite-nos para conhecer modelos masculinos e femininos de alta durabilidade e designs que variam do clássico ao esportivo. O acessório perfeito para complementar sua sofisticação diária.
+                </p>
+                <div className="mt-8 flex flex-wrap gap-4">
+                  <Button asChild size="lg" className="bg-secondary text-secondary-foreground hover:bg-secondary/90 transition-all shadow-md cursor-pointer">
+                    <a
+                      href="https://wa.me/5584999999999?text=Olá! Gostaria de saber mais sobre as opções de relógios disponíveis na Ótica Gracinha."
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2"
+                    >
+                      <MessageCircle className="h-5 w-5" />
+                      Consultar Marcas e Modelos no WhatsApp
+                    </a>
+                  </Button>
+                </div>
+              </div>
+              <div className="md:col-span-5 order-1 md:order-2">
+                <div className="relative overflow-hidden rounded-2xl shadow-xl aspect-square group border border-border/50">
+                  <img
+                    src="/images/relogios-showcase.png"
+                    alt="Relógios premium em exposição na Ótica Gracinha"
+                    className="w-full h-full object-cover group-hover:scale-103 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60" />
+                </div>
+              </div>
+            </div>
           </div>
         </section>
         
