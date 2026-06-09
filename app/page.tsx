@@ -60,25 +60,25 @@ const productCards = [
   },
   {
     name: "Guess by Marciano",
-    note: "Linha de luxo com detalhes refinados, perfeita para mulheres que buscam elegância exclusiva e alta costura.",
+    note: "Linha de luxo com detalhes refinados, perfeita para mulheres que buscam elegância exclusiva e design premium. Acabamento em acetato de alta qualidade e detalhes em metal polido.",
     image: "/images/guess-by-marciano.png",
     category: "feminino",
   },
   {
     name: "Lança Perfume",
-    note: "Design ousado e único. Óculos feitos para mulheres autênticas, modernas e cheias de atitude.",
+    note: "Design ousado e único. Óculos feitos para mulheres autênticas, modernas e cheias de atitude que valorizam a moda nacional",
     image: "/images/lanca-perfume.png",
     category: "feminino",
   },
   {
     name: "Michael Kors",
-    note: "Luxo casual e glamour atemporal americano, unindo elegância clássica com o dinamismo urbano.",
+    note: "Luxo casual e glamour atemporal americano, unindo elegância clássica com o dinamismo urbano. Traz as icônicas ferragens douradas e o consagrado logotipo MK",
     image: "/images/michael-kors.png",
     category: "feminino",
   },
   {
     name: "Swarovski",
-    note: "Brilho e sofisticação incomparáveis, adornados com cristais lapidados que transformam seus óculos em joias.",
+    note: "Brilho e sofisticação incomparáveis. Modelos adornados com cristais lapidados e cravejados nas hastes, transformando seus óculos em verdadeiras joias.",
     image: "/images/swarovski.png",
     category: "feminino",
   },
@@ -96,7 +96,7 @@ const productCards = [
   },
   {
     name: "Lacoste",
-    note: "Estilo clássico francês de herança esportiva, combinando conforto, elegância casual e dinamismo.",
+    note: "Estilo clássico francês de herança esportiva, combinando conforto, elegância casual e dinamismo. Detalhes marcantes como a textura petit piqué nas hastes e o tradicional crocodilo.",
     image: "/images/lacoste.png",
     category: "masculino",
   },
