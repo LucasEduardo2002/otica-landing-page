@@ -26,7 +26,7 @@ export function SchedulingModal({ isOpen, onClose }: SchedulingModalProps) {
   const [service, setService] = useState("Exame de Vista");
   const [period, setPeriod] = useState("Manhã");
   const [message, setMessage] = useState("");
-  
+
   const [errors, setErrors] = useState<{ name?: string; phone?: string }>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -86,7 +86,7 @@ export function SchedulingModal({ isOpen, onClose }: SchedulingModalProps) {
     if (!name.trim()) {
       newErrors.name = "Por favor, digite seu nome completo.";
     }
-    
+
     const digitsOnly = phone.replace(/\D/g, "");
     if (digitsOnly.length < 10) {
       newErrors.phone = "Por favor, insira um número de WhatsApp válido.";
@@ -116,8 +116,8 @@ export function SchedulingModal({ isOpen, onClose }: SchedulingModalProps) {
 🕒 Período preferencial: ${period}
 ${message.trim() ? `📝 Mensagem: ${message.trim()}` : ""}`;
 
-      const whatsappUrl = `https://wa.me/5584999999999?text=${encodeURIComponent(textMessage)}`;
-      
+      const whatsappUrl = `https://wa.me/5584988014439?text=${encodeURIComponent(textMessage)}`;
+
       // Open WhatsApp in new tab after a brief success animation
       setTimeout(() => {
         window.open(whatsappUrl, "_blank");
@@ -131,18 +131,18 @@ ${message.trim() ? `📝 Mensagem: ${message.trim()}` : ""}`;
   return (
     <div className={`fixed inset-0 z-50 flex items-center justify-center p-4 transition-all duration-300 ${bodyFont.className}`}>
       {/* Backdrop */}
-      <div 
+      <div
         className="absolute inset-0 bg-black/60 backdrop-blur-md transition-opacity duration-300"
         onClick={onClose}
       />
-      
+
       {/* Modal Card */}
       <div className="relative w-full max-w-lg bg-card rounded-2xl shadow-2xl border border-border/80 overflow-hidden transform transition-all duration-300 animate-in fade-in zoom-in-95 duration-200 flex flex-col max-h-[90vh]">
         {/* Top Gradient Accent */}
         <div className="bg-gradient-to-r from-primary to-secondary h-1.5 w-full shrink-0" />
-        
+
         {/* Close Button */}
-        <button 
+        <button
           onClick={onClose}
           className="absolute top-4 right-4 p-1.5 rounded-full hover:bg-muted text-foreground/60 hover:text-foreground transition-colors cursor-pointer z-10"
           aria-label="Fechar modal"
@@ -177,9 +177,8 @@ ${message.trim() ? `📝 Mensagem: ${message.trim()}` : ""}`;
                     setName(e.target.value);
                     if (errors.name) setErrors((prev) => ({ ...prev, name: undefined }));
                   }}
-                  className={`w-full px-4 py-2.5 rounded-lg border bg-background/50 text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition-all ${
-                    errors.name ? "border-destructive focus:ring-destructive/20" : "border-border"
-                  }`}
+                  className={`w-full px-4 py-2.5 rounded-lg border bg-background/50 text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition-all ${errors.name ? "border-destructive focus:ring-destructive/20" : "border-border"
+                    }`}
                   disabled={isSubmitting}
                 />
                 {errors.name && (
@@ -197,9 +196,8 @@ ${message.trim() ? `📝 Mensagem: ${message.trim()}` : ""}`;
                   placeholder="(84) 99999-9999"
                   value={phone}
                   onChange={handlePhoneChange}
-                  className={`w-full px-4 py-2.5 rounded-lg border bg-background/50 text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition-all ${
-                    errors.phone ? "border-destructive focus:ring-destructive/20" : "border-border"
-                  }`}
+                  className={`w-full px-4 py-2.5 rounded-lg border bg-background/50 text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition-all ${errors.phone ? "border-destructive focus:ring-destructive/20" : "border-border"
+                    }`}
                   disabled={isSubmitting}
                 />
                 {errors.phone && (
@@ -223,11 +221,10 @@ ${message.trim() ? `📝 Mensagem: ${message.trim()}` : ""}`;
                       key={item}
                       type="button"
                       onClick={() => setService(item)}
-                      className={`px-3 py-2.5 rounded-lg border text-xs font-medium text-left transition-all duration-200 cursor-pointer ${
-                        service === item
+                      className={`px-3 py-2.5 rounded-lg border text-xs font-medium text-left transition-all duration-200 cursor-pointer ${service === item
                           ? "bg-primary/10 border-primary text-foreground shadow-sm font-semibold"
                           : "bg-background/40 border-border text-foreground/80 hover:bg-muted"
-                      }`}
+                        }`}
                       disabled={isSubmitting}
                     >
                       {item}
@@ -250,11 +247,10 @@ ${message.trim() ? `📝 Mensagem: ${message.trim()}` : ""}`;
                       key={p.id}
                       type="button"
                       onClick={() => setPeriod(p.id)}
-                      className={`px-3 py-2.5 rounded-lg border text-xs font-medium text-left transition-all duration-200 cursor-pointer ${
-                        period === p.id
+                      className={`px-3 py-2.5 rounded-lg border text-xs font-medium text-left transition-all duration-200 cursor-pointer ${period === p.id
                           ? "bg-secondary/15 border-secondary text-foreground shadow-sm font-semibold"
                           : "bg-background/40 border-border text-foreground/80 hover:bg-muted"
-                      }`}
+                        }`}
                       disabled={isSubmitting}
                     >
                       {p.label}
@@ -296,7 +292,7 @@ ${message.trim() ? `📝 Mensagem: ${message.trim()}` : ""}`;
                 )}
               </Button>
               <p className="text-[11px] text-foreground/50 text-center leading-normal">
-                Ao clicar em confirmar, você abrirá o WhatsApp com sua mensagem pré-formatada. 
+                Ao clicar em confirmar, você abrirá o WhatsApp com sua mensagem pré-formatada.
                 Sua visita só estará confirmada após o retorno da nossa equipe.
               </p>
             </div>
