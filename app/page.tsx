@@ -54,64 +54,74 @@ const highlights = [
 const productCards = [
   {
     name: "Guess",
-    note: "Atitude jovem, glamour contemporâneo e sofisticação em designs marcantes para destacar seu estilo.",
+    note: "Atitude jovem, glamour contemporâneo e sofisticação em designs marcantes. Destaca-se pelas armações estilo gatinho e oversized que realçam o olhar com personalidade.",
     image: "/images/guess.png",
     category: "feminino",
+    features: ["Estilo Cat-Eye", "Modelos Oversized", "Logotipo G em Destaque"]
   },
   {
     name: "Guess by Marciano",
-    note: "Linha de luxo com detalhes refinados, perfeita para mulheres que buscam elegância exclusiva e design premium. Acabamento em acetato de alta qualidade e detalhes em metal polido.",
+    note: "Linha de luxo com detalhes refinados, perfeita para mulheres que buscam elegância exclusiva e alta costura. Acabamento premium em acetato de alta qualidade e detalhes em metal polido.",
     image: "/images/guess-by-marciano.png",
     category: "feminino",
+    features: ["Linha Premium", "Acetato de Alta Qualidade", "Alta Costura"]
   },
   {
     name: "Lança Perfume",
-    note: "Design ousado e único. Óculos feitos para mulheres autênticas, modernas e cheias de atitude que valorizam a moda nacional",
+    note: "Design ousado e único. Óculos com formatos geométricos marcantes, feitos para mulheres autênticas, modernas e cheias de atitude que valorizam a moda nacional.",
     image: "/images/lanca-perfume.png",
     category: "feminino",
+    features: ["Formatos Geométricos", "Design Ousado", "Identidade LP"]
   },
   {
     name: "Michael Kors",
-    note: "Luxo casual e glamour atemporal americano, unindo elegância clássica com o dinamismo urbano. Traz as icônicas ferragens douradas e o consagrado logotipo MK",
+    note: "Luxo casual e glamour atemporal americano, unindo elegância clássica com o dinamismo urbano. Traz as icônicas ferragens douradas e o consagrado logotipo MK.",
     image: "/images/michael-kors.png",
     category: "feminino",
+    features: ["Estilo Jet-Set", "Detalhes Dourados", "Logotipo MK Clássico"]
   },
   {
     name: "Swarovski",
-    note: "Brilho e sofisticação incomparáveis. Modelos adornados com cristais lapidados e cravejados nas hastes, transformando seus óculos em verdadeiras joias.",
+    note: "Brilho e sofisticação incomparáveis. Modelos adornados com autênticos cristais lapidados e cravejados nas hastes, transformando seus óculos em verdadeiras joias.",
     image: "/images/swarovski.png",
     category: "feminino",
+    features: ["Cristais Cravejados", "Efeito Joia", "Brilho Exclusivo"]
   },
   {
     name: "Versace",
-    note: "Estilo barroco, luxo dramático e personalidade italiana marcante para quem não tem medo de se destacar.",
+    note: "Estilo barroco, luxo dramático e personalidade italiana marcante para quem não tem medo de se destacar. Traz os inconfundíveis ícones da Medusa e da estampa Greca.",
     image: "/images/versace.png",
     category: "feminino",
+    features: ["Ícone da Medusa", "Grife Italiana", "Detalhes em Relevo"]
   },
   {
     name: "Vogue",
-    note: "Inovação, cores vibrantes e as últimas tendências das passarelas da moda mundial em seu olhar cotidiano.",
+    note: "Inovação, cores vibrantes e as últimas tendências das passarelas da moda mundial em seu olhar cotidiano. Formatos modernos e coleções dinâmicas e fashionistas.",
     image: "/images/vogue.png",
     category: "feminino",
+    features: ["Tendência Fashion", "Paleta de Cores Vibrantes", "Design Moderno"]
   },
   {
     name: "Lacoste",
     note: "Estilo clássico francês de herança esportiva, combinando conforto, elegância casual e dinamismo. Detalhes marcantes como a textura petit piqué nas hastes e o tradicional crocodilo.",
     image: "/images/lacoste.png",
     category: "masculino",
+    features: ["Herança Esportiva", "Textura Petit Piqué", "Logo Crocodilo"]
   },
   {
     name: "Aramis",
-    note: "Elegância contemporânea e design minimalista focado no homem moderno que valoriza sofisticação e discrição.",
+    note: "Elegância contemporânea e design minimalista focado no homem moderno que valoriza sofisticação, leveza e discrição em armações confortáveis para o dia a dia.",
     image: "/images/aramis.png",
     category: "masculino",
+    features: ["Design Minimalista", "Estrutura Leve", "Sofisticação Discreta"]
   },
   {
     name: "Ray-Ban",
-    note: "O maior clássico do mundo. Estilo icônico e atemporal com lentes de alta proteção que nunca saem de moda.",
+    note: "O maior clássico do mundo. Estilo icônico e atemporal com lentes de alta proteção que nunca saem de moda. Casa dos formatos lendários Aviator, Wayfarer e Clubmaster.",
     image: "/images/ray-ban.png",
     category: "unissex",
-  },
+    features: ["Modelos Ícones", "Lentes de Alta Proteção", "Opções Polarizadas"]
+  }
 ];
 
 const categories = [
