@@ -66,7 +66,7 @@ const productCards = [
   },
   {
     name: "Lança Perfume",
-    note: "Design ousado e sensualidade marcante. Óculos feitos para mulheres modernas, autênticas e cheias de atitude.",
+    note: "Design ousado e único. Óculos feitos para mulheres autênticas, modernas e cheias de atitude.",
     image: "/images/lanca-perfume.png",
     category: "feminino",
   },
@@ -190,7 +190,7 @@ export default function Home() {
 
       <main className="pt-16">
         {/* Hero Section */}
-        <section 
+        <section
           className="relative h-[50vh] sm:h-[60vh] md:h-[70vh] flex items-center justify-center text-center text-white"
           style={{ backgroundImage: "url('/images/hero.png')", backgroundSize: 'cover', backgroundPosition: 'center' }}
         >
@@ -228,18 +228,17 @@ export default function Home() {
           <div className="container mx-auto px-4 sm:px-6">
             <h2 className={`${displayFont.className} text-4xl font-bold text-center`}>Nossos Modelos</h2>
             <p className="text-center mt-2 text-foreground/80">Uma seleção de marcas de luxo e alta qualidade que combinam com você.</p>
-            
+
             {/* Category Filter Tabs */}
             <div className="flex flex-wrap justify-center gap-2 mt-8 md:gap-4">
               {categories.map((category) => (
                 <button
                   key={category.id}
                   onClick={() => setSelectedCategory(category.id)}
-                  className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 cursor-pointer ${
-                    selectedCategory === category.id
-                      ? "bg-secondary text-secondary-foreground shadow-md scale-105"
-                      : "bg-background/80 border border-border text-foreground hover:bg-accent/40 hover:border-accent"
-                  }`}
+                  className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 cursor-pointer ${selectedCategory === category.id
+                    ? "bg-secondary text-secondary-foreground shadow-md scale-105"
+                    : "bg-background/80 border border-border text-foreground hover:bg-accent/40 hover:border-accent"
+                    }`}
                 >
                   {category.label}
                 </button>
@@ -301,7 +300,7 @@ export default function Home() {
                   Relógios Exclusivos na Loja Física
                 </h2>
                 <p className="mt-6 text-foreground/80 leading-relaxed text-base max-w-[60ch]">
-                  Além do cuidado especializado com a sua saúde visual, a Ótica Gracinha oferece uma seleção primorosa de relógios de marcas renomadas em nossa loja física de Lagoa Nova. 
+                  Além do cuidado especializado com a sua saúde visual, a Ótica Gracinha oferece uma seleção primorosa de relógios de marcas renomadas em nossa loja física de Lagoa Nova.
                 </p>
                 <p className="mt-4 text-foreground/80 leading-relaxed text-base max-w-[60ch]">
                   Visite-nos para conhecer modelos masculinos e femininos de alta durabilidade e designs que variam do clássico ao esportivo. O acessório perfeito para complementar sua sofisticação diária.
@@ -334,32 +333,32 @@ export default function Home() {
             </div>
           </div>
         </section>
-        
+
         {/* Testimonials Section */}
         <section id="depoimentos" className="py-16 sm:py-24">
-            <div className="container mx-auto text-center">
-                <h2 className={`${displayFont.className} text-4xl font-bold`}>O que nossos clientes dizem</h2>
-                <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
-                    {testimonials.map((testimonial, index) => (
-                        <Card key={index}>
-                            <CardHeader>
-                                <div className="flex justify-center">
-                                    <Star className="text-secondary" />
-                                    <Star className="text-secondary" />
-                                    <Star className="text-secondary" />
-                                    <Star className="text-secondary" />
-                                    <Star className="text-secondary" />
-                                </div>
-                            </CardHeader>
-                            <CardContent>
-                                <p className="italic">"{testimonial.quote}"</p>
-                                <p className="font-semibold mt-4">{testimonial.name}</p>
-                                <p className="text-sm text-foreground/60">{testimonial.location}</p>
-                            </CardContent>
-                        </Card>
-                    ))}
-                </div>
+          <div className="container mx-auto text-center">
+            <h2 className={`${displayFont.className} text-4xl font-bold`}>O que nossos clientes dizem</h2>
+            <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+              {testimonials.map((testimonial, index) => (
+                <Card key={index}>
+                  <CardHeader>
+                    <div className="flex justify-center">
+                      <Star className="text-secondary" />
+                      <Star className="text-secondary" />
+                      <Star className="text-secondary" />
+                      <Star className="text-secondary" />
+                      <Star className="text-secondary" />
+                    </div>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="italic">"{testimonial.quote}"</p>
+                    <p className="font-semibold mt-4">{testimonial.name}</p>
+                    <p className="text-sm text-foreground/60">{testimonial.location}</p>
+                  </CardContent>
+                </Card>
+              ))}
             </div>
+          </div>
         </section>
 
         {/* About Section */}
@@ -376,49 +375,49 @@ export default function Home() {
               <Button size="lg" className="mt-8">Conheça nossa história</Button>
             </div>
             <div className="w-full">
-                <img src="/images/about_interior.png" alt="Interior da Ótica Gracinha" className="rounded-lg shadow-lg w-full h-auto mt-6 md:mt-0" loading="lazy" />
+              <img src="/images/about_interior.png" alt="Interior da Ótica Gracinha" className="rounded-lg shadow-lg w-full h-auto mt-6 md:mt-0" loading="lazy" />
             </div>
           </div>
         </section>
 
         {/* Location Section */}
         <section id="localizacao" className="py-16 sm:py-24">
-            <div className="container mx-auto text-center">
-                <h2 className={`${displayFont.className} text-4xl font-bold`}>Visite nossa loja</h2>
-                <p className="mt-2 text-foreground/80">Estamos esperando por você no coração de Lagoa Nova.</p>
-                <div className="mt-8 rounded-lg overflow-hidden shadow-lg">
-                  <iframe
-                    src={"https://www.google.com/maps?q=Lagoa%20Nova%20RN&output=embed"}
-                    width="100%"
-                    height="350"
-                    style={{ border:0 }}
-                    allowFullScreen={true}
-                    loading="lazy"
-                  ></iframe>
-                </div>
+          <div className="container mx-auto text-center">
+            <h2 className={`${displayFont.className} text-4xl font-bold`}>Visite nossa loja</h2>
+            <p className="mt-2 text-foreground/80">Estamos esperando por você no coração de Lagoa Nova.</p>
+            <div className="mt-8 rounded-lg overflow-hidden shadow-lg">
+              <iframe
+                src={"https://www.google.com/maps?q=Lagoa%20Nova%20RN&output=embed"}
+                width="100%"
+                height="350"
+                style={{ border: 0 }}
+                allowFullScreen={true}
+                loading="lazy"
+              ></iframe>
             </div>
+          </div>
         </section>
       </main>
 
       <footer className="bg-foreground text-background py-12">
         <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
-            <div>
-                <h3 className={`${displayFont.className} text-2xl font-semibold`}>Ótica Gracinha</h3>
-                <p className="text-background/70 mt-2">Muito além dos olhos desde 1988.</p>
-            </div>
-            <div>
-                <h4 className="font-semibold text-lg">Endereço</h4>
-                <p className="text-background/70 mt-2">Rua Principal, 123</p>
-                <p className="text-background/70">Centro, Lagoa Nova - RN</p>
-            </div>
-            <div>
-                <h4 className="font-semibold text-lg">Contato</h4>
-                <p className="text-background/70 mt-2"> (84) 99999-9999</p>
-                <p className="text-background/70">contato@oticagracinha.com.br</p>
-            </div>
+          <div>
+            <h3 className={`${displayFont.className} text-2xl font-semibold`}>Ótica Gracinha</h3>
+            <p className="text-background/70 mt-2">Muito além dos olhos desde 1988.</p>
+          </div>
+          <div>
+            <h4 className="font-semibold text-lg">Endereço</h4>
+            <p className="text-background/70 mt-2">Rua Principal, 123</p>
+            <p className="text-background/70">Centro, Lagoa Nova - RN</p>
+          </div>
+          <div>
+            <h4 className="font-semibold text-lg">Contato</h4>
+            <p className="text-background/70 mt-2"> (84) 99999-9999</p>
+            <p className="text-background/70">contato@oticagracinha.com.br</p>
+          </div>
         </div>
         <div className="container mx-auto mt-8 border-t border-background/20 pt-6 text-center text-background/60">
-            <p>&copy; {new Date().getFullYear()} Ótica Gracinha. Todos os direitos reservados.</p>
+          <p>&copy; {new Date().getFullYear()} Ótica Gracinha. Todos os direitos reservados.</p>
         </div>
       </footer>
     </div>
