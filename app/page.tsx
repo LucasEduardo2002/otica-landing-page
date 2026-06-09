@@ -297,7 +297,7 @@ export default function Home() {
               <div className="md:col-span-7 flex flex-col justify-center order-2 md:order-1">
                 <span className="text-secondary font-semibold uppercase tracking-wider text-sm">Alta Relojoaria</span>
                 <h2 className={`${displayFont.className} text-4xl sm:text-5xl font-bold mt-2 leading-tight text-foreground`}>
-                  Relógios Exclusivos na Loja Física
+                  Relógios Exclusivos
                 </h2>
                 <p className="mt-6 text-foreground/80 leading-relaxed text-base max-w-[60ch]">
                   Além do cuidado especializado com a sua saúde visual, a Ótica Gracinha oferece uma seleção primorosa de relógios de marcas renomadas em nossa loja física de Lagoa Nova.
