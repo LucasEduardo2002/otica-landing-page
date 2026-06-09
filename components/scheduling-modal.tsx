@@ -110,11 +110,11 @@ export function SchedulingModal({ isOpen, onClose }: SchedulingModalProps) {
       // Construct WhatsApp message
       const textMessage = `Olá, Ótica Gracinha! Gostaria de confirmar um agendamento de visita pelo site:
 
-👤 Nome: ${name.trim()}
-📱 WhatsApp: ${phone}
-👁️ Serviço: ${service}
-🕒 Período preferencial: ${period}
-${message.trim() ? `📝 Mensagem: ${message.trim()}` : ""}`;
+Nome: ${name.trim()}
+WhatsApp: ${phone}
+Serviço: ${service}
+Período preferencial: ${period}
+${message.trim() ? `Mensagem: ${message.trim()}` : ""}`;
 
       const whatsappUrl = `https://wa.me/5584988014439?text=${encodeURIComponent(textMessage)}`;
 
@@ -222,8 +222,8 @@ ${message.trim() ? `📝 Mensagem: ${message.trim()}` : ""}`;
                       type="button"
                       onClick={() => setService(item)}
                       className={`px-3 py-2.5 rounded-lg border text-xs font-medium text-left transition-all duration-200 cursor-pointer ${service === item
-                          ? "bg-primary/10 border-primary text-foreground shadow-sm font-semibold"
-                          : "bg-background/40 border-border text-foreground/80 hover:bg-muted"
+                        ? "bg-primary/10 border-primary text-foreground shadow-sm font-semibold"
+                        : "bg-background/40 border-border text-foreground/80 hover:bg-muted"
                         }`}
                       disabled={isSubmitting}
                     >
@@ -248,8 +248,8 @@ ${message.trim() ? `📝 Mensagem: ${message.trim()}` : ""}`;
                       type="button"
                       onClick={() => setPeriod(p.id)}
                       className={`px-3 py-2.5 rounded-lg border text-xs font-medium text-left transition-all duration-200 cursor-pointer ${period === p.id
-                          ? "bg-secondary/15 border-secondary text-foreground shadow-sm font-semibold"
-                          : "bg-background/40 border-border text-foreground/80 hover:bg-muted"
+                        ? "bg-secondary/15 border-secondary text-foreground shadow-sm font-semibold"
+                        : "bg-background/40 border-border text-foreground/80 hover:bg-muted"
                         }`}
                       disabled={isSubmitting}
                     >
