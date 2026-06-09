@@ -15,6 +15,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { useState } from "react";
+import { SchedulingModal } from "@/components/scheduling-modal";
 
 const displayFont = Cormorant_Garamond({
   subsets: ["latin"],
@@ -61,10 +62,10 @@ const productCards = [
   },
   {
     name: "Guess by Marciano",
-    note: "Linha de luxo com detalhes refinados, perfeita para mulheres que buscam elegância exclusiva e alta costura. Acabamento premium em acetato de alta qualidade e detalhes em metal polido.",
+    note: "Linha de luxo com detalhes refinados, perfeita para mulheres que buscam elegância exclusiva e alta moda. Acabamento premium em acetato de alta qualidade e detalhes em metal polido.",
     image: "/images/guess-by-marciano.png",
     category: "feminino",
-    features: ["Linha Premium", "Acetato de Alta Qualidade", "Alta Costura"]
+    features: ["Linha Premium", "Acetato de Alta Qualidade", "Alta Moda"]
   },
   {
     name: "Lança Perfume",
@@ -117,7 +118,7 @@ const productCards = [
   },
   {
     name: "Ray-Ban",
-    note: "O maior clássico do mundo. Estilo icônico e atemporal com lentes de alta proteção que nunca saem de moda. Casa dos formatos lendários Aviator, Wayfarer e Clubmaster.",
+    note: "O maior clássico do mundo. Estilo icônico e atemporal com lentes de alta proteção que nunca saem de moda. Casa dos formatos históricos Aviator, Wayfarer e Clubmaster.",
     image: "/images/ray-ban.png",
     category: "unissex",
     features: ["Modelos Ícones", "Lentes de Alta Proteção", "Opções Polarizadas"]
@@ -149,7 +150,7 @@ const testimonials = [
   },
 ];
 
-function Header() {
+function Header({ onOpenModal }: { onOpenModal: () => void }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
@@ -166,7 +167,7 @@ function Header() {
             </a>
           ))}
         </nav>
-        <Button className="hidden md:flex">Agende sua visita</Button>
+        <Button onClick={onOpenModal} className="hidden md:flex cursor-pointer">Agende sua visita</Button>
         <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="md:hidden">
           {isMenuOpen ? <X /> : <Menu />}
         </button>
@@ -179,7 +180,7 @@ function Header() {
                 {item.label}
               </a>
             ))}
-            <Button>Agende sua visita</Button>
+            <Button onClick={() => { onOpenModal(); setIsMenuOpen(false); }} className="cursor-pointer">Agende sua visita</Button>
           </nav>
         </div>
       )}
@@ -189,6 +190,7 @@ function Header() {
 
 export default function Home() {
   const [selectedCategory, setSelectedCategory] = useState<"todos" | "feminino" | "masculino" | "unissex">("todos");
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const filteredProducts = selectedCategory === "todos"
     ? productCards
@@ -196,7 +198,7 @@ export default function Home() {
 
   return (
     <div className={`${bodyFont.className} bg-background text-foreground`}>
-      <Header />
+      <Header onOpenModal={() => setIsModalOpen(true)} />
 
       <main className="pt-16">
         {/* Hero Section */}
@@ -210,8 +212,10 @@ export default function Home() {
               Ótica Gracinha
             </h1>
             <p className="mt-4 text-lg sm:text-xl md:text-2xl">Muito além dos olhos.</p>
-            <Button size="lg" className="mt-8 bg-primary text-primary-foreground hover:bg-primary/90 px-6">
-              Descubra seu novo olhar <ArrowRight className="ml-2 h-5 w-5" />
+            <Button asChild size="lg" className="mt-8 bg-primary text-primary-foreground hover:bg-primary/90 px-6 cursor-pointer">
+              <a href="#modelos" className="flex items-center gap-2">
+                Descubra seu novo olhar <ArrowRight className="ml-2 h-5 w-5" />
+              </a>
             </Button>
           </div>
         </section>
@@ -310,7 +314,7 @@ export default function Home() {
                   Relógios Exclusivos
                 </h2>
                 <p className="mt-6 text-foreground/80 leading-relaxed text-base max-w-[60ch]">
-                  Além do cuidado especializado com a sua saúde visual, a Ótica Gracinha oferece uma seleção primorosa de relógios de marcas renomadas em nossa loja física de Lagoa Nova.
+                  Além do cuidado especializado com a sua saúde visual, a Ótica Gracinha oferece uma seleção primorosa de relógios de marcas renomadas em nossa loja.
                 </p>
                 <p className="mt-4 text-foreground/80 leading-relaxed text-base max-w-[60ch]">
                   Visite-nos para conhecer modelos masculinos e femininos de alta durabilidade e designs que variam do clássico ao esportivo. O acessório perfeito para complementar sua sofisticação diária.
@@ -430,6 +434,7 @@ export default function Home() {
           <p>&copy; {new Date().getFullYear()} Ótica Gracinha. Todos os direitos reservados.</p>
         </div>
       </footer>
+      <SchedulingModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </div>
   );
 }
