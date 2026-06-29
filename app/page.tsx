@@ -366,7 +366,7 @@ export default function Home() {
                           </div>
                           <div className="mt-6 pt-4 border-t border-border/40 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                             <a
-                              href={`https://wa.me/5584999999999?text=Olá! Gostaria de consultar os modelos disponíveis da marca ${product.name} na Ótica Gracinha.`}
+                              href={`https://wa.me/5584999191542?text=Olá! Gostaria de consultar os modelos disponíveis da marca ${product.name} na Ótica Gracinha.`}
                               target="_blank"
                               rel="noopener noreferrer"
                               className="inline-flex items-center text-sm font-medium text-secondary hover:text-secondary/80 transition-colors gap-1.5 group/link"
@@ -471,7 +471,7 @@ export default function Home() {
                         Ref: {imgName.split("-")[1].replace(".jpg", "")}
                       </div>
                       <a
-                        href={`https://wa.me/5584999999999?text=Olá! Gostaria de saber mais sobre a armação que a modelo está usando na foto ${imgName} da marca ${brandLabel} no Lookbook.`}
+                        href={`https://wa.me/5584999191542?text=Olá! Gostaria de saber mais sobre a armação que a modelo está usando na foto ${imgName} da marca ${brandLabel} no Lookbook.`}
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={(e) => e.stopPropagation()} // Prevent lightbox from opening when clicking the link
@@ -531,7 +531,7 @@ export default function Home() {
                 <div className="mt-8 flex flex-wrap gap-4">
                   <Button asChild size="lg" className="bg-secondary text-secondary-foreground hover:bg-secondary/90 transition-all shadow-md cursor-pointer">
                     <a
-                      href="https://wa.me/5584999999999?text=Olá! Gostaria de saber mais sobre as opções de relógios disponíveis na Ótica Gracinha."
+                      href="https://wa.me/5584999191542?text=Olá! Gostaria de saber mais sobre as opções de relógios disponíveis na Ótica Gracinha."
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center gap-2"
@@ -618,7 +618,7 @@ export default function Home() {
             <p className="mt-2 text-foreground/80">Estamos esperando por você no coração de Lagoa Nova.</p>
             <div className="mt-8 rounded-lg overflow-hidden shadow-lg">
               <iframe
-                src={"https://www.google.com/maps?q=Lagoa%20Nova%20RN&output=embed"}
+                src={"https://www.google.com/maps?q=Av.+Dr.+Silvio+Bezerra+de+Melo,+15+-+Centro,+Lagoa+Nova+-+RN,+59390-000&output=embed"}
                 width="100%"
                 height="350"
                 style={{ border: 0 }}
@@ -638,12 +638,12 @@ export default function Home() {
           </div>
           <div>
             <h4 className="font-semibold text-lg">Endereço</h4>
-            <p className="text-background/70 mt-2">Rua Principal, 123</p>
-            <p className="text-background/70">Centro, Lagoa Nova - RN</p>
+            <p className="text-background/70 mt-2">Av. Dr. Silvio Bezerra de Melo, 15</p>
+            <p className="text-background/70">Centro, Lagoa Nova - RN - 59390-000</p>
           </div>
           <div>
             <h4 className="font-semibold text-lg">Contato</h4>
-            <p className="text-background/70 mt-2"> (84) 99999-9999</p>
+            <p className="text-background/70 mt-2"> (84) 99919-1542</p>
             <p className="text-background/70">contato@oticagracinha.com.br</p>
           </div>
         </div>
@@ -683,7 +683,7 @@ export default function Home() {
               </p>
               <Button asChild size="lg" className="bg-secondary text-secondary-foreground hover:bg-secondary/90 transition-all shadow-md cursor-pointer">
                 <a
-                  href={`https://wa.me/5584999999999?text=Olá! Gostaria de mais informações sobre o modelo que vi no Lookbook: ${activeLightboxImg.substring(activeLightboxImg.lastIndexOf("/") + 1)}.`}
+                  href={`https://wa.me/5584999191542?text=Olá! Gostaria de mais informações sobre o modelo que vi no Lookbook: ${activeLightboxImg.substring(activeLightboxImg.lastIndexOf("/") + 1)}.`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2"

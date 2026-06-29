@@ -116,7 +116,7 @@ Serviço: ${service}
 Período preferencial: ${period}
 ${message.trim() ? `Mensagem: ${message.trim()}` : ""}`;
 
-      const whatsappUrl = `https://wa.me/5584988014439?text=${encodeURIComponent(textMessage)}`;
+      const whatsappUrl = `https://wa.me/5584999191542?text=${encodeURIComponent(textMessage)}`;
 
       // Open WhatsApp in new tab after a brief success animation
       setTimeout(() => {
