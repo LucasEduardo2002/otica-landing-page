@@ -349,8 +349,9 @@ export default function Home() {
                           <Image
                             src={product.image}
                             alt={product.name}
-                            width={400}
-                            height={300}
+                            width={800}
+                            height={600}
+                            quality={85}
                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                             loading="lazy"
                           />
@@ -455,8 +456,9 @@ export default function Home() {
                     <Image
                       src={imgPath}
                       alt={`Modelo vestindo ${brandLabel}`}
-                      width={300}
-                      height={400}
+                      width={600}
+                      height={800}
+                      quality={90}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       loading="lazy"
                     />
@@ -668,8 +670,7 @@ export default function Home() {
               <Image
                 src={activeLightboxImg}
                 alt="Visualização do lookbook"
-                width={800}
-                height={1000}
+                unoptimized
                 className="max-h-[70vh] max-w-full object-contain rounded-lg shadow-2xl"
                 priority
               />
