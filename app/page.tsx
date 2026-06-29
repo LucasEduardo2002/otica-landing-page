@@ -201,17 +201,51 @@ export default function Home() {
       <Header onOpenModal={() => setIsModalOpen(true)} />
 
       <main className="pt-16">
-        {/* Hero Section */}
-        <section
-          className="relative h-[50vh] sm:h-[60vh] md:h-[70vh] flex items-center justify-center text-center text-white"
-          style={{ backgroundImage: "url('/images/hero.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }}
-        >
-          <div className="absolute inset-0 bg-black/50" />
-          <div className="relative z-10 flex flex-col items-center">
-            <h1 className={`${displayFont.className} text-3xl sm:text-4xl md:text-6xl font-bold`}>
+        {/* Desktop Hero Section */}
+        <section className="hidden md:grid md:grid-cols-12 min-h-[70vh] bg-background overflow-hidden">
+          <div className="md:col-span-6 flex flex-col justify-center px-12 lg:px-20 py-16 text-left">
+            <span className="text-secondary font-semibold uppercase tracking-wider text-sm mb-3">
+              Tradição e Estilo desde 1988
+            </span>
+            <h1 className={`${displayFont.className} text-4xl lg:text-6xl font-bold text-foreground leading-tight`}>
               Ótica Gracinha
             </h1>
-            <p className="mt-4 text-lg sm:text-xl md:text-2xl">Muito além dos olhos.</p>
+            <p className="mt-6 text-lg lg:text-xl text-foreground/80 leading-relaxed max-w-[45ch]">
+              Muito além dos olhos. Encontre a armação perfeita que une sofisticação, conforto e a precisão que sua visão merece.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-4">
+              <Button asChild size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 cursor-pointer shadow-sm">
+                <a href="#modelos" className="flex items-center gap-2">
+                  Descubra seu novo olhar <ArrowRight className="ml-2 h-5 w-5" />
+                </a>
+              </Button>
+              <Button onClick={() => setIsModalOpen(true)} variant="outline" size="lg" className="border-border text-foreground hover:bg-accent/20 px-8 cursor-pointer">
+                Agende sua visita
+              </Button>
+            </div>
+          </div>
+          <div className="md:col-span-6 relative h-full min-h-[70vh]">
+            <img
+              src="/images/hero.jpg"
+              alt="Modelo elegante usando óculos de grau da Ótica Gracinha"
+              className="absolute inset-0 w-full h-full object-cover object-[center_20%]"
+            />
+            {/* Soft gradient overlay on desktop image for depth */}
+            <div className="absolute inset-0 bg-gradient-to-r from-background via-transparent to-transparent pointer-events-none w-24" />
+          </div>
+        </section>
+
+        {/* Mobile Hero Section */}
+        <section
+          className="relative h-[55vh] sm:h-[65vh] flex items-center justify-center text-center text-white md:hidden"
+          style={{ backgroundImage: "url('/images/hero.jpg')", backgroundSize: 'cover', backgroundPosition: 'center 20%' }}
+        >
+          <div className="absolute inset-0 bg-black/45" />
+          <div className="relative z-10 flex flex-col items-center px-4">
+            <h1 className={`${displayFont.className} text-3xl sm:text-4xl font-bold`}>
+              Ótica Gracinha
+            </h1>
+            <p className="mt-4 text-base sm:text-lg">Muito além dos olhos.</p>
             <Button asChild size="lg" className="mt-8 bg-primary text-primary-foreground hover:bg-primary/90 px-6 cursor-pointer">
               <a href="#modelos" className="flex items-center gap-2">
                 Descubra seu novo olhar <ArrowRight className="ml-2 h-5 w-5" />
