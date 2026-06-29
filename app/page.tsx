@@ -150,6 +150,47 @@ const testimonials = [
   },
 ];
 
+const brandKeys: Record<string, string> = {
+  "Lança Perfume": "lanca-perfume",
+  "Michael Kors": "michael-kors",
+  "Versace": "versace",
+  "Vogue": "vogue"
+};
+
+const brandLookbooks: Record<string, string[]> = {
+  "lanca-perfume": [
+    "43-IMG_3891.jpg", "44-IMG_3892.jpg", "45-IMG_3895.jpg", "46-IMG_3896.jpg",
+    "47-IMG_3897.jpg", "48-IMG_3898.jpg", "49-IMG_3899.jpg", "50-IMG_3900.jpg",
+    "51-IMG_3902.jpg", "52-IMG_3903.jpg", "53-IMG_3907.jpg"
+  ],
+  "michael-kors": [
+    "1-IMG_3830.jpg", "2-IMG_3834.jpg", "3-IMG_3835.jpg", "4-IMG_3836.jpg",
+    "5-IMG_3837.jpg", "6-IMG_3839.jpg", "7-IMG_3841.jpg", "8-IMG_3842.jpg",
+    "9-IMG_3844.jpg", "10-IMG_3848.jpg", "11-IMG_3850.jpg", "12-IMG_3851.jpg",
+    "13-IMG_3852.jpg", "14-IMG_3854.jpg", "15-IMG_3855.jpg", "16-IMG_3856.jpg",
+    "17-IMG_3857.jpg", "18-IMG_3859.jpg", "19-IMG_3860.jpg", "20-IMG_3861.jpg",
+    "21-IMG_3862.jpg", "22-IMG_3863.jpg"
+  ],
+  "versace": [
+    "23-IMG_3865.jpg", "24-IMG_3866.jpg", "25-IMG_3867.jpg", "26-IMG_3868.jpg",
+    "27-IMG_3871.jpg", "28-IMG_3872.jpg", "29-IMG_3873.jpg", "30-IMG_3874.jpg",
+    "31-IMG_3876.jpg", "32-IMG_3878.jpg", "33-IMG_3880.jpg", "34-IMG_3881.jpg",
+    "35-IMG_3882.jpg", "36-IMG_3883.jpg", "37-IMG_3884.jpg", "38-IMG_3885.jpg",
+    "39-IMG_3886.jpg", "40-IMG_3887.jpg", "41-IMG_3889.jpg", "42-IMG_3890.jpg"
+  ],
+  "vogue": [
+    "54-IMG_3908.jpg", "55-IMG_3909.jpg", "56-IMG_3910.jpg", "57-IMG_3912.jpg",
+    "58-IMG_3913.jpg", "59-IMG_3914.jpg", "60-IMG_3915.jpg", "61-IMG_3916.jpg",
+    "62-IMG_3917.jpg", "63-IMG_3918.jpg", "64-IMG_3920.jpg", "65-IMG_3921.jpg",
+    "66-IMG_3922.jpg", "67-IMG_3923.jpg", "68-IMG_3924.jpg", "69-IMG_3925.jpg",
+    "70-IMG_3926.jpg", "71-IMG_3927.jpg", "72-IMG_3928.jpg", "73-IMG_3929.jpg",
+    "74-IMG_3930.jpg", "75-IMG_3931.jpg", "76-IMG_3932.jpg", "77-IMG_3933.jpg",
+    "78-IMG_3934.jpg", "79-IMG_3935.jpg", "80-IMG_3937.jpg", "81-IMG_3938.jpg",
+    "82-IMG_3939.jpg", "83-IMG_3940.jpg", "84-IMG_3941.jpg", "85-IMG_3942.jpg",
+    "86-IMG_3943.jpg", "87-IMG_3944.jpg", "88-IMG_3945.jpg", "89-IMG_3946.jpg"
+  ]
+};
+
 function Header({ onOpenModal }: { onOpenModal: () => void }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -191,6 +232,9 @@ function Header({ onOpenModal }: { onOpenModal: () => void }) {
 export default function Home() {
   const [selectedCategory, setSelectedCategory] = useState<"todos" | "feminino" | "masculino" | "unissex">("todos");
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [activeLookbookBrand, setActiveLookbookBrand] = useState<"lanca-perfume" | "michael-kors" | "versace" | "vogue">("lanca-perfume");
+  const [visibleCount, setVisibleCount] = useState(8);
+  const [activeLightboxImg, setActiveLightboxImg] = useState<string | null>(null);
 
   const filteredProducts = selectedCategory === "todos"
     ? productCards
@@ -315,16 +359,28 @@ export default function Home() {
                             <h4 className={`${displayFont.className} text-2xl font-semibold text-foreground group-hover:text-secondary transition-colors`}>{product.name}</h4>
                             <p className="text-foreground/75 mt-2 text-sm leading-relaxed">{product.note}</p>
                           </div>
-                          <div className="mt-6 pt-4 border-t border-border/40">
+                          <div className="mt-6 pt-4 border-t border-border/40 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                             <a
                               href={`https://wa.me/5584999999999?text=Olá! Gostaria de consultar os modelos disponíveis da marca ${product.name} na Ótica Gracinha.`}
                               target="_blank"
                               rel="noopener noreferrer"
                               className="inline-flex items-center text-sm font-medium text-secondary hover:text-secondary/80 transition-colors gap-1.5 group/link"
                             >
-                              Consultar modelos no WhatsApp
+                              Consultar WhatsApp
                               <MessageCircle className="h-4 w-4 transition-transform group-hover/link:translate-x-1" />
                             </a>
+                            {brandKeys[product.name] && (
+                              <button
+                                onClick={() => {
+                                  setActiveLookbookBrand(brandKeys[product.name] as any);
+                                  document.getElementById("lookbook")?.scrollIntoView({ behavior: "smooth" });
+                                }}
+                                className="inline-flex items-center text-sm font-medium text-primary hover:text-primary/80 transition-colors gap-1.5 cursor-pointer"
+                              >
+                                Ver Lookbook
+                                <Sparkles className="h-4 w-4 animate-pulse" />
+                              </button>
+                            )}
                           </div>
                         </div>
                       </CardContent>
@@ -335,6 +391,117 @@ export default function Home() {
               <CarouselPrevious className="ml-12" />
               <CarouselNext className="mr-12" />
             </Carousel>
+          </div>
+        </section>
+
+        {/* Lookbook / Galeria de Modelos Section */}
+        <section id="lookbook" className="py-16 sm:py-24 bg-background">
+          <div className="container mx-auto px-4 sm:px-6">
+            <div className="text-center max-w-3xl mx-auto">
+              <span className="text-secondary font-semibold uppercase tracking-wider text-sm">Editorial de Moda</span>
+              <h2 className={`${displayFont.className} text-4xl sm:text-5xl font-bold mt-2 text-foreground`}>
+                Galeria de Estilos
+              </h2>
+              <p className="mt-4 text-foreground/80 leading-relaxed text-base">
+                Explore o lookbook das nossas marcas de luxo. Veja como nossas armações vestem no rosto e encontre a inspiração perfeita para o seu visual.
+              </p>
+            </div>
+
+            {/* Brand tabs selector */}
+            <div className="flex flex-wrap justify-center gap-2 mt-10 md:gap-4 border-b border-border/40 pb-6">
+              {Object.entries(brandLookbooks).map(([key, value]) => {
+                const label = key === "lanca-perfume" ? "Lança Perfume"
+                            : key === "michael-kors" ? "Michael Kors"
+                            : key === "versace" ? "Versace"
+                            : "Vogue";
+                return (
+                  <button
+                    key={key}
+                    onClick={() => {
+                      setActiveLookbookBrand(key as any);
+                      setVisibleCount(8); // Reset visible count when switching brand
+                    }}
+                    className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 cursor-pointer ${
+                      activeLookbookBrand === key
+                        ? "bg-primary text-primary-foreground shadow-md scale-105"
+                        : "bg-card border border-border text-foreground hover:bg-accent/20"
+                    }`}
+                  >
+                    {label} ({value.length})
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Images Grid */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 mt-12">
+              {brandLookbooks[activeLookbookBrand].slice(0, visibleCount).map((imgName, index) => {
+                const imgPath = `/images/${activeLookbookBrand}/${imgName}`;
+                const brandLabel = activeLookbookBrand === "lanca-perfume" ? "Lança Perfume"
+                                 : activeLookbookBrand === "michael-kors" ? "Michael Kors"
+                                 : activeLookbookBrand === "versace" ? "Versace"
+                                 : "Vogue";
+                
+                return (
+                  <div
+                    key={index}
+                    className="relative overflow-hidden rounded-xl aspect-[3/4] group border border-border/40 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer"
+                    onClick={() => setActiveLightboxImg(imgPath)}
+                  >
+                    <img
+                      src={imgPath}
+                      alt={`Modelo vestindo ${brandLabel}`}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
+                    />
+                    {/* Hover overlay with action */}
+                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                      <div className="text-white text-xs font-medium tracking-wide uppercase opacity-90 mb-1">
+                        {brandLabel}
+                      </div>
+                      <div className="text-white text-[10px] opacity-75 mb-3 font-mono">
+                        Ref: {imgName.split("-")[1].replace(".jpg", "")}
+                      </div>
+                      <a
+                        href={`https://wa.me/5584999999999?text=Olá! Gostaria de saber mais sobre a armação que a modelo está usando na foto ${imgName} da marca ${brandLabel} no Lookbook.`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()} // Prevent lightbox from opening when clicking the link
+                        className="w-full py-2 bg-secondary text-secondary-foreground text-center rounded-lg text-xs font-semibold hover:bg-secondary/90 transition-all flex items-center justify-center gap-1.5"
+                      >
+                        <MessageCircle className="h-3.5 w-3.5" />
+                        Perguntar no WhatsApp
+                      </a>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Load More Button */}
+            {brandLookbooks[activeLookbookBrand].length > visibleCount && (
+              <div className="flex justify-center mt-12">
+                <Button
+                  onClick={() => setVisibleCount(prev => prev + 8)}
+                  variant="outline"
+                  className="border-border text-foreground hover:bg-accent/20 px-8 cursor-pointer"
+                >
+                  Ver mais fotos
+                </Button>
+              </div>
+            )}
+            
+            {visibleCount > 8 && brandLookbooks[activeLookbookBrand].length <= visibleCount && (
+              <div className="flex justify-center mt-12">
+                <Button
+                  onClick={() => setVisibleCount(8)}
+                  variant="outline"
+                  className="border-border text-foreground hover:bg-accent/20 px-8 cursor-pointer"
+                >
+                  Mostrar menos
+                </Button>
+              </div>
+            )}
           </div>
         </section>
 
@@ -469,6 +636,48 @@ export default function Home() {
         </div>
       </footer>
       <SchedulingModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+
+      {/* Lightbox Modal */}
+      {activeLightboxImg && (
+        <div
+          className="fixed inset-0 z-50 bg-black/95 backdrop-blur-sm flex items-center justify-center p-4 animate-in fade-in duration-200"
+          onClick={() => setActiveLightboxImg(null)}
+        >
+          <div className="relative max-w-4xl w-full h-[85vh] flex flex-col items-center justify-center" onClick={(e) => e.stopPropagation()}>
+            <button
+              onClick={() => setActiveLightboxImg(null)}
+              className="absolute -top-12 right-0 text-white hover:text-secondary transition-colors cursor-pointer p-2 bg-white/10 rounded-full"
+            >
+              <X className="h-6 w-6" />
+            </button>
+            <div className="relative max-h-[70vh] w-full flex justify-center">
+              <img
+                src={activeLightboxImg}
+                alt="Visualização do lookbook"
+                className="max-h-[70vh] max-w-full object-contain rounded-lg shadow-2xl"
+              />
+            </div>
+            
+            {/* Action inside Lightbox */}
+            <div className="mt-6 text-center text-white">
+              <p className="text-sm opacity-85 mb-4">
+                Gostou deste modelo? Converse conosco no WhatsApp para consultar valores e disponibilidade.
+              </p>
+              <Button asChild size="lg" className="bg-secondary text-secondary-foreground hover:bg-secondary/90 transition-all shadow-md cursor-pointer">
+                <a
+                  href={`https://wa.me/5584999999999?text=Olá! Gostaria de mais informações sobre o modelo que vi no Lookbook: ${activeLightboxImg.substring(activeLightboxImg.lastIndexOf("/") + 1)}.`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2"
+                >
+                  <MessageCircle className="h-5 w-5" />
+                  Consultar sobre esta armação
+                </a>
+              </Button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
