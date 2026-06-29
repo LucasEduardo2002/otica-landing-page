@@ -269,10 +269,12 @@ export default function Home() {
             </div>
           </div>
           <div className="md:col-span-6 relative h-full min-h-[70vh]">
-            <img
+            <Image
               src="/images/hero.jpg"
               alt="Modelo elegante usando óculos de grau da Ótica Gracinha"
-              className="absolute inset-0 w-full h-full object-cover object-[center_20%]"
+              fill
+              priority
+              className="object-cover object-[center_20%]"
             />
             {/* Soft gradient overlay on desktop image for depth */}
             <div className="absolute inset-0 bg-gradient-to-r from-background via-transparent to-transparent pointer-events-none w-24" />
@@ -344,9 +346,11 @@ export default function Home() {
                     <Card className="overflow-hidden h-full flex flex-col group hover:shadow-lg transition-all duration-300 border-border/60">
                       <CardContent className="p-0 flex flex-col h-full">
                         <div className="overflow-hidden relative aspect-[4/3] w-full">
-                          <img
+                          <Image
                             src={product.image}
                             alt={product.name}
+                            width={400}
+                            height={300}
                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                             loading="lazy"
                           />
@@ -448,9 +452,11 @@ export default function Home() {
                     className="relative overflow-hidden rounded-xl aspect-[3/4] group border border-border/40 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer"
                     onClick={() => setActiveLightboxImg(imgPath)}
                   >
-                    <img
+                    <Image
                       src={imgPath}
                       alt={`Modelo vestindo ${brandLabel}`}
+                      width={300}
+                      height={400}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       loading="lazy"
                     />
@@ -536,13 +542,14 @@ export default function Home() {
               </div>
               <div className="md:col-span-5 order-1 md:order-2">
                 <div className="relative overflow-hidden rounded-2xl shadow-xl aspect-square group border border-border/50">
-                  <img
+                  <Image
                     src="/images/relogios-showcase.png"
                     alt="Relógios premium em exposição na Ótica Gracinha"
-                    className="w-full h-full object-cover group-hover:scale-103 transition-transform duration-500"
+                    fill
+                    className="object-cover group-hover:scale-103 transition-transform duration-500"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60 pointer-events-none" />
                 </div>
               </div>
             </div>
@@ -590,7 +597,14 @@ export default function Home() {
               <Button size="lg" className="mt-8">Conheça nossa história</Button>
             </div>
             <div className="w-full">
-              <img src="/images/about_interior.png" alt="Interior da Ótica Gracinha" className="rounded-lg shadow-lg w-full h-auto mt-6 md:mt-0" loading="lazy" />
+              <Image
+                src="/images/about_interior.png"
+                alt="Interior da Ótica Gracinha"
+                width={600}
+                height={400}
+                className="rounded-lg shadow-lg w-full h-auto mt-6 md:mt-0 object-cover"
+                loading="lazy"
+              />
             </div>
           </div>
         </section>
@@ -651,10 +665,13 @@ export default function Home() {
               <X className="h-6 w-6" />
             </button>
             <div className="relative max-h-[70vh] w-full flex justify-center">
-              <img
+              <Image
                 src={activeLightboxImg}
                 alt="Visualização do lookbook"
+                width={800}
+                height={1000}
                 className="max-h-[70vh] max-w-full object-contain rounded-lg shadow-2xl"
+                priority
               />
             </div>
             
