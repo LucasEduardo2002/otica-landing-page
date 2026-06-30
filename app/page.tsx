@@ -382,7 +382,7 @@ export default function Home() {
                                 }}
                                 className="inline-flex items-center text-sm font-medium text-primary hover:text-primary/80 transition-colors gap-1.5 cursor-pointer"
                               >
-                                Ver Lookbook
+                                Ver Galeria
                                 <Sparkles className="h-4 w-4 animate-pulse" />
                               </button>
                             )}
@@ -408,7 +408,7 @@ export default function Home() {
                 Galeria de Estilos
               </h2>
               <p className="mt-4 text-foreground/80 leading-relaxed text-base">
-                Explore o lookbook das nossas marcas de luxo. Veja como nossas armações vestem no rosto e encontre a inspiração perfeita para o seu visual.
+                Explore a galeria de estilos das nossas marcas de luxo. Veja como nossas armações vestem no rosto e encontre a inspiração perfeita para o seu visual.
               </p>
             </div>
 
@@ -471,7 +471,7 @@ export default function Home() {
                         Ref: {imgName.split("-")[1].replace(".jpg", "")}
                       </div>
                       <a
-                        href={`https://wa.me/5584999191542?text=Olá! Gostaria de saber mais sobre a armação que a modelo está usando na foto ${imgName} da marca ${brandLabel} no Lookbook.`}
+                        href={`https://wa.me/5584999191542?text=Olá! Gostaria de saber mais sobre a armação que a modelo está usando na foto ${imgName} da marca ${brandLabel} na Galeria.`}
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={(e) => e.stopPropagation()} // Prevent lightbox from opening when clicking the link
@@ -669,7 +669,7 @@ export default function Home() {
             <div className="relative max-h-[70vh] w-full flex justify-center">
               <Image
                 src={activeLightboxImg}
-                alt="Visualização do lookbook"
+                alt="Visualização da galeria"
                 unoptimized
                 className="max-h-[70vh] max-w-full object-contain rounded-lg shadow-2xl"
                 priority
@@ -683,7 +683,7 @@ export default function Home() {
               </p>
               <Button asChild size="lg" className="bg-secondary text-secondary-foreground hover:bg-secondary/90 transition-all shadow-md cursor-pointer">
                 <a
-                  href={`https://wa.me/5584999191542?text=Olá! Gostaria de mais informações sobre o modelo que vi no Lookbook: ${activeLightboxImg.substring(activeLightboxImg.lastIndexOf("/") + 1)}.`}
+                  href={`https://wa.me/5584999191542?text=Olá! Gostaria de mais informações sobre o modelo que vi na Galeria: ${activeLightboxImg.substring(activeLightboxImg.lastIndexOf("/") + 1)}.`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2"
