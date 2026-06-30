@@ -198,7 +198,7 @@ function Header({ onOpenModal }: { onOpenModal: () => void }) {
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm">
       <div className="container mx-auto flex items-center justify-between p-4">
         <a href="#" className="flex items-center gap-2">
-          <Image src={logoOtica} alt="Ótica Gracinha Logo" width={40} height={40} className="rounded-full" />
+          <Image src={logoOtica} alt="Ótica Gracinha Logo" width={56} height={56} className="object-contain" />
           <span className={`${displayFont.className} text-2xl font-bold text-foreground`}>Ótica Gracinha</span>
         </a>
         <nav className="hidden md:flex items-center gap-6">
@@ -244,7 +244,7 @@ export default function Home() {
     <div className={`${bodyFont.className} bg-background text-foreground`}>
       <Header onOpenModal={() => setIsModalOpen(true)} />
 
-      <main className="pt-16">
+      <main className="pt-20">
         {/* Desktop Hero Section */}
         <section className="hidden md:grid md:grid-cols-12 min-h-[70vh] bg-background overflow-hidden">
           <div className="md:col-span-6 flex flex-col justify-center px-12 lg:px-20 py-16 text-left">
@@ -283,10 +283,10 @@ export default function Home() {
 
         {/* Mobile Hero Section */}
         <section
-          className="relative h-[55vh] sm:h-[65vh] flex items-center justify-center text-center text-white md:hidden"
+          className="relative h-[65vh] sm:h-[75vh] flex items-center justify-center text-center text-white md:hidden"
           style={{ backgroundImage: "url('/images/hero.jpg')", backgroundSize: 'cover', backgroundPosition: 'center 20%' }}
         >
-          <div className="absolute inset-0 bg-black/45" />
+          <div className="absolute inset-0 bg-black/25" />
           <div className="relative z-10 flex flex-col items-center px-4">
             <h1 className={`${displayFont.className} text-3xl sm:text-4xl font-bold`}>
               Ótica Gracinha
@@ -644,7 +644,6 @@ export default function Home() {
           <div>
             <h4 className="font-semibold text-lg">Contato</h4>
             <p className="text-background/70 mt-2"> (84) 99919-1542</p>
-            <p className="text-background/70">contato@oticagracinha.com.br</p>
           </div>
         </div>
         <div className="container mx-auto mt-8 border-t border-background/20 pt-6 text-center text-background/60">
