@@ -474,8 +474,8 @@ export default function Home() {
                         </CarouselContent>
                         {/* Indicators / arrows for internal carousel */}
                         <div className="absolute inset-0 flex items-center justify-between p-2 opacity-0 group-hover/carousel:opacity-100 transition-opacity duration-300 pointer-events-none z-20">
-                          <CarouselPrevious className="relative translate-x-0 left-0 h-7 w-7 pointer-events-auto bg-black/50 hover:bg-black/75 border-none text-white hover:text-white" />
-                          <CarouselNext className="relative translate-x-0 right-0 h-7 w-7 pointer-events-auto bg-black/50 hover:bg-black/75 border-none text-white hover:text-white" />
+                          <CarouselPrevious className="!relative !left-auto !top-auto !translate-y-0 h-7 w-7 pointer-events-auto bg-black/50 hover:bg-black/75 border-none text-white hover:text-white" />
+                          <CarouselNext className="!relative !right-auto !top-auto !translate-y-0 h-7 w-7 pointer-events-auto bg-black/50 hover:bg-black/75 border-none text-white hover:text-white" />
                         </div>
                       </Carousel>
                     ) : (
