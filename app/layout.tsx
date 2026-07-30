@@ -5,8 +5,8 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Óticas Gracinha | Muito além dos olhos",
-  description: "Tradição e cuidado em Lagoa Nova. Encontre armações exclusivas e atendimento especializado.",
+  title: "Óticas Gracinha | Nova identidade visual",
+  description: "Coleções de óculos e relógios com a nova identidade da Ótica Gracinha em Lagoa Nova.",
 };
 
 export default function RootLayout({
