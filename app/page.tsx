@@ -473,7 +473,7 @@ export default function Home() {
                           ))}
                         </CarouselContent>
                         {/* Indicators / arrows for internal carousel */}
-                        <div className="absolute inset-0 flex items-center justify-between p-2 opacity-0 group-hover/carousel:opacity-100 transition-opacity duration-300 pointer-events-none">
+                        <div className="absolute inset-0 flex items-center justify-between p-2 opacity-0 group-hover/carousel:opacity-100 transition-opacity duration-300 pointer-events-none z-20">
                           <CarouselPrevious className="relative translate-x-0 left-0 h-7 w-7 pointer-events-auto bg-black/50 hover:bg-black/75 border-none text-white hover:text-white" />
                           <CarouselNext className="relative translate-x-0 right-0 h-7 w-7 pointer-events-auto bg-black/50 hover:bg-black/75 border-none text-white hover:text-white" />
                         </div>
@@ -493,7 +493,7 @@ export default function Home() {
                     )}
                     
                     {/* Hover overlay with action */}
-                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4 pointer-events-none">
+                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4 pointer-events-none z-10">
                       <div className="text-white text-xs font-medium tracking-wide uppercase opacity-90 mb-1">
                         {model.brand}
                       </div>
