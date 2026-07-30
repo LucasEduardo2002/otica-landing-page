@@ -191,6 +191,29 @@ const brandLookbooks: Record<string, string[]> = {
   ]
 };
 
+const watchesData = {
+  condor: [
+    { name: "Relógio Condor Casual", image: "/images/relogios/condor-01.jpg", ref: "CONDOR(1)" },
+    { name: "Relógio Condor Elegante", image: "/images/relogios/condor-02.jpg", ref: "CONDOR(2)" },
+    { name: "Relógio Condor Classic", image: "/images/relogios/condor-03.jpg", ref: "CONDOR" },
+  ],
+  technos: [
+    { name: "Relógio Technos Executive", image: "/images/relogios/technos-04.jpg", ref: "TECHNOS(1)" },
+    { name: "Relógio Technos Classic", image: "/images/relogios/technos-05.jpg", ref: "TECHNOS(2)" },
+    { name: "Relógio Technos Sport", image: "/images/relogios/technos-06.jpg", ref: "TECHNOS(3)" },
+    { name: "Relógio Technos Gold", image: "/images/relogios/technos-07.jpg", ref: "TECHNOS(4)" },
+    { name: "Relógio Technos Diamond", image: "/images/relogios/technos-08.jpg", ref: "TECHNOS(5)" },
+    { name: "Relógio Technos Legacy", image: "/images/relogios/technos-09.jpg", ref: "TECHNOS(6)" },
+    { name: "Relógio Technos Elegance", image: "/images/relogios/technos-10.jpg", ref: "TECHNOS(7)" },
+    { name: "Relógio Technos Slim", image: "/images/relogios/technos-11.jpg", ref: "TECHNOS(8)" },
+    { name: "Relógio Technos Chronograph", image: "/images/relogios/technos-12.jpg", ref: "TECHNOS(9)" },
+    { name: "Relógio Technos Casual", image: "/images/relogios/technos-13.jpg", ref: "TECHNOS(10)" },
+    { name: "Relógio Technos Automatic", image: "/images/relogios/technos-14.jpg", ref: "TECHNOS(11)" },
+    { name: "Relógio Technos Vintage", image: "/images/relogios/technos-15.jpg", ref: "TECHNOS(12)" },
+    { name: "Relógio Technos Unique", image: "/images/relogios/technos-16.jpg", ref: "TECHNOS" },
+  ],
+};
+
 function Header({ onOpenModal }: { onOpenModal: () => void }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -198,7 +221,7 @@ function Header({ onOpenModal }: { onOpenModal: () => void }) {
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm">
       <div className="container mx-auto flex items-center justify-between p-4">
         <a href="#" className="flex items-center gap-2">
-          <Image src={logoOtica} alt="Ótica Gracinha Logo" width={56} height={56} className="object-contain" />
+          <Image src={logoOtica} alt="Ótica Gracinha Logo" width={56} height={56} className="rounded-full object-cover" />
           <span className={`${displayFont.className} text-2xl font-bold text-foreground`}>Ótica Gracinha</span>
         </a>
         <nav className="hidden md:flex items-center gap-6">
@@ -234,11 +257,19 @@ export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [activeLookbookBrand, setActiveLookbookBrand] = useState<"lanca-perfume" | "michael-kors" | "versace" | "vogue">("lanca-perfume");
   const [visibleCount, setVisibleCount] = useState(8);
+  const [activeWatchBrand, setActiveWatchBrand] = useState<"todos" | "technos" | "condor">("todos");
+  const [visibleWatchesCount, setVisibleWatchesCount] = useState(8);
   const [activeLightboxImg, setActiveLightboxImg] = useState<string | null>(null);
 
   const filteredProducts = selectedCategory === "todos"
     ? productCards
     : productCards.filter((product) => product.category === selectedCategory);
+
+  const filteredWatches = activeWatchBrand === "todos"
+    ? [...watchesData.condor, ...watchesData.technos]
+    : activeWatchBrand === "technos"
+      ? watchesData.technos
+      : watchesData.condor;
 
   return (
     <div className={`${bodyFont.className} bg-background text-foreground`}>
@@ -555,6 +586,114 @@ export default function Home() {
                 </div>
               </div>
             </div>
+
+            {/* Galeria de Relógios */}
+            <div className="mt-16 pt-12 border-t border-border/40">
+              <div className="text-center max-w-3xl mx-auto">
+                <span className="text-secondary font-semibold uppercase tracking-wider text-sm">Coleção de Luxo</span>
+                <h3 className={`${displayFont.className} text-3xl sm:text-4xl font-bold mt-2 text-foreground`}>
+                  Galeria de Relógios
+                </h3>
+                <p className="mt-4 text-foreground/80 leading-relaxed text-base">
+                  Explore nossa variedade de relógios masculinos e femininos das renomadas marcas Technos e Condor. Encontre o design ideal para você e consulte a disponibilidade.
+                </p>
+              </div>
+
+              {/* Brand Tabs for Watches */}
+              <div className="flex flex-wrap justify-center gap-2 mt-10 md:gap-4 border-b border-border/40 pb-6">
+                {(["todos", "technos", "condor"] as const).map((brand) => {
+                  const label = brand === "todos" ? "Todos os Modelos"
+                              : brand === "technos" ? "Technos"
+                              : "Condor";
+                  const count = brand === "todos" ? (watchesData.condor.length + watchesData.technos.length)
+                              : brand === "technos" ? watchesData.technos.length
+                              : watchesData.condor.length;
+                  return (
+                    <button
+                      key={brand}
+                      onClick={() => {
+                        setActiveWatchBrand(brand);
+                        setVisibleWatchesCount(8);
+                      }}
+                      className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 cursor-pointer ${
+                        activeWatchBrand === brand
+                          ? "bg-primary text-primary-foreground shadow-md scale-105"
+                          : "bg-card border border-border text-foreground hover:bg-accent/20"
+                      }`}
+                    >
+                      {label} ({count})
+                    </button>
+                  );
+                })}
+              </div>
+
+              {/* Watches Grid */}
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 mt-12">
+                {filteredWatches.slice(0, visibleWatchesCount).map((watch, index) => {
+                  const brandLabel = watch.name.includes("Condor") ? "Condor" : "Technos";
+                  return (
+                    <div
+                      key={index}
+                      className="relative overflow-hidden rounded-xl aspect-[3/4] group border border-border/40 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer bg-card"
+                      onClick={() => setActiveLightboxImg(watch.image)}
+                    >
+                      <Image
+                        src={watch.image}
+                        alt={watch.name}
+                        width={600}
+                        height={800}
+                        quality={90}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        loading="lazy"
+                      />
+                      {/* Hover overlay with action */}
+                      <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                        <div className="text-white text-xs font-medium tracking-wide uppercase opacity-90 mb-1">
+                          {brandLabel}
+                        </div>
+                        <div className="text-white text-[10px] opacity-75 mb-3 font-mono">
+                          Ref: {watch.ref}
+                        </div>
+                        <a
+                          href={`https://wa.me/5584999191542?text=Olá! Gostaria de saber mais sobre o relógio ${brandLabel} (Ref: ${watch.ref}) que vi na galeria de relógios do site.`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={(e) => e.stopPropagation()} // Prevent lightbox from opening when clicking the link
+                          className="w-full py-2 bg-secondary text-secondary-foreground text-center rounded-lg text-xs font-semibold hover:bg-secondary/90 transition-all flex items-center justify-center gap-1.5"
+                        >
+                          <MessageCircle className="h-3.5 w-3.5" />
+                          Consultar no WhatsApp
+                        </a>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+
+              {/* Load More Button for Watches */}
+              {filteredWatches.length > visibleWatchesCount && (
+                <div className="flex justify-center mt-12">
+                  <Button
+                    onClick={() => setVisibleWatchesCount(prev => prev + 8)}
+                    variant="outline"
+                    className="border-border text-foreground hover:bg-accent/20 px-8 cursor-pointer"
+                  >
+                    Ver mais relógios
+                  </Button>
+                </div>
+              )}
+              {visibleWatchesCount > 8 && filteredWatches.length <= visibleWatchesCount && (
+                <div className="flex justify-center mt-12">
+                  <Button
+                    onClick={() => setVisibleWatchesCount(8)}
+                    variant="outline"
+                    className="border-border text-foreground hover:bg-accent/20 px-8 cursor-pointer"
+                  >
+                    Mostrar menos
+                  </Button>
+                </div>
+              )}
+            </div>
           </div>
         </section>
 
@@ -653,48 +792,62 @@ export default function Home() {
       <SchedulingModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
 
       {/* Lightbox Modal */}
-      {activeLightboxImg && (
-        <div
-          className="fixed inset-0 z-50 bg-black/95 backdrop-blur-sm flex items-center justify-center p-4 animate-in fade-in duration-200"
-          onClick={() => setActiveLightboxImg(null)}
-        >
-          <div className="relative max-w-4xl w-full h-[85vh] flex flex-col items-center justify-center" onClick={(e) => e.stopPropagation()}>
-            <button
-              onClick={() => setActiveLightboxImg(null)}
-              className="absolute -top-12 right-0 text-white hover:text-secondary transition-colors cursor-pointer p-2 bg-white/10 rounded-full"
-            >
-              <X className="h-6 w-6" />
-            </button>
-            <div className="relative max-h-[70vh] w-full flex justify-center">
-              <Image
-                src={activeLightboxImg}
-                alt="Visualização da galeria"
-                unoptimized
-                className="max-h-[70vh] max-w-full object-contain rounded-lg shadow-2xl"
-                priority
-              />
-            </div>
-            
-            {/* Action inside Lightbox */}
-            <div className="mt-6 text-center text-white">
-              <p className="text-sm opacity-85 mb-4">
-                Gostou deste modelo? Converse conosco no WhatsApp para consultar valores e disponibilidade.
-              </p>
-              <Button asChild size="lg" className="bg-secondary text-secondary-foreground hover:bg-secondary/90 transition-all shadow-md cursor-pointer">
-                <a
-                  href={`https://wa.me/5584999191542?text=Olá! Gostaria de mais informações sobre o modelo que vi na Galeria: ${activeLightboxImg.substring(activeLightboxImg.lastIndexOf("/") + 1)}.`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2"
-                >
-                  <MessageCircle className="h-5 w-5" />
-                  Consultar sobre esta armação
-                </a>
-              </Button>
+      {activeLightboxImg && (() => {
+        const isWatch = activeLightboxImg.includes("/relogios/");
+        const fileName = activeLightboxImg.substring(activeLightboxImg.lastIndexOf("/") + 1);
+        const brandLabel = fileName.startsWith("condor") ? "Condor" : "Technos";
+        
+        const waText = isWatch
+          ? `Olá! Gostaria de mais informações sobre o relógio da marca ${brandLabel} (Ref: ${fileName}) que vi na galeria do site.`
+          : `Olá! Gostaria de mais informações sobre o modelo que vi na Galeria: ${fileName}.`;
+        
+        const buttonText = isWatch
+          ? "Consultar sobre este relógio"
+          : "Consultar sobre esta armação";
+
+        return (
+          <div
+            className="fixed inset-0 z-50 bg-black/95 backdrop-blur-sm flex items-center justify-center p-4 animate-in fade-in duration-200"
+            onClick={() => setActiveLightboxImg(null)}
+          >
+            <div className="relative max-w-4xl w-full h-[85vh] flex flex-col items-center justify-center" onClick={(e) => e.stopPropagation()}>
+              <button
+                onClick={() => setActiveLightboxImg(null)}
+                className="absolute -top-12 right-0 text-white hover:text-secondary transition-colors cursor-pointer p-2 bg-white/10 rounded-full"
+              >
+                <X className="h-6 w-6" />
+              </button>
+              <div className="relative max-h-[70vh] w-full flex justify-center">
+                <Image
+                  src={activeLightboxImg}
+                  alt="Visualização da galeria"
+                  unoptimized
+                  className="max-h-[70vh] max-w-full object-contain rounded-lg shadow-2xl"
+                  priority
+                />
+              </div>
+              
+              {/* Action inside Lightbox */}
+              <div className="mt-6 text-center text-white">
+                <p className="text-sm opacity-85 mb-4">
+                  Gostou deste modelo? Converse conosco no WhatsApp para consultar valores e disponibilidade.
+                </p>
+                <Button asChild size="lg" className="bg-secondary text-secondary-foreground hover:bg-secondary/90 transition-all shadow-md cursor-pointer">
+                  <a
+                    href={`https://wa.me/5584999191542?text=${encodeURIComponent(waText)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2"
+                  >
+                    <MessageCircle className="h-5 w-5" />
+                    {buttonText}
+                  </a>
+                </Button>
+              </div>
             </div>
           </div>
-        </div>
-      )}
+        );
+      })()}
     </div>
   );
 }
