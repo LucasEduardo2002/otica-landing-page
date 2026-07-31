@@ -165,6 +165,25 @@ const watchesData = {
     { name: "Relógio Condor Casual", image: "/images/relogios/condor-01.jpg", ref: "CONDOR(1)" },
     { name: "Relógio Condor Elegante", image: "/images/relogios/condor-02.jpg", ref: "CONDOR(2)" },
     { name: "Relógio Condor Classic", image: "/images/relogios/condor-03.jpg", ref: "CONDOR" },
+    { name: "Relógio Condor C02035NCP_K4X", image: "/images/relogios/c02035ncp_k4x.jpg", ref: "C02035NCP_K4X" },
+    { name: "Relógio Condor CO2035NAR_K4K", image: "/images/relogios/co2035nar_k4k.jpg", ref: "CO2035NAR_K4K" },
+    { name: "Relógio Condor CO2035NBI_K4J", image: "/images/relogios/co2035nbi_k4j.jpg", ref: "CO2035NBI_K4J" },
+    { name: "Relógio Condor CO2035NIQ_K4J", image: "/images/relogios/co2035niq_k4j.jpg", ref: "CO2035NIQ_K4J" },
+    { name: "Relógio Condor CO2035NJQ_K4X(1)", image: "/images/relogios/co2035njq_k4x_1.jpg", ref: "CO2035NJQ_K4X(1)" },
+    { name: "Relógio Condor CO2035NJQ_K4X", image: "/images/relogios/co2035njq_k4x.jpg", ref: "CO2035NJQ_K4X" },
+    { name: "Relógio Condor CO2035NLJ_K4P", image: "/images/relogios/co2035nlj_k4p.jpg", ref: "CO2035NLJ_K4P" },
+    { name: "Relógio Condor CO2035NOK_K4J", image: "/images/relogios/co2035nok_k4j.jpg", ref: "CO2035NOK_K4J" },
+    { name: "Relógio Condor CO2035NUM_5X", image: "/images/relogios/co2035num_5x.jpg", ref: "CO2035NUM_5X" },
+    { name: "Relógio Condor CO2035NUS_5K(1)", image: "/images/relogios/co2035nus_5k_1.jpg", ref: "CO2035NUS_5K(1)" },
+    { name: "Relógio Condor CO2035NUS_5K", image: "/images/relogios/co2035nus_5k.jpg", ref: "CO2035NUS_5K" },
+    { name: "Relógio Condor CO2035NVP_5K(1)", image: "/images/relogios/co2035nvp_5k_1.jpg", ref: "CO2035NVP_5K(1)" },
+    { name: "Relógio Condor CO2035NVP_5K", image: "/images/relogios/co2035nvp_5k.jpg", ref: "CO2035NVP_5K" },
+    { name: "Relógio Condor CO2035NXR_K4K", image: "/images/relogios/co2035nxr_k4k.jpg", ref: "CO2035NXR_K4K" },
+    { name: "Relógio Condor CO2035NYU_5K", image: "/images/relogios/co2035nyu_5k.jpg", ref: "CO2035NYU_5K" },
+    { name: "Relógio Condor CO2035NZM_K4X", image: "/images/relogios/co2035nzm_k4x.jpg", ref: "CO2035NZM_K4X" },
+    { name: "Relógio Condor CO2035OAY_K4X", image: "/images/relogios/co2035oay_k4x.jpg", ref: "CO2035OAY_K4X" },
+    { name: "Relógio Condor COJHS512BAB_4D", image: "/images/relogios/cojhs512bab_4d.jpg", ref: "COJHS512BAB_4D" },
+    { name: "Relógio Condor COJHS512BAD_4K", image: "/images/relogios/cojhs512bad_4k.jpg", ref: "COJHS512BAD_4K" },
   ],
   technos: [
     { name: "Relógio Technos Executive", image: "/images/relogios/technos-04.jpg", ref: "TECHNOS(1)" },
@@ -180,6 +199,29 @@ const watchesData = {
     { name: "Relógio Technos Automatic", image: "/images/relogios/technos-14.jpg", ref: "TECHNOS(11)" },
     { name: "Relógio Technos Vintage", image: "/images/relogios/technos-15.jpg", ref: "TECHNOS(12)" },
     { name: "Relógio Technos Unique", image: "/images/relogios/technos-16.jpg", ref: "TECHNOS" },
+    { name: "Relógio Technos 1L22WM_1X", image: "/images/relogios/1l22wm_1x.jpg", ref: "1L22WM_1X" },
+    { name: "Relógio Technos 2015CEM_1X", image: "/images/relogios/2015cem_1x.jpg", ref: "2015CEM_1X" },
+    { name: "Relógio Technos 2025LVB_1X", image: "/images/relogios/2025lvb_1x.jpg", ref: "2025LVB_1X" },
+    { name: "Relógio Technos 2035 MTP_1X", image: "/images/relogios/2035_mtp_1x.jpg", ref: "2035 MTP_1X" },
+    { name: "Relógio Technos 2035MWJ_1X", image: "/images/relogios/2035mwj_1x.jpg", ref: "2035MWJ_1X" },
+    { name: "Relógio Technos 2035MXP_1D", image: "/images/relogios/2035mxp_1d.jpg", ref: "2035MXP_1D" },
+    { name: "Relógio Technos 2035NBP_1K", image: "/images/relogios/2035nbp_1k.jpg", ref: "2035NBP_1K" },
+    { name: "Relógio Technos 2035NCT_1P(1)", image: "/images/relogios/2035nct_1p_1.jpg", ref: "2035NCT_1P(1)" },
+    { name: "Relógio Technos 2035NCT_1P", image: "/images/relogios/2035nct_1p.jpg", ref: "2035NCT_1P" },
+    { name: "Relógio Technos 2035NET_1D", image: "/images/relogios/2035net_1d.jpg", ref: "2035NET_1D" },
+    { name: "Relógio Technos 2035NFD_1K", image: "/images/relogios/2035nfd_1k.jpg", ref: "2035NFD_1K" },
+    { name: "Relógio Technos 2036MQN_1X", image: "/images/relogios/2036mqn_1x.jpg", ref: "2036MQN_1X" },
+    { name: "Relógio Technos 2115KNV_1P", image: "/images/relogios/2115knv_1p.jpg", ref: "2115KNV_1P" },
+    { name: "Relógio Technos 2115LALS_0P", image: "/images/relogios/2115lals_0p.jpg", ref: "2115LALS_0P" },
+    { name: "Relógio Technos 2115LAQ_2M", image: "/images/relogios/2115laq_2m.jpg", ref: "2115LAQ_2M" },
+    { name: "Relógio Technos 2115MPN_4K", image: "/images/relogios/2115mpn_4k.jpg", ref: "2115MPN_4K" },
+    { name: "Relógio Technos 2115UAP_0X", image: "/images/relogios/2115uap_0x.jpg", ref: "2115UAP_0X" },
+    { name: "Relógio Technos 5Y0IP_4X", image: "/images/relogios/5y0ip_4x.jpg", ref: "5Y0IP_4X" },
+    { name: "Relógio Technos 5Y20IV_1X", image: "/images/relogios/5y20iv_1x.jpg", ref: "5Y20IV_1X" },
+    { name: "Relógio Technos GL22A0_1P", image: "/images/relogios/gl22a0_1p.jpg", ref: "GL22A0_1P" },
+    { name: "Relógio Technos GL22AA_1P", image: "/images/relogios/gl22aa_1p.jpg", ref: "GL22AA_1P" },
+    { name: "Relógio Technos GM12AG_1P", image: "/images/relogios/gm12ag_1p.jpg", ref: "GM12AG_1P" },
+    { name: "Relógio Technos L5Y20LX_1P", image: "/images/relogios/l5y20lx_1p.jpg", ref: "L5Y20LX_1P" },
   ],
 };
 
@@ -446,62 +488,33 @@ export default function Home() {
 
             {/* Images Grid */}
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 mt-12">
-              {activeModels.slice(0, visibleCount).map((model, index) => {
-                const hasMultiple = model.images.length > 1;
-                
+              {activeModels.slice(0, visibleCount).map((item, index) => {
                 return (
                   <div
                     key={index}
-                    className="relative overflow-hidden rounded-xl aspect-[3/4] group border border-border/40 shadow-sm hover:shadow-md transition-all duration-300 bg-card flex flex-col"
+                    className="relative overflow-hidden rounded-xl aspect-[3/4] group border border-border/40 shadow-sm hover:shadow-md transition-all duration-300 bg-card flex flex-col cursor-pointer"
+                    onClick={() => setActiveLightboxImg(item.image)}
                   >
-                    {hasMultiple ? (
-                      <Carousel className="w-full h-full relative group/carousel">
-                        <CarouselContent>
-                          {model.images.map((img, imgIdx) => (
-                            <CarouselItem key={imgIdx} className="relative aspect-[3/4] w-full cursor-pointer">
-                              <Image
-                                src={img}
-                                alt={`${model.brand} ${model.modelName}`}
-                                width={600}
-                                height={800}
-                                quality={90}
-                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                                loading="lazy"
-                                onClick={() => setActiveLightboxImg(img)}
-                              />
-                            </CarouselItem>
-                          ))}
-                        </CarouselContent>
-                        {/* Indicators / arrows for internal carousel */}
-                        <div className="absolute inset-0 flex items-center justify-between p-2 opacity-0 group-hover/carousel:opacity-100 transition-opacity duration-300 pointer-events-none z-20">
-                          <CarouselPrevious className="!relative !left-auto !top-auto !translate-y-0 h-7 w-7 pointer-events-auto bg-black/50 hover:bg-black/75 border-none text-white hover:text-white" />
-                          <CarouselNext className="!relative !right-auto !top-auto !translate-y-0 h-7 w-7 pointer-events-auto bg-black/50 hover:bg-black/75 border-none text-white hover:text-white" />
-                        </div>
-                      </Carousel>
-                    ) : (
-                      <div className="relative w-full h-full cursor-pointer" onClick={() => setActiveLightboxImg(model.images[0])}>
-                        <Image
-                          src={model.images[0]}
-                          alt={`${model.brand} ${model.modelName}`}
-                          width={600}
-                          height={800}
-                          quality={90}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                          loading="lazy"
-                        />
-                      </div>
-                    )}
+                    <Image
+                      src={item.image}
+                      alt={`${item.brand} ${item.modelName}`}
+                      width={600}
+                      height={800}
+                      quality={90}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
+                    />
                     
                     {/* Hover overlay with action */}
                     <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4 pointer-events-none z-10">
                       <div className="text-white text-xs font-medium tracking-wide uppercase opacity-90 mb-1">
-                        {model.brand}
+                        {item.brand}
                       </div>
                       <div className="text-white text-[10px] opacity-75 mb-3 font-mono">
-                        Ref: {model.modelName}
+                        Ref: {item.modelName}
                       </div>
                       <a
-                        href={`https://wa.me/5584999191542?text=Olá! Gostaria de saber mais sobre a armação da marca ${model.brand} (Ref: ${model.modelName}) que vi no site.`}
+                        href={`https://wa.me/5584999191542?text=Olá! Gostaria de saber mais sobre a armação da marca ${item.brand} (Ref: ${item.modelName}) que vi no site.`}
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={(e) => e.stopPropagation()} // Prevent lightbox from opening when clicking the link

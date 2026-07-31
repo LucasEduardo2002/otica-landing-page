@@ -1,0 +1,254 @@
+[
+  {
+    "brand": "technos",
+    "name": "Relógio Technos 1L22WM_1X",
+    "image": "/images/relogios/1l22wm_1x.jpg",
+    "ref": "1L22WM_1X"
+  },
+  {
+    "brand": "technos",
+    "name": "Relógio Technos 2015CEM_1X",
+    "image": "/images/relogios/2015cem_1x.jpg",
+    "ref": "2015CEM_1X"
+  },
+  {
+    "brand": "technos",
+    "name": "Relógio Technos 2025LVB_1X",
+    "image": "/images/relogios/2025lvb_1x.jpg",
+    "ref": "2025LVB_1X"
+  },
+  {
+    "brand": "technos",
+    "name": "Relógio Technos 2035 MTP_1X",
+    "image": "/images/relogios/2035_mtp_1x.jpg",
+    "ref": "2035 MTP_1X"
+  },
+  {
+    "brand": "technos",
+    "name": "Relógio Technos 2035MWJ_1X",
+    "image": "/images/relogios/2035mwj_1x.jpg",
+    "ref": "2035MWJ_1X"
+  },
+  {
+    "brand": "technos",
+    "name": "Relógio Technos 2035MXP_1D",
+    "image": "/images/relogios/2035mxp_1d.jpg",
+    "ref": "2035MXP_1D"
+  },
+  {
+    "brand": "technos",
+    "name": "Relógio Technos 2035NBP_1K",
+    "image": "/images/relogios/2035nbp_1k.jpg",
+    "ref": "2035NBP_1K"
+  },
+  {
+    "brand": "technos",
+    "name": "Relógio Technos 2035NCT_1P(1)",
+    "image": "/images/relogios/2035nct_1p_1.jpg",
+    "ref": "2035NCT_1P(1)"
+  },
+  {
+    "brand": "technos",
+    "name": "Relógio Technos 2035NCT_1P",
+    "image": "/images/relogios/2035nct_1p.jpg",
+    "ref": "2035NCT_1P"
+  },
+  {
+    "brand": "technos",
+    "name": "Relógio Technos 2035NET_1D",
+    "image": "/images/relogios/2035net_1d.jpg",
+    "ref": "2035NET_1D"
+  },
+  {
+    "brand": "technos",
+    "name": "Relógio Technos 2035NFD_1K",
+    "image": "/images/relogios/2035nfd_1k.jpg",
+    "ref": "2035NFD_1K"
+  },
+  {
+    "brand": "technos",
+    "name": "Relógio Technos 2036MQN_1X",
+    "image": "/images/relogios/2036mqn_1x.jpg",
+    "ref": "2036MQN_1X"
+  },
+  {
+    "brand": "technos",
+    "name": "Relógio Technos 2115KNV_1P",
+    "image": "/images/relogios/2115knv_1p.jpg",
+    "ref": "2115KNV_1P"
+  },
+  {
+    "brand": "technos",
+    "name": "Relógio Technos 2115LALS_0P",
+    "image": "/images/relogios/2115lals_0p.jpg",
+    "ref": "2115LALS_0P"
+  },
+  {
+    "brand": "technos",
+    "name": "Relógio Technos 2115LAQ_2M",
+    "image": "/images/relogios/2115laq_2m.jpg",
+    "ref": "2115LAQ_2M"
+  },
+  {
+    "brand": "technos",
+    "name": "Relógio Technos 2115MPN_4K",
+    "image": "/images/relogios/2115mpn_4k.jpg",
+    "ref": "2115MPN_4K"
+  },
+  {
+    "brand": "technos",
+    "name": "Relógio Technos 2115UAP_0X",
+    "image": "/images/relogios/2115uap_0x.jpg",
+    "ref": "2115UAP_0X"
+  },
+  {
+    "brand": "technos",
+    "name": "Relógio Technos 5Y0IP_4X",
+    "image": "/images/relogios/5y0ip_4x.jpg",
+    "ref": "5Y0IP_4X"
+  },
+  {
+    "brand": "technos",
+    "name": "Relógio Technos 5Y20IV_1X",
+    "image": "/images/relogios/5y20iv_1x.jpg",
+    "ref": "5Y20IV_1X"
+  },
+  {
+    "brand": "condor",
+    "name": "Relógio Condor C02035NCP_K4X",
+    "image": "/images/relogios/c02035ncp_k4x.jpg",
+    "ref": "C02035NCP_K4X"
+  },
+  {
+    "brand": "condor",
+    "name": "Relógio Condor CO2035NAR_K4K",
+    "image": "/images/relogios/co2035nar_k4k.jpg",
+    "ref": "CO2035NAR_K4K"
+  },
+  {
+    "brand": "condor",
+    "name": "Relógio Condor CO2035NBI_K4J",
+    "image": "/images/relogios/co2035nbi_k4j.jpg",
+    "ref": "CO2035NBI_K4J"
+  },
+  {
+    "brand": "condor",
+    "name": "Relógio Condor CO2035NIQ_K4J",
+    "image": "/images/relogios/co2035niq_k4j.jpg",
+    "ref": "CO2035NIQ_K4J"
+  },
+  {
+    "brand": "condor",
+    "name": "Relógio Condor CO2035NJQ_K4X(1)",
+    "image": "/images/relogios/co2035njq_k4x_1.jpg",
+    "ref": "CO2035NJQ_K4X(1)"
+  },
+  {
+    "brand": "condor",
+    "name": "Relógio Condor CO2035NJQ_K4X",
+    "image": "/images/relogios/co2035njq_k4x.jpg",
+    "ref": "CO2035NJQ_K4X"
+  },
+  {
+    "brand": "condor",
+    "name": "Relógio Condor CO2035NLJ_K4P",
+    "image": "/images/relogios/co2035nlj_k4p.jpg",
+    "ref": "CO2035NLJ_K4P"
+  },
+  {
+    "brand": "condor",
+    "name": "Relógio Condor CO2035NOK_K4J",
+    "image": "/images/relogios/co2035nok_k4j.jpg",
+    "ref": "CO2035NOK_K4J"
+  },
+  {
+    "brand": "condor",
+    "name": "Relógio Condor CO2035NUM_5X",
+    "image": "/images/relogios/co2035num_5x.jpg",
+    "ref": "CO2035NUM_5X"
+  },
+  {
+    "brand": "condor",
+    "name": "Relógio Condor CO2035NUS_5K(1)",
+    "image": "/images/relogios/co2035nus_5k_1.jpg",
+    "ref": "CO2035NUS_5K(1)"
+  },
+  {
+    "brand": "condor",
+    "name": "Relógio Condor CO2035NUS_5K",
+    "image": "/images/relogios/co2035nus_5k.jpg",
+    "ref": "CO2035NUS_5K"
+  },
+  {
+    "brand": "condor",
+    "name": "Relógio Condor CO2035NVP_5K(1)",
+    "image": "/images/relogios/co2035nvp_5k_1.jpg",
+    "ref": "CO2035NVP_5K(1)"
+  },
+  {
+    "brand": "condor",
+    "name": "Relógio Condor CO2035NVP_5K",
+    "image": "/images/relogios/co2035nvp_5k.jpg",
+    "ref": "CO2035NVP_5K"
+  },
+  {
+    "brand": "condor",
+    "name": "Relógio Condor CO2035NXR_K4K",
+    "image": "/images/relogios/co2035nxr_k4k.jpg",
+    "ref": "CO2035NXR_K4K"
+  },
+  {
+    "brand": "condor",
+    "name": "Relógio Condor CO2035NYU_5K",
+    "image": "/images/relogios/co2035nyu_5k.jpg",
+    "ref": "CO2035NYU_5K"
+  },
+  {
+    "brand": "condor",
+    "name": "Relógio Condor CO2035NZM_K4X",
+    "image": "/images/relogios/co2035nzm_k4x.jpg",
+    "ref": "CO2035NZM_K4X"
+  },
+  {
+    "brand": "condor",
+    "name": "Relógio Condor CO2035OAY_K4X",
+    "image": "/images/relogios/co2035oay_k4x.jpg",
+    "ref": "CO2035OAY_K4X"
+  },
+  {
+    "brand": "condor",
+    "name": "Relógio Condor COJHS512BAB_4D",
+    "image": "/images/relogios/cojhs512bab_4d.jpg",
+    "ref": "COJHS512BAB_4D"
+  },
+  {
+    "brand": "condor",
+    "name": "Relógio Condor COJHS512BAD_4K",
+    "image": "/images/relogios/cojhs512bad_4k.jpg",
+    "ref": "COJHS512BAD_4K"
+  },
+  {
+    "brand": "technos",
+    "name": "Relógio Technos GL22A0_1P",
+    "image": "/images/relogios/gl22a0_1p.jpg",
+    "ref": "GL22A0_1P"
+  },
+  {
+    "brand": "technos",
+    "name": "Relógio Technos GL22AA_1P",
+    "image": "/images/relogios/gl22aa_1p.jpg",
+    "ref": "GL22AA_1P"
+  },
+  {
+    "brand": "technos",
+    "name": "Relógio Technos GM12AG_1P",
+    "image": "/images/relogios/gm12ag_1p.jpg",
+    "ref": "GM12AG_1P"
+  },
+  {
+    "brand": "technos",
+    "name": "Relógio Technos L5Y20LX_1P",
+    "image": "/images/relogios/l5y20lx_1p.jpg",
+    "ref": "L5Y20LX_1P"
+  }
+]
