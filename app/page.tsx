@@ -386,7 +386,7 @@ export default function Home() {
                             width={800}
                             height={600}
                             quality={85}
-                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            className="w-full h-full object-contain p-6 group-hover:scale-105 transition-transform duration-500"
                             loading="lazy"
                           />
                           <span className="absolute top-3 right-3 text-xs font-semibold tracking-wider uppercase bg-background/95 backdrop-blur px-3 py-1.5 rounded-full shadow-sm text-foreground/90">
@@ -491,7 +491,7 @@ export default function Home() {
                       width={600}
                       height={800}
                       quality={90}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      className="w-full h-full object-contain p-3 group-hover:scale-105 transition-transform duration-500"
                       loading="lazy"
                     />
                     
@@ -644,7 +644,7 @@ export default function Home() {
                         width={600}
                         height={800}
                         quality={90}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        className="w-full h-full object-contain p-3 group-hover:scale-105 transition-transform duration-500"
                         loading="lazy"
                       />
                       {/* Hover overlay with action */}
