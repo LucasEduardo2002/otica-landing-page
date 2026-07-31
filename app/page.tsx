@@ -491,7 +491,7 @@ export default function Home() {
                       width={600}
                       height={800}
                       quality={90}
-                      className="w-full h-full object-contain p-3 group-hover:scale-105 transition-transform duration-500"
+                      className="w-full h-full object-contain scale-[1.18] group-hover:scale-[1.24] transition-transform duration-500"
                       loading="lazy"
                     />
                     
@@ -644,7 +644,7 @@ export default function Home() {
                         width={600}
                         height={800}
                         quality={90}
-                        className="w-full h-full object-contain p-3 group-hover:scale-105 transition-transform duration-500"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         loading="lazy"
                       />
                       {/* Hover overlay with action */}
