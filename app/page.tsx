@@ -118,6 +118,13 @@ const productCards = [
     features: ["Design Minimalista", "Estrutura Leve", "Sofisticação Discreta"]
   },
   {
+    name: "Reserva",
+    note: "O DNA criativo e autêntico da grife carioca traduzido em óculos de grau e de sol. Combina o estilo de vida urbano e descontraído da marca com o design clássico contemporâneo, oferecendo leveza, conforto e armações duráveis de alta qualidade.",
+    image: "/images/reserva.png",
+    category: "masculino",
+    features: ["DNA Carioca & Autêntico", "Estilo de Vida Urbano", "Leveza e Alta Resistência"]
+  },
+  {
     name: "Ray-Ban",
     note: "O maior clássico do mundo. Estilo icônico e atemporal com lentes de alta proteção que nunca saem de moda. Casa dos formatos históricos Aviator, Wayfarer e Clubmaster.",
     image: "/images/ray-ban.png",
