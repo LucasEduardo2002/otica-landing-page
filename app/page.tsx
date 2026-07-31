@@ -757,7 +757,7 @@ export default function Home() {
           </div>
           <div>
             <h4 className="font-semibold text-lg">Contato</h4>
-            <p className="text-background/70 mt-2"> (84) 99919-1542</p>
+            <p className="text-background/70 mt-2">WhatsApp: (84) 99919-1542</p>
           </div>
         </div>
         <div className="container mx-auto mt-8 border-t border-background/20 pt-6 text-center text-background/60">
