@@ -133,23 +133,6 @@ const categories = [
   { id: "unissex", label: "Unissex & Solar" },
 ] as const;
 
-const testimonials = [
-  {
-    quote: "Atendimento impecável e uma variedade incrível de armações. Encontrei os óculos perfeitos!",
-    name: "Maria S.",
-    location: "Lagoa Nova, RN",
-  },
-  {
-    quote: "A equipe é muito atenciosa e me ajudou a escolher a melhor lente para o meu grau. Recomendo!",
-    name: "João P.",
-    location: "Lagoa Nova, RN",
-  },
-  {
-    quote: "Qualidade e bom gosto definem a Ótica Gracinha. Meu óculos novo é um sucesso!",
-    name: "Ana C.",
-    location: "Lagoa Nova, RN",
-  },
-];
 
 const brandKeys: Record<string, string> = {
   "Lança Perfume": "lanca-perfume",
@@ -708,32 +691,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Testimonials Section */}
-        <section id="depoimentos" className="py-16 sm:py-24">
-          <div className="container mx-auto text-center">
-            <h2 className={`${displayFont.className} text-4xl font-bold`}>O que nossos clientes dizem</h2>
-            <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
-              {testimonials.map((testimonial, index) => (
-                <Card key={index}>
-                  <CardHeader>
-                    <div className="flex justify-center">
-                      <Star className="text-secondary" />
-                      <Star className="text-secondary" />
-                      <Star className="text-secondary" />
-                      <Star className="text-secondary" />
-                      <Star className="text-secondary" />
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="italic">"{testimonial.quote}"</p>
-                    <p className="font-semibold mt-4">{testimonial.name}</p>
-                    <p className="text-sm text-foreground/60">{testimonial.location}</p>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
 
         {/* About Section */}
         <section id="sobre" className="py-16 sm:py-24 bg-primary/5">
