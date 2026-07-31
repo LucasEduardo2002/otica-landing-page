@@ -482,7 +482,7 @@ export default function Home() {
                 return (
                   <div
                     key={index}
-                    className="relative overflow-hidden rounded-xl aspect-[3/4] group border border-border/40 shadow-sm hover:shadow-md transition-all duration-300 bg-card flex flex-col cursor-pointer"
+                    className="relative overflow-hidden rounded-xl aspect-[3/4] group border border-border/40 shadow-sm hover:shadow-md transition-all duration-300 bg-white flex flex-col cursor-pointer"
                     onClick={() => setActiveLightboxImg(item.image)}
                   >
                     <Image
@@ -491,7 +491,7 @@ export default function Home() {
                       width={600}
                       height={800}
                       quality={90}
-                      className="w-full h-full object-contain scale-[1.18] group-hover:scale-[1.24] transition-transform duration-500"
+                      className="w-full h-full object-contain scale-[1.35] group-hover:scale-[1.42] transition-transform duration-500"
                       loading="lazy"
                     />
                     
