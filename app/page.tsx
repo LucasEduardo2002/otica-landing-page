@@ -714,7 +714,7 @@ export default function Home() {
             </div>
             <div className="w-full">
               <Image
-                src="/images/about_interior.png"
+                src="/images/IMG_3286.JPEG"
                 alt="Interior da Ótica Gracinha"
                 width={600}
                 height={400}
@@ -732,7 +732,7 @@ export default function Home() {
             <p className="mt-2 text-foreground/80">Estamos esperando por você no coração de Lagoa Nova.</p>
             <div className="mt-8 rounded-lg overflow-hidden shadow-lg">
               <iframe
-                src={"https://www.google.com/maps?q=Av.+Dr.+Silvio+Bezerra+de+Melo,+15+-+Centro,+Lagoa+Nova+-+RN,+59390-000&output=embed"}
+                src="https://www.google.com/maps?q=%C3%93tica+Gracinha+Lagoa+Nova&output=embed"
                 width="100%"
                 height="350"
                 style={{ border: 0 }}
@@ -752,8 +752,16 @@ export default function Home() {
           </div>
           <div>
             <h4 className="font-semibold text-lg">Endereço</h4>
-            <p className="text-background/70 mt-2">Av. Dr. Silvio Bezerra de Melo, 15</p>
-            <p className="text-background/70">Centro, Lagoa Nova - RN - 59390-000</p>
+            <a
+              href="https://www.google.com/maps/place/%C3%93tica+Gracinha+Lagoa+Nova/@-6.0963441,-36.4680173,17z/data=!3m1!4b1!4m6!3m5!1s0x7b1cff2ac0da1d7:0x3c8489e41d212307!8m2!3d-6.0963441!4d-36.4680173!16s%2Fg%2F11rz1byhky!18m1!1e1?entry=ttu&g_ep=EgoyMDI2MDcyOS4wIKXMDSoASAFQAw%3D%3D"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-background/70 hover:text-secondary mt-2 block transition-colors"
+            >
+              Av. Dr. Silvio Bezerra de Melo, 15
+              <br />
+              Centro, Lagoa Nova - RN - 59390-000
+            </a>
           </div>
           <div>
             <h4 className="font-semibold text-lg">Contato</h4>
