@@ -710,7 +710,6 @@ export default function Home() {
               <p className="mt-4 text-foreground/80 max-w-[60ch] leading-relaxed">
                 Acreditamos que cada cliente é único. Por isso, nossa equipe de especialistas se dedica a encontrar a solução perfeita para sua visão e estilo, com um acervo de armações selecionadas das melhores marcas.
               </p>
-              <Button size="lg" className="mt-8">Conheça nossa história</Button>
             </div>
             <div className="w-full">
               <Image
