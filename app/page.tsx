@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { Cormorant_Garamond, Inter } from "next/font/google";
-import { ArrowRight, CalendarDays, Glasses, Heart, MapPin, Menu, MessageCircle, ShieldCheck, Sparkles, Star, X } from "lucide-react";
+import { ArrowRight, CalendarDays, Glasses, Heart, MapPin, Menu, MessageCircle, ShieldCheck, Sparkles, Star, Sun, X } from "lucide-react";
 import logoOtica from "../public/logo-otica.png";
 
 import { Button } from "@/components/ui/button";
@@ -17,6 +17,8 @@ import {
 import { useState } from "react";
 import { SchedulingModal } from "@/components/scheduling-modal";
 import glassesData from "./glasses_data.json";
+import sunglassesData from "./sunglasses_data.json";
+import { SunglassesCard, SunglassesModel } from "@/components/sunglasses-card";
 
 const displayFont = Cormorant_Garamond({
   subsets: ["latin"],
@@ -30,6 +32,7 @@ const bodyFont = Inter({
 
 const navigation = [
   { label: "Modelos", href: "#modelos" },
+  { label: "Óculos de Sol", href: "#solares" },
   { label: "Relógios", href: "#relogios" },
   { label: "Sobre Nós", href: "#sobre" },
   { label: "Localização", href: "#localizacao" },
@@ -258,6 +261,8 @@ export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [activeLookbookBrand, setActiveLookbookBrand] = useState<"lanca-perfume" | "michael-kors" | "rayban" | "reserva" | "versace" | "vogue">("lanca-perfume");
   const [visibleCount, setVisibleCount] = useState(8);
+  const [activeSunglassesBrand, setActiveSunglassesBrand] = useState<"todos" | "guess" | "versace" | "vogue">("todos");
+  const [visibleSunglassesCount, setVisibleSunglassesCount] = useState(8);
   const [activeWatchBrand, setActiveWatchBrand] = useState<"todos" | "technos" | "condor">("todos");
   const [visibleWatchesCount, setVisibleWatchesCount] = useState(8);
   const [activeLightboxImg, setActiveLightboxImg] = useState<string | null>(null);
@@ -265,6 +270,10 @@ export default function Home() {
   const filteredProducts = selectedCategory === "todos"
     ? productCards
     : productCards.filter((product) => product.category === selectedCategory);
+
+  const filteredSunglasses = (activeSunglassesBrand === "todos"
+    ? sunglassesData
+    : sunglassesData.filter((item) => item.brandKey === activeSunglassesBrand)) as unknown as SunglassesModel[];
 
   const filteredWatches = activeWatchBrand === "todos"
     ? [...watchesData.condor, ...watchesData.technos]
@@ -477,44 +486,62 @@ export default function Home() {
             </div>
 
             {/* Images Grid */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 mt-12">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-12">
               {activeModels.slice(0, visibleCount).map((item, index) => {
+                const waMessage = `Olá! Gostaria de consultar a disponibilidade da armação da marca ${item.brand} (Ref: ${item.modelName}) que vi no site.`;
                 return (
-                  <div
+                  <Card
                     key={index}
-                    className="relative overflow-hidden rounded-xl aspect-[3/4] group border border-border/40 shadow-sm hover:shadow-md transition-all duration-300 bg-white flex flex-col cursor-pointer"
-                    onClick={() => setActiveLightboxImg(item.image)}
+                    className="overflow-hidden h-full flex flex-col group hover:shadow-xl transition-all duration-300 border-border/60 bg-card rounded-2xl"
                   >
-                    <Image
-                      src={item.image}
-                      alt={`${item.brand} ${item.modelName}`}
-                      width={600}
-                      height={800}
-                      quality={90}
-                      className="w-full h-full object-contain scale-[1.35] group-hover:scale-[1.42] transition-transform duration-500"
-                      loading="lazy"
-                    />
-                    
-                    {/* Hover overlay with action */}
-                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4 pointer-events-none z-10">
-                      <div className="text-white text-xs font-medium tracking-wide uppercase opacity-90 mb-1">
-                        {item.brand}
-                      </div>
-                      <div className="text-white text-[10px] opacity-75 mb-3 font-mono">
-                        Ref: {item.modelName}
-                      </div>
-                      <a
-                        href={`https://wa.me/5584999191542?text=Olá! Gostaria de saber mais sobre a armação da marca ${item.brand} (Ref: ${item.modelName}) que vi no site.`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={(e) => e.stopPropagation()} // Prevent lightbox from opening when clicking the link
-                        className="w-full py-2 bg-secondary text-secondary-foreground text-center rounded-lg text-xs font-semibold hover:bg-secondary/90 transition-all flex items-center justify-center gap-1.5 pointer-events-auto"
+                    <CardContent className="p-0 flex flex-col h-full">
+                      {/* Image Container */}
+                      <div
+                        className="relative aspect-[4/3] w-full bg-white flex items-center justify-center cursor-pointer overflow-hidden select-none border-b border-border/30"
+                        onClick={() => setActiveLightboxImg(item.image)}
                       >
-                        <MessageCircle className="h-3.5 w-3.5" />
-                        Perguntar no WhatsApp
-                      </a>
-                    </div>
-                  </div>
+                        <div className="relative w-full h-full p-4 flex items-center justify-center">
+                          <Image
+                            src={item.image}
+                            alt={`${item.brand} - ${item.modelName}`}
+                            width={600}
+                            height={450}
+                            quality={90}
+                            className="w-full h-full object-contain p-2 group-hover:scale-105 transition-transform duration-500 ease-out"
+                            loading="lazy"
+                          />
+                        </div>
+                      </div>
+
+                      {/* Card Body Info */}
+                      <div className="p-5 flex-1 flex flex-col justify-between bg-card">
+                        <div>
+                          <h4
+                            className={`${displayFont.className} text-2xl font-bold text-foreground group-hover:text-secondary transition-colors`}
+                          >
+                            {item.brand}
+                          </h4>
+                          <p className="text-xs text-muted-foreground font-medium mt-0.5 tracking-wider">
+                            {item.modelName}
+                          </p>
+                        </div>
+
+                        {/* Action Button */}
+                        <div className="mt-4 pt-3 border-t border-border/40">
+                          <a
+                            href={`https://wa.me/5584999191542?text=${encodeURIComponent(waMessage)}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={(e) => e.stopPropagation()}
+                            className="w-full py-2.5 px-3 bg-secondary text-secondary-foreground hover:bg-secondary/90 transition-all rounded-xl text-xs font-semibold flex items-center justify-center gap-2 shadow-sm group/btn"
+                          >
+                            <MessageCircle className="h-4 w-4 transition-transform group-hover/btn:scale-110" />
+                            <span>Consultar no WhatsApp</span>
+                          </a>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
                 );
               })}
             </div>
@@ -527,7 +554,7 @@ export default function Home() {
                   variant="outline"
                   className="border-border text-foreground hover:bg-accent/20 px-8 cursor-pointer"
                 >
-                  Ver mais fotos
+                  Ver mais modelos
                 </Button>
               </div>
             )}
@@ -536,6 +563,89 @@ export default function Home() {
               <div className="flex justify-center mt-12">
                 <Button
                   onClick={() => setVisibleCount(8)}
+                  variant="outline"
+                  className="border-border text-foreground hover:bg-accent/20 px-8 cursor-pointer"
+                >
+                  Mostrar menos
+                </Button>
+              </div>
+            )}
+          </div>
+        </section>
+
+        {/* Sunglasses (Óculos de Sol) Section */}
+        <section id="solares" className="py-16 sm:py-24 bg-primary/5 border-t border-border/40">
+          <div className="container mx-auto px-4 sm:px-6">
+            <div className="text-center max-w-3xl mx-auto">
+              <span className="text-secondary font-semibold uppercase tracking-wider text-sm flex items-center justify-center gap-1.5">
+                <Sun className="h-4 w-4" /> Coleção Solar & Proteção UV
+              </span>
+              <h2 className={`${displayFont.className} text-4xl sm:text-5xl font-bold mt-2 text-foreground`}>
+                Óculos de Sol
+              </h2>
+              <p className="mt-4 text-foreground/80 leading-relaxed text-base">
+                Descubra nossa curadoria exclusiva de óculos solares das maiores grifes internacionais. Lentes de alta Qualidade, designs sofisticados e modelos com múltiplas fotos e ângulos para você escolher a opção ideal.
+              </p>
+            </div>
+
+            {/* Brand tabs selector for Sunglasses */}
+            <div className="flex flex-wrap justify-center gap-2 mt-10 md:gap-4 border-b border-border/40 pb-6">
+              {[
+                { key: "todos", label: "Todos os Solares" },
+                { key: "guess", label: "Guess" },
+                { key: "versace", label: "Versace" },
+                { key: "vogue", label: "Vogue" },
+              ].map((brandItem) => {
+                const count = brandItem.key === "todos"
+                  ? sunglassesData.length
+                  : sunglassesData.filter((item) => item.brandKey === brandItem.key).length;
+                return (
+                  <button
+                    key={brandItem.key}
+                    onClick={() => {
+                      setActiveSunglassesBrand(brandItem.key as any);
+                      setVisibleSunglassesCount(8); // Reset pagination on filter change
+                    }}
+                    className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 cursor-pointer ${
+                      activeSunglassesBrand === brandItem.key
+                        ? "bg-primary text-primary-foreground shadow-md scale-105"
+                        : "bg-card border border-border text-foreground hover:bg-accent/20"
+                    }`}
+                  >
+                    {brandItem.label} ({count})
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Sunglasses Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-12">
+              {filteredSunglasses.slice(0, visibleSunglassesCount).map((model) => (
+                <SunglassesCard
+                  key={model.id}
+                  model={model}
+                  onImageClick={(imgUrl) => setActiveLightboxImg(imgUrl)}
+                />
+              ))}
+            </div>
+
+            {/* Load More / Show Less for Sunglasses */}
+            {filteredSunglasses.length > visibleSunglassesCount && (
+              <div className="flex justify-center mt-12">
+                <Button
+                  onClick={() => setVisibleSunglassesCount((prev) => prev + 8)}
+                  variant="outline"
+                  className="border-border text-foreground hover:bg-accent/20 px-8 cursor-pointer"
+                >
+                  Ver mais modelos de sol
+                </Button>
+              </div>
+            )}
+
+            {visibleSunglassesCount > 8 && filteredSunglasses.length <= visibleSunglassesCount && (
+              <div className="flex justify-center mt-12">
+                <Button
+                  onClick={() => setVisibleSunglassesCount(8)}
                   variant="outline"
                   className="border-border text-foreground hover:bg-accent/20 px-8 cursor-pointer"
                 >
@@ -790,8 +900,10 @@ export default function Home() {
               <Image
                 src={activeLightboxImg}
                 alt="Visualização da galeria"
+                width={1200}
+                height={900}
                 unoptimized
-                className="max-h-[70vh] max-w-full object-contain rounded-lg shadow-2xl"
+                className="max-h-[70vh] max-w-full w-auto h-auto object-contain rounded-lg shadow-2xl"
                 priority
               />
             </div>
@@ -804,25 +916,36 @@ export default function Home() {
               <Button asChild size="lg" className="bg-secondary text-secondary-foreground hover:bg-secondary/90 transition-all shadow-md cursor-pointer">
                 {(() => {
                   const isWatch = activeLightboxImg.includes("/relogios/");
+                  const isSunglasses = activeLightboxImg.includes("/solares/");
                   const fileName = activeLightboxImg.substring(activeLightboxImg.lastIndexOf("/") + 1);
                   const cleanName = fileName.replace(/_\d+\.jpg$/, "").replace(/\.jpg$/, "");
                   
-                  const brand = activeLightboxImg.includes("/relogios/")
-                    ? (fileName.startsWith("condor") ? "Condor" : "Technos")
-                    : activeLightboxImg.includes("/colecao/lanca-perfume/") ? "Lança Perfume"
-                    : activeLightboxImg.includes("/colecao/michael-kors/") ? "Michael Kors"
-                    : activeLightboxImg.includes("/colecao/rayban/") ? "Ray-Ban"
-                    : activeLightboxImg.includes("/colecao/reserva/") ? "Reserva"
-                    : activeLightboxImg.includes("/colecao/versace/") ? "Versace"
-                    : activeLightboxImg.includes("/colecao/vogue/") ? "Vogue"
-                    : "";
+                  let brand = "";
+                  if (isWatch) {
+                    brand = fileName.startsWith("condor") ? "Condor" : "Technos";
+                  } else if (isSunglasses) {
+                    if (activeLightboxImg.includes("/solares/guess/")) brand = "Guess";
+                    else if (activeLightboxImg.includes("/solares/versace/")) brand = "Versace";
+                    else if (activeLightboxImg.includes("/solares/vogue/")) brand = "Vogue";
+                  } else {
+                    if (activeLightboxImg.includes("/colecao/lanca-perfume/")) brand = "Lança Perfume";
+                    else if (activeLightboxImg.includes("/colecao/michael-kors/")) brand = "Michael Kors";
+                    else if (activeLightboxImg.includes("/colecao/rayban/")) brand = "Ray-Ban";
+                    else if (activeLightboxImg.includes("/colecao/reserva/")) brand = "Reserva";
+                    else if (activeLightboxImg.includes("/colecao/versace/")) brand = "Versace";
+                    else if (activeLightboxImg.includes("/colecao/vogue/")) brand = "Vogue";
+                  }
 
-                  const textProduct = isWatch ? "relógio" : "modelo";
-                  const buttonLabel = isWatch ? "Consultar sobre este relógio" : "Consultar sobre esta armação";
+                  const textProduct = isWatch ? "relógio" : isSunglasses ? "óculos de sol" : "modelo";
+                  const buttonLabel = isWatch
+                    ? "Consultar sobre este relógio"
+                    : isSunglasses
+                    ? "Consultar sobre este óculos de sol"
+                    : "Consultar sobre esta armação";
                   
                   const waText = brand 
-                    ? `Olá! Gostaria de mais informações sobre o ${textProduct} da marca ${brand} (Ref: ${cleanName}) que vi no site.`
-                    : `Olá! Gostaria de mais informações sobre o modelo que vi na Galeria: ${fileName}.`;
+                    ? `Olá! Gostaria de mais informações sobre o ${textProduct} da marca ${brand} (Ref: ${cleanName.toUpperCase()}) que vi no site.`
+                    : `Olá! Gostaria de mais informações sobre o produto que vi no site: ${fileName}.`;
 
                   return (
                     <a
