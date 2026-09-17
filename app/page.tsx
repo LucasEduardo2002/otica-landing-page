@@ -292,7 +292,7 @@ export default function Home() {
         <section className="hidden md:grid md:grid-cols-12 min-h-[70vh] bg-background overflow-hidden">
           <div className="md:col-span-6 flex flex-col justify-center px-12 lg:px-20 py-16 text-left">
             <span className="text-secondary font-semibold uppercase tracking-wider text-sm mb-3">
-              Tradição e Estilo desde 1988
+              Tradição e Estilo desde 1996
             </span>
             <h1 className={`${displayFont.className} text-4xl lg:text-6xl font-bold text-foreground leading-tight`}>
               Ótica Gracinha
@@ -473,11 +473,10 @@ export default function Home() {
                       setActiveLookbookBrand(brandItem.key as any);
                       setVisibleCount(8); // Reset visible count when switching brand
                     }}
-                    className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 cursor-pointer ${
-                      activeLookbookBrand === brandItem.key
+                    className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 cursor-pointer ${activeLookbookBrand === brandItem.key
                         ? "bg-primary text-primary-foreground shadow-md scale-105"
                         : "bg-card border border-border text-foreground hover:bg-accent/20"
-                    }`}
+                      }`}
                   >
                     {brandItem.label} ({count})
                   </button>
@@ -606,11 +605,10 @@ export default function Home() {
                       setActiveSunglassesBrand(brandItem.key as any);
                       setVisibleSunglassesCount(8); // Reset pagination on filter change
                     }}
-                    className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 cursor-pointer ${
-                      activeSunglassesBrand === brandItem.key
+                    className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 cursor-pointer ${activeSunglassesBrand === brandItem.key
                         ? "bg-primary text-primary-foreground shadow-md scale-105"
                         : "bg-card border border-border text-foreground hover:bg-accent/20"
-                    }`}
+                      }`}
                   >
                     {brandItem.label} ({count})
                   </button>
@@ -728,8 +726,8 @@ export default function Home() {
                         setVisibleWatchesCount(8);
                       }}
                       className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 cursor-pointer ${activeWatchBrand === brand
-                          ? "bg-primary text-primary-foreground shadow-md scale-105"
-                          : "bg-card border border-border text-foreground hover:bg-accent/20"
+                        ? "bg-primary text-primary-foreground shadow-md scale-105"
+                        : "bg-card border border-border text-foreground hover:bg-accent/20"
                         }`}
                     >
                       {label} ({count})
@@ -857,7 +855,7 @@ export default function Home() {
         <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
           <div>
             <h3 className={`${displayFont.className} text-2xl font-semibold`}>Ótica Gracinha</h3>
-            <p className="text-background/70 mt-2">Muito além dos olhos desde 1988.</p>
+            <p className="text-background/70 mt-2">Muito além dos olhos desde 1996.</p>
           </div>
           <div>
             <h4 className="font-semibold text-lg">Endereço</h4>
@@ -919,7 +917,7 @@ export default function Home() {
                   const isSunglasses = activeLightboxImg.includes("/solares/");
                   const fileName = activeLightboxImg.substring(activeLightboxImg.lastIndexOf("/") + 1);
                   const cleanName = fileName.replace(/_\d+\.jpg$/, "").replace(/\.jpg$/, "");
-                  
+
                   let brand = "";
                   if (isWatch) {
                     brand = fileName.startsWith("condor") ? "Condor" : "Technos";
@@ -940,10 +938,10 @@ export default function Home() {
                   const buttonLabel = isWatch
                     ? "Consultar sobre este relógio"
                     : isSunglasses
-                    ? "Consultar sobre este óculos de sol"
-                    : "Consultar sobre esta armação";
-                  
-                  const waText = brand 
+                      ? "Consultar sobre este óculos de sol"
+                      : "Consultar sobre esta armação";
+
+                  const waText = brand
                     ? `Olá! Gostaria de mais informações sobre o ${textProduct} da marca ${brand} (Ref: ${cleanName.toUpperCase()}) que vi no site.`
                     : `Olá! Gostaria de mais informações sobre o produto que vi no site: ${fileName}.`;
 
