@@ -6,7 +6,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL || "https://otica-gracinha.vercel.app"
+    process.env.NEXT_PUBLIC_SITE_URL || "https://www.oticagracinhaln.com.br"
   ),
   title: "Óticas Gracinha | Muito além dos olhos",
   description:
