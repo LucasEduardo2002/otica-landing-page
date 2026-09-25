@@ -261,7 +261,7 @@ export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [activeLookbookBrand, setActiveLookbookBrand] = useState<"lanca-perfume" | "michael-kors" | "rayban" | "reserva" | "versace" | "vogue">("lanca-perfume");
   const [visibleCount, setVisibleCount] = useState(8);
-  const [activeSunglassesBrand, setActiveSunglassesBrand] = useState<"todos" | "guess" | "versace" | "vogue">("todos");
+  const [activeSunglassesBrand, setActiveSunglassesBrand] = useState<"todos" | "rayban" | "guess" | "versace" | "vogue">("todos");
   const [visibleSunglassesCount, setVisibleSunglassesCount] = useState(8);
   const [activeWatchBrand, setActiveWatchBrand] = useState<"todos" | "technos" | "condor">("todos");
   const [visibleWatchesCount, setVisibleWatchesCount] = useState(8);
@@ -591,6 +591,7 @@ export default function Home() {
             <div className="flex flex-wrap justify-center gap-2 mt-10 md:gap-4 border-b border-border/40 pb-6">
               {[
                 { key: "todos", label: "Todos os Solares" },
+                { key: "rayban", label: "Ray-Ban" },
                 { key: "guess", label: "Guess" },
                 { key: "versace", label: "Versace" },
                 { key: "vogue", label: "Vogue" },
@@ -922,7 +923,8 @@ export default function Home() {
                   if (isWatch) {
                     brand = fileName.startsWith("condor") ? "Condor" : "Technos";
                   } else if (isSunglasses) {
-                    if (activeLightboxImg.includes("/solares/guess/")) brand = "Guess";
+                    if (activeLightboxImg.includes("/solares/rayban/")) brand = "Ray-Ban";
+                    else if (activeLightboxImg.includes("/solares/guess/")) brand = "Guess";
                     else if (activeLightboxImg.includes("/solares/versace/")) brand = "Versace";
                     else if (activeLightboxImg.includes("/solares/vogue/")) brand = "Vogue";
                   } else {

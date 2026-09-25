@@ -1,5 +1,189 @@
 [
   {
+    "id": "rayban-asap-rb-3929",
+    "brand": "Ray-Ban",
+    "brandKey": "rayban",
+    "modelName": "A$AP RB 3929",
+    "category": "unissex",
+    "tag": "Lentes Polarizadas & UV400",
+    "description": "Modelo solar Ray-Ban com design icônico, lentes de alta proteção contra raios solares e acabamento premium.",
+    "images": [
+      "/images/solares/rayban/asap_rb_3929_0.jpg",
+      "/images/solares/rayban/asap_rb_3929_1.jpg"
+    ]
+  },
+  {
+    "id": "rayban-asap-rb-3931",
+    "brand": "Ray-Ban",
+    "brandKey": "rayban",
+    "modelName": "A$AP RB 3931",
+    "category": "unissex",
+    "tag": "Proteção UV400",
+    "description": "Modelo solar Ray-Ban com design icônico, lentes de alta proteção contra raios solares e acabamento premium.",
+    "images": [
+      "/images/solares/rayban/asap_rb_3931_0.jpg",
+      "/images/solares/rayban/asap_rb_3931_1.jpg"
+    ]
+  },
+  {
+    "id": "rayban-aviator-rb-3025-l",
+    "brand": "Ray-Ban",
+    "brandKey": "rayban",
+    "modelName": "AVIATOR RB 3025-L",
+    "category": "unissex",
+    "tag": "Ícone Mundial & UV400",
+    "description": "Modelo solar Ray-Ban com design icônico, lentes de alta proteção contra raios solares e acabamento premium.",
+    "images": [
+      "/images/solares/rayban/aviator_rb_3025_l_0.jpg",
+      "/images/solares/rayban/aviator_rb_3025_l_1.jpg"
+    ]
+  },
+  {
+    "id": "rayban-clubmaster-rb-3016l",
+    "brand": "Ray-Ban",
+    "brandKey": "rayban",
+    "modelName": "CLUBMASTER RB 3016L",
+    "category": "unissex",
+    "tag": "Clássico Atemporal",
+    "description": "Modelo solar Ray-Ban com design icônico, lentes de alta proteção contra raios solares e acabamento premium.",
+    "images": [
+      "/images/solares/rayban/clubmaster_rb_3016l_0.jpg",
+      "/images/solares/rayban/clubmaster_rb_3016l_1.jpg"
+    ]
+  },
+  {
+    "id": "rayban-hexagonal-rb-3548-nl",
+    "brand": "Ray-Ban",
+    "brandKey": "rayban",
+    "modelName": "HEXAGONAL RB 3548-NL",
+    "category": "unissex",
+    "tag": "Tendência Geométrica",
+    "description": "Modelo solar Ray-Ban com design icônico, lentes de alta proteção contra raios solares e acabamento premium.",
+    "images": [
+      "/images/solares/rayban/hexagonal_rb_3548_nl_0.jpg",
+      "/images/solares/rayban/hexagonal_rb_3548_nl_1.jpg"
+    ]
+  },
+  {
+    "id": "rayban-highstreet-rb-2225",
+    "brand": "Ray-Ban",
+    "brandKey": "rayban",
+    "modelName": "HIGHSTREET RB 2225",
+    "category": "unissex",
+    "tag": "Design Contemporâneo",
+    "description": "Modelo solar Ray-Ban com design icônico, lentes de alta proteção contra raios solares e acabamento premium.",
+    "images": [
+      "/images/solares/rayban/highstreet_rb_2225_0.jpg",
+      "/images/solares/rayban/highstreet_rb_2225_1.jpg"
+    ]
+  },
+  {
+    "id": "rayban-jeffrey-rb-4448l",
+    "brand": "Ray-Ban",
+    "brandKey": "rayban",
+    "modelName": "JEFFREY RB 4448L",
+    "category": "unissex",
+    "tag": "Proteção UV400",
+    "description": "Modelo solar Ray-Ban com design icônico, lentes de alta proteção contra raios solares e acabamento premium.",
+    "images": [
+      "/images/solares/rayban/jeffrey_rb_4448l_0.jpg",
+      "/images/solares/rayban/jeffrey_rb_4448l_1.jpg"
+    ]
+  },
+  {
+    "id": "rayban-kahl-rb-4472",
+    "brand": "Ray-Ban",
+    "brandKey": "rayban",
+    "modelName": "KAHL RB 4472",
+    "category": "unissex",
+    "tag": "Coleção Destaque",
+    "description": "Modelo solar Ray-Ban com design icônico, lentes de alta proteção contra raios solares e acabamento premium.",
+    "images": [
+      "/images/solares/rayban/kahl_rb_4472_0.jpg",
+      "/images/solares/rayban/kahl_rb_4472_1.jpg",
+      "/images/solares/rayban/kahl_rb_4472_2.jpg"
+    ]
+  },
+  {
+    "id": "rayban-liteforce-rb-3770",
+    "brand": "Ray-Ban",
+    "brandKey": "rayban",
+    "modelName": "LITEFORCE RB 3770",
+    "category": "unissex",
+    "tag": "Ultraleve & Resistente",
+    "description": "Modelo solar Ray-Ban com design icônico, lentes de alta proteção contra raios solares e acabamento premium.",
+    "images": [
+      "/images/solares/rayban/liteforce_rb_3770_0.jpg",
+      "/images/solares/rayban/liteforce_rb_3770_1.jpg"
+    ]
+  },
+  {
+    "id": "rayban-mega-clubmaster-rb-0316-s",
+    "brand": "Ray-Ban",
+    "brandKey": "rayban",
+    "modelName": "MEGA CLUBMASTER RB 0316-S",
+    "category": "unissex",
+    "tag": "Coleção Destaque",
+    "description": "Modelo solar Ray-Ban com design icônico, lentes de alta proteção contra raios solares e acabamento premium.",
+    "images": [
+      "/images/solares/rayban/mega_clubmaster_rb_0316_s_0.jpg",
+      "/images/solares/rayban/mega_clubmaster_rb_0316_s_1.jpg",
+      "/images/solares/rayban/mega_clubmaster_rb_0316_s_2.jpg"
+    ]
+  },
+  {
+    "id": "rayban-mega-wayfarer-rb-0840-s",
+    "brand": "Ray-Ban",
+    "brandKey": "rayban",
+    "modelName": "MEGA WAYFARER RB 0840-S",
+    "category": "unissex",
+    "tag": "Ícone Reestilizado",
+    "description": "Modelo solar Ray-Ban com design icônico, lentes de alta proteção contra raios solares e acabamento premium.",
+    "images": [
+      "/images/solares/rayban/mega_wayfarer_rb_0840_s_0.jpg",
+      "/images/solares/rayban/mega_wayfarer_rb_0840_s_1.jpg"
+    ]
+  },
+  {
+    "id": "rayban-oval-bio-based-rb-4457d",
+    "brand": "Ray-Ban",
+    "brandKey": "rayban",
+    "modelName": "OVAL BIO-BASED RB 4457D",
+    "category": "unissex",
+    "tag": "Sustentável Bio-Based",
+    "description": "Modelo solar Ray-Ban com design icônico, lentes de alta proteção contra raios solares e acabamento premium.",
+    "images": [
+      "/images/solares/rayban/oval_bio_based_rb_4457d_0.jpg",
+      "/images/solares/rayban/oval_bio_based_rb_4457d_1.jpg"
+    ]
+  },
+  {
+    "id": "rayban-oval-flat-lenses-rb-3547n",
+    "brand": "Ray-Ban",
+    "brandKey": "rayban",
+    "modelName": "OVAL FLAT LENSES RB 3547N",
+    "category": "unissex",
+    "tag": "Lentes Planas Flat",
+    "description": "Modelo solar Ray-Ban com design icônico, lentes de alta proteção contra raios solares e acabamento premium.",
+    "images": [
+      "/images/solares/rayban/oval_flat_lenses_rb_3547n_0.jpg",
+      "/images/solares/rayban/oval_flat_lenses_rb_3547n_1.jpg"
+    ]
+  },
+  {
+    "id": "rayban-round-double-rb-3765",
+    "brand": "Ray-Ban",
+    "brandKey": "rayban",
+    "modelName": "ROUND DOUBLE RB 3765",
+    "category": "unissex",
+    "tag": "Ponte Dupla Retrô",
+    "description": "Modelo solar Ray-Ban com design icônico, lentes de alta proteção contra raios solares e acabamento premium.",
+    "images": [
+      "/images/solares/rayban/round_double_rb_3765_0.jpg",
+      "/images/solares/rayban/round_double_rb_3765_1.jpg"
+    ]
+  },
+  {
     "id": "guess-gj00004",
     "brand": "Guess",
     "brandKey": "guess",
